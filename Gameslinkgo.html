@@ -1,0 +1,4312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://api.qrserver.com; media-src 'self' data: blob: https://cdn.pixabay.com https://*.pixabay.com; connect-src 'self' https://api.qrserver.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="no-referrer">
+<title>LinkGO v7.5 — Event Vietnam WOW 🇻🇳 | Kỷ niệm 1 Năm</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root{
+  --bg:#050b1a;--bg-2:#0a1428;--card:#0d1a33;
+  --border:#1a2f57;--border-2:#234078;
+  --primary:#3b82f6;--primary-2:#06b6d4;
+  --accent:#22d3ee;--accent-2:#a78bfa;--accent-3:#f472b6;
+  --gold:#fbbf24;--silver:#cbd5e1;--bronze:#cd7f32;
+  --success:#10b981;--danger:#ef4444;--warn:#f59e0b;
+  --text:#e2e8f0;--muted:#7c93bb;
+  --glass:rgba(13,26,51,.6);
+  --radius:20px;--radius-sm:12px;
+  --transition:.28s cubic-bezier(.22,1,.36,1);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.4);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{height:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--text);
+  min-height:100vh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(59,130,246,.22), transparent 42%),
+    radial-gradient(circle at 85% 80%, rgba(6,182,212,.16), transparent 48%),
+    radial-gradient(circle at 50% 100%, rgba(167,139,250,.10), transparent 60%),
+    radial-gradient(ellipse 100% 60% at 50% -20%, #0a1f4d 0%, var(--bg) 60%);
+  animation:bgShift 20s ease-in-out infinite alternate;
+}
+@keyframes bgShift{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(15deg)}}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(59,130,246,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,.05) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  animation:gridFloat 30s linear infinite;
+}
+@keyframes gridFloat{0%{background-position:0 0}100%{background-position:44px 44px}}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--accent);opacity:.4;
+  box-shadow:0 0 12px currentColor;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(100vh);opacity:0}
+  10%{opacity:.6}
+  90%{opacity:.6}
+  100%{transform:translateY(-100px) translateX(40px);opacity:0}
+}
+.app{position:relative;z-index:1;max-width:660px;margin:0 auto;padding:0 18px 80px}
+
+/* ===== Topbar ===== */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 6px;
+  backdrop-filter:blur(16px) saturate(140%);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  background:linear-gradient(180deg, rgba(5,11,26,.85), rgba(5,11,26,.4));
+  border-bottom:1px solid rgba(59,130,246,.08);
+}
+.brand{
+  font-size:1.55rem;font-weight:900;letter-spacing:-.6px;
+  background:linear-gradient(135deg,#60a5fa,#22d3ee 50%,#a78bfa);
+  background-size:200% 200%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:flex;align-items:center;gap:9px;
+  cursor:pointer;user-select:none;
+  animation:brandShimmer 6s ease-in-out infinite;
+  transition:var(--transition);
+}
+@keyframes brandShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.brand:hover{transform:scale(1.03)}
+.brand .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 14px var(--accent);
+  animation:pulseDot 2s infinite;
+}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.topbar-actions{display:flex;gap:8px;align-items:center}
+.buo-badge{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:14px;
+  background:linear-gradient(135deg, rgba(251,191,36,.18), rgba(245,158,11,.08));
+  border:1px solid rgba(251,191,36,.4);
+  font-size:.82rem;font-weight:700;color:var(--gold);
+  white-space:nowrap;cursor:pointer;transition:var(--transition);
+}
+.buo-badge:hover{transform:scale(1.04);box-shadow:0 0 20px rgba(251,191,36,.3)}
+.icon-btn{
+  width:48px;height:48px;border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--glass);color:var(--text);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);font-size:1.2rem;
+  position:relative;overflow:hidden;
+}
+.icon-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(59,130,246,.2), rgba(34,211,238,.15));
+  opacity:0;transition:var(--transition);
+}
+.icon-btn:hover{border-color:var(--primary);transform:translateY(-2px)}
+.icon-btn:hover::before{opacity:1}
+.icon-btn span{position:relative;z-index:1}
+.icon-btn .lang-code{
+  position:absolute;bottom:3px;right:6px;
+  font-size:.6rem;font-weight:700;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.menu-btn{
+  width:48px;height:48px;border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--glass);color:var(--text);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;transition:var(--transition);
+}
+.menu-btn:hover{border-color:var(--primary);background:rgba(59,130,246,.15)}
+.menu-btn span{width:5px;height:5px;border-radius:50%;background:var(--text);transition:var(--transition)}
+.menu-btn:hover span{background:var(--accent);transform:scale(1.4)}
+
+.menu-drop,.lang-drop{
+  position:absolute;top:70px;right:18px;z-index:100;
+  background:linear-gradient(180deg, rgba(13,26,51,.98), rgba(10,20,40,.98));
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border-2);border-radius:18px;
+  padding:8px;min-width:280px;
+  box-shadow:var(--shadow-lg), 0 0 0 1px rgba(59,130,246,.15) inset;
+  opacity:0;transform:translateY(-12px) scale(.94);pointer-events:none;
+  transition:var(--transition);
+  max-height:520px;overflow-y:auto;
+}
+.menu-drop.open,.lang-drop.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.menu-drop::-webkit-scrollbar,.lang-drop::-webkit-scrollbar{width:6px}
+.menu-drop::-webkit-scrollbar-thumb,.lang-drop::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:5px}
+.menu-item{
+  display:flex;align-items:center;gap:13px;
+  padding:14px 16px;border-radius:12px;cursor:pointer;
+  font-size:.95rem;font-weight:500;transition:var(--transition);
+  border:1px solid transparent;position:relative;
+}
+.menu-item:hover{
+  background:linear-gradient(135deg, rgba(59,130,246,.18), rgba(6,182,212,.08));
+  border-color:rgba(59,130,246,.2);
+  transform:translateX(3px);
+}
+.menu-item .ic{
+  width:40px;height:40px;border-radius:11px;
+  background:linear-gradient(135deg, rgba(59,130,246,.28), rgba(6,182,212,.18));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;flex-shrink:0;
+  border:1px solid rgba(59,130,246,.32);
+  transition:var(--transition);
+}
+.menu-item:hover .ic{transform:scale(1.08) rotate(-4deg)}
+.menu-item.event .ic{background:linear-gradient(135deg, rgba(239,68,68,.3), rgba(250,204,21,.2));border-color:rgba(239,68,68,.4)}
+.menu-item.shop .ic{background:linear-gradient(135deg, rgba(251,191,36,.3), rgba(245,158,11,.2));border-color:rgba(251,191,36,.4)}
+.menu-item.redeem .ic{background:linear-gradient(135deg, rgba(16,185,129,.3), rgba(6,182,212,.2));border-color:rgba(16,185,129,.4)}
+.menu-item .ic-img{
+  width:40px;height:40px;border-radius:50%;background:#1a2f57;
+  overflow:hidden;flex-shrink:0;border:1px solid var(--border-2);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--accent);
+}
+.menu-item .ic-img img{width:100%;height:100%;object-fit:cover}
+.menu-item small{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
+.menu-item .badge-new{
+  position:absolute;top:8px;right:10px;
+  background:linear-gradient(135deg,#ef4444,#f59e0b);
+  color:#fff;font-size:.6rem;font-weight:800;
+  padding:3px 7px;border-radius:8px;
+  letter-spacing:.4px;animation:pulseDot 1.6s infinite;
+}
+.menu-sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:6px 4px}
+
+.lang-item{
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  border-radius:12px;cursor:pointer;font-size:.92rem;
+  transition:var(--transition);border:1px solid transparent;
+}
+.lang-item:hover{background:rgba(59,130,246,.15);transform:translateX(3px)}
+.lang-item.active{
+  background:linear-gradient(135deg, rgba(59,130,246,.22), rgba(6,182,212,.12));
+  border-color:var(--primary);
+}
+.lang-item .flag{font-size:1.4rem;flex-shrink:0}
+.lang-item .name{flex:1}
+.lang-item .code{font-size:.72rem;color:var(--muted);text-transform:uppercase;font-weight:600}
+.lang-search{
+  width:100%;padding:11px 14px;margin-bottom:6px;
+  background:rgba(5,11,26,.7);border:1px solid var(--border);
+  border-radius:10px;color:var(--text);font-size:.9rem;
+  outline:none;font-family:inherit;
+}
+.lang-search:focus{border-color:var(--primary)}
+
+/* ===== Cards ===== */
+.card{
+  background:linear-gradient(180deg, rgba(13,26,51,.95), rgba(10,20,40,.95));
+  backdrop-filter:blur(14px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px;position:relative;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(59,130,246,.08) inset, var(--shadow-lg);
+  transition:var(--transition);
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(59,130,246,.6),transparent);
+  animation:cardGlow 3s ease-in-out infinite;
+}
+@keyframes cardGlow{0%,100%{opacity:.5}50%{opacity:1}}
+.card:hover{border-color:rgba(59,130,246,.35)}
+.card + .card{margin-top:18px}
+.card.event-card{border-color:rgba(239,68,68,.35)}
+.card.event-card::before{background:linear-gradient(90deg,transparent,rgba(239,68,68,.7),rgba(250,204,21,.7),transparent)}
+.card.shop-card::before{background:linear-gradient(90deg,transparent,rgba(251,191,36,.7),transparent)}
+
+/* ===== Hero ===== */
+.hero{text-align:center;padding:28px 0 36px;position:relative}
+.hero h1{
+  font-size:clamp(1.8rem, 5vw, 2.6rem);
+  font-weight:900;letter-spacing:-1.2px;
+  background:linear-gradient(135deg,#60a5fa,#22d3ee 50%,#a78bfa);
+  background-size:200% 200%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:10px;
+  animation:brandShimmer 6s ease-in-out infinite;
+  line-height:1.15;
+}
+.hero p{color:var(--muted);font-size:.94rem;line-height:1.6}
+.vn-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;margin-bottom:16px;
+  background:linear-gradient(135deg, rgba(239,68,68,.14), rgba(250,204,21,.08));
+  border:1px solid rgba(239,68,68,.35);
+  border-radius:24px;font-size:.78rem;font-weight:600;
+  color:#fbbf24;text-transform:uppercase;letter-spacing:.6px;
+  animation:vnGlow 3s ease-in-out infinite;
+}
+@keyframes vnGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}
+  50%{box-shadow:0 0 20px 2px rgba(239,68,68,.25)}
+}
+.vn-badge .flag{font-size:1rem;filter:drop-shadow(0 0 4px rgba(239,68,68,.5))}
+.sec-badge{
+  display:inline-flex;align-items:center;gap:6px;padding:5px 12px;
+  background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.4);
+  border-radius:20px;font-size:.72rem;color:#6ee7b7;font-weight:600;
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;
+}
+.event-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;margin-bottom:16px;
+  background:linear-gradient(135deg, rgba(239,68,68,.22), rgba(251,191,36,.15));
+  border:2px solid rgba(251,191,36,.5);
+  border-radius:24px;font-size:.85rem;font-weight:800;
+  color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;
+  animation:eventPulse 2s ease-in-out infinite;
+}
+@keyframes eventPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(251,191,36,.4), 0 0 20px rgba(239,68,68,.2)}
+  50%{box-shadow:0 0 30px 4px rgba(251,191,36,.5), 0 0 40px rgba(239,68,68,.3)}
+}
+
+/* ===== Form ===== */
+.form-group{margin-bottom:18px;position:relative}
+.form-group label{
+  display:block;font-size:.82rem;font-weight:600;
+  color:var(--muted);margin-bottom:10px;
+  text-transform:uppercase;letter-spacing:.6px;
+}
+.form-group input, .form-group textarea, .form-group select{
+  width:100%;background:rgba(5,11,26,.7);
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  padding:16px 18px;color:var(--text);font-size:1rem;
+  outline:none;transition:var(--transition);font-family:inherit;
+}
+.form-group input:focus, .form-group textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(59,130,246,.14), 0 0 20px rgba(59,130,246,.2);
+}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:18px 22px;border:none;border-radius:16px;
+  font-size:1.05rem;font-weight:700;cursor:pointer;
+  transition:var(--transition);font-family:inherit;
+  position:relative;overflow:hidden;
+  letter-spacing:.2px;min-height:56px;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:scale(.97)}
+.btn-primary{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  color:#fff;box-shadow:0 10px 28px rgba(59,130,246,.4);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(59,130,246,.55)}
+.btn-success{background:linear-gradient(135deg,#10b981,#06b6d4);color:#fff;box-shadow:0 10px 28px rgba(16,185,129,.4)}
+.btn-success:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(16,185,129,.55)}
+.btn-gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1a1a1a;box-shadow:0 10px 28px rgba(251,191,36,.5);font-weight:800}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(251,191,36,.65)}
+.btn-outline{background:rgba(59,130,246,.1);border:2px solid var(--border-2);color:var(--text);}
+.btn-outline:hover{background:rgba(59,130,246,.22);border-color:var(--primary);transform:translateY(-2px)}
+.btn-danger{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;box-shadow:0 10px 28px rgba(239,68,68,.4)}
+.btn-danger:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(239,68,68,.55)}
+.btn-sm{padding:12px 20px;font-size:.92rem;width:auto;border-radius:12px;min-height:44px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none !important;box-shadow:none !important}
+
+/* ===== Animations ===== */
+@keyframes slideUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  25%{transform:translateX(-7px)}
+  75%{transform:translateX(7px)}
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}
+  70%{box-shadow:0 0 0 25px rgba(239,68,68,0)}
+  100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}
+}
+@keyframes popUp{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.6)}
+  100%{opacity:0;transform:translate(-50%,-180%) scale(1.2)}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes buoFly{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}
+  100%{opacity:0;transform:translate(-50%,-250%) scale(1.4)}
+}
+@keyframes firework{
+  0%{transform:translate(var(--x),var(--y)) scale(0);opacity:1}
+  50%{opacity:1}
+  100%{transform:translate(calc(var(--x)*2.5),calc(var(--y)*2.5)) scale(1);opacity:0}
+}
+@keyframes confettiFall{
+  0%{transform:translateY(-10vh) rotate(0deg);opacity:1}
+  100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+@keyframes pulseGold{
+  0%,100%{box-shadow:0 0 0 0 rgba(251,191,36,.6),0 0 30px rgba(251,191,36,.3)}
+  50%{box-shadow:0 0 0 12px rgba(251,191,36,0),0 0 50px rgba(251,191,36,.5)}
+}
+@keyframes flagWave{
+  0%,100%{transform:rotate(-3deg) scale(1)}
+  50%{transform:rotate(3deg) scale(1.05)}
+}
+@keyframes shineSweep{
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes scorePop{
+  0%{transform:scale(.3);opacity:0}
+  60%{transform:scale(1.15)}
+  100%{transform:scale(1);opacity:1}
+}
+@keyframes musicPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.12)}
+}
+.music-btn{
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,#ef4444,#fbbf24);
+  border:2px solid rgba(251,191,36,.6);
+  color:#fff;font-size:1.4rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(239,68,68,.45);
+  transition:var(--transition);
+  animation:musicPulse 2s ease-in-out infinite;
+}
+.music-btn:hover{transform:scale(1.1);box-shadow:0 12px 36px rgba(239,68,68,.6)}
+.music-btn.playing{animation:none;background:linear-gradient(135deg,#10b981,#06b6d4)}
+.anniversary-banner{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:14px 20px;margin-bottom:18px;
+  background:linear-gradient(135deg,rgba(239,68,68,.25),rgba(251,191,36,.18));
+  border:2px solid rgba(251,191,36,.55);
+  border-radius:20px;font-weight:800;font-size:.95rem;
+  color:#fbbf24;text-align:center;
+  animation:pulseGold 2.5s ease-in-out infinite;
+  position:relative;overflow:hidden;
+}
+.anniversary-banner::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  background-size:200% 100%;
+  animation:shineSweep 3s linear infinite;
+}
+.event-wow-header{
+  text-align:center;padding:36px 20px 28px;
+  background:linear-gradient(160deg,rgba(239,68,68,.22),rgba(251,191,36,.12),rgba(167,139,250,.08));
+  border:2px solid rgba(251,191,36,.45);
+  border-radius:28px;margin-bottom:22px;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 60px rgba(239,68,68,.2), inset 0 0 40px rgba(251,191,36,.05);
+}
+.event-wow-header .big-flag{
+  font-size:4.5rem;display:inline-block;
+  animation:flagWave 2.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 20px rgba(239,68,68,.6));
+}
+.event-wow-header h1{
+  font-size:clamp(1.9rem,5.5vw,2.8rem);font-weight:900;
+  background:linear-gradient(135deg,#ef4444,#fbbf24 40%,#f59e0b 70%,#ef4444);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:brandShimmer 4s ease-in-out infinite;
+  margin:10px 0 8px;
+}
+.confetti-canvas{
+  position:fixed;inset:0;pointer-events:none;z-index:9998;
+}
+.fireworks-container{
+  position:fixed;inset:0;pointer-events:none;z-index:9997;overflow:hidden;
+}
+.firework-particle{
+  position:absolute;width:6px;height:6px;border-radius:50%;
+  animation:firework 1.2s ease-out forwards;
+}
+
+.section-title{
+  font-size:.82rem;font-weight:700;color:var(--muted);
+  text-transform:uppercase;margin-bottom:12px;letter-spacing:.8px;
+  display:flex;align-items:center;gap:9px;
+}
+.section-title::before{
+  content:'';width:4px;height:16px;
+  background:linear-gradient(180deg,var(--accent),var(--primary));
+  border-radius:2px;
+  box-shadow:0 0 10px rgba(34,211,238,.5);
+}
+
+.picker-tools{display:flex;gap:8px;margin-bottom:14px;justify-content:flex-end;flex-wrap:wrap}
+.task-picker{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;
+  max-height:420px;overflow-y:auto;padding-right:6px;
+}
+.task-picker::-webkit-scrollbar{width:6px}
+.task-picker::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:6px}
+.task-opt{
+  display:flex;align-items:center;gap:11px;padding:14px 16px;
+  background:rgba(5,11,26,.6);border:1.5px solid var(--border);
+  border-radius:14px;cursor:pointer;
+  transition:var(--transition);user-select:none;
+}
+.task-opt:hover{border-color:var(--primary);transform:translateY(-2px)}
+.task-opt.checked{
+  border-color:var(--primary);
+  background:linear-gradient(135deg, rgba(59,130,246,.22), rgba(6,182,212,.12));
+}
+.task-opt .box{
+  width:22px;height:22px;border:2px solid var(--border-2);
+  border-radius:6px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:var(--transition);
+  font-size:.85rem;color:transparent;
+}
+.task-opt.checked .box{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  border-color:var(--primary);color:#fff;
+}
+.task-opt .lbl{font-size:.86rem;font-weight:500;line-height:1.3}
+
+.result-box{
+  display:none;margin-top:22px;padding:22px;
+  background:linear-gradient(180deg, rgba(16,185,129,.10), rgba(6,182,212,.05));
+  border:1px solid rgba(16,185,129,.4);border-radius:16px;
+}
+.result-box.show{display:block;animation:slideUp .35s ease}
+.short-link{
+  word-break:break-all;font-family:'JetBrains Mono',monospace;
+  font-size:.84rem;color:#22d3ee;
+  background:rgba(5,11,26,.85);padding:14px;
+  border-radius:12px;margin:12px 0;
+  border:1px solid var(--border);
+}
+.token-info{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+.task-header{text-align:center;margin-bottom:24px}
+.task-header h2{font-size:1.4rem;font-weight:700}
+.task-header p{color:var(--muted);margin-top:6px;font-size:.9rem}
+.progress-bar{
+  height:8px;background:rgba(26,47,87,.6);
+  border-radius:10px;overflow:hidden;margin-bottom:22px;
+}
+.progress-fill{
+  height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee,#a78bfa);
+  background-size:200% 100%;
+  transition:width .5s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 0 16px rgba(34,211,238,.7);
+  animation:progressShine 2s linear infinite;
+}
+@keyframes progressShine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.task-card{display:none}
+.task-card.active{display:block;animation:slideUp .4s cubic-bezier(.22,1,.36,1)}
+.task-title{
+  font-size:1.05rem;font-weight:700;margin-bottom:14px;
+  display:flex;align-items:center;gap:11px;
+}
+.task-title .num{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;flex-shrink:0;
+  box-shadow:0 4px 14px rgba(59,130,246,.5);
+}
+.persist-badge{
+  display:inline-flex;align-items:center;gap:4px;padding:4px 10px;
+  background:rgba(16,185,129,.15);
+  border:1px solid rgba(16,185,129,.35);
+  border-radius:12px;font-size:.68rem;color:#6ee7b7;
+  font-weight:600;margin-left:8px;
+}
+.hint{color:var(--muted);font-size:.88rem;margin-bottom:12px;line-height:1.55}
+.tap-area{
+  background:linear-gradient(180deg, rgba(5,11,26,.8), rgba(13,26,51,.8));
+  border:2px dashed var(--border-2);border-radius:16px;height:280px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;user-select:none;
+  transition:var(--transition);position:relative;overflow:hidden;
+}
+.tap-area:active{transform:scale(.985);border-color:var(--accent)}
+.tap-area .big{
+  font-size:3rem;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,#60a5fa,#22d3ee);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.tap-area .sub{color:var(--muted);font-size:.85rem;margin-top:8px}
+.tap-progress{
+  height:8px;background:rgba(26,47,87,.6);
+  border-radius:10px;overflow:hidden;margin-top:14px;
+}
+.tap-progress-fill{
+  height:100%;background:linear-gradient(90deg,#3b82f6,#22d3ee);
+  transition:width .18s;width:0;
+}
+.tap-pop{
+  position:absolute;pointer-events:none;font-weight:800;font-size:1.2rem;
+  color:#22d3ee;animation:popUp .7s ease forwards;
+  text-shadow:0 0 14px rgba(34,211,238,.9);
+}
+.seq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.seq-btn{
+  aspect-ratio:1;border:2px solid var(--border);
+  background:rgba(5,11,26,.7);border-radius:14px;
+  font-size:1.6rem;font-weight:700;color:var(--text);
+  cursor:pointer;transition:var(--transition);font-family:inherit;
+}
+.seq-btn:hover{border-color:var(--primary);transform:scale(1.04)}
+.seq-btn.correct{background:rgba(16,185,129,.25);border-color:var(--success);color:#6ee7b7}
+.seq-btn.wrong{background:rgba(239,68,68,.25);border-color:var(--danger);color:#fca5a5}
+.wait-circle{
+  width:140px;height:140px;margin:0 auto 20px;
+  border-radius:50%;border:6px solid var(--border);
+  border-top-color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.1rem;font-weight:700;
+}
+.wait-circle.spinning{animation:spin 1s linear infinite}
+.phrase-box{
+  background:rgba(5,11,26,.8);border:1px dashed var(--border-2);
+  border-radius:14px;padding:16px;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-size:1.05rem;
+  margin-bottom:14px;user-select:none;color:var(--accent);
+}
+.error-msg{color:var(--danger);font-size:.88rem;margin-top:10px;display:none}
+.error-msg.show{display:block;animation:shake .35s}
+.success-screen{text-align:center;padding:40px 20px}
+.success-screen .check{
+  font-size:4.5rem;margin-bottom:14px;
+  filter:drop-shadow(0 0 24px rgba(34,211,238,.7));
+  animation:float 2s ease-in-out infinite;
+}
+.hold-btn{
+  width:190px;height:190px;margin:20px auto;border-radius:50%;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1.15rem;cursor:pointer;user-select:none;
+  transition:var(--transition);
+  box-shadow:0 12px 32px rgba(59,130,246,.4);
+}
+.hold-btn.holding{animation:pulse 1s infinite;background:linear-gradient(135deg,#ef4444,#dc2626);}
+.color-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.color-cell{aspect-ratio:1;border-radius:12px;cursor:pointer;border:2px solid transparent;transition:var(--transition);}
+.color-cell:hover{transform:scale(1.06)}
+.color-cell.picked{border-color:#fff;transform:scale(.92)}
+.slider-wrap{margin:20px 0}
+.slider-wrap input[type=range]{width:100%;accent-color:var(--accent);height:8px;background:var(--border);border-radius:4px;outline:none;}
+.checklist{list-style:none;margin-bottom:14px}
+.checklist li{
+  display:flex;align-items:center;gap:12px;padding:14px;
+  background:rgba(5,11,26,.7);border-radius:12px;margin-bottom:8px;
+  cursor:pointer;border:1.5px solid var(--border);transition:var(--transition);
+  font-size:.95rem;
+}
+.checklist li:hover{border-color:var(--primary)}
+.checklist li.done{border-color:var(--success);background:rgba(16,185,129,.12)}
+.checklist li .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border-2);flex-shrink:0;transition:var(--transition);}
+.checklist li.done .dot{background:var(--success);border-color:var(--success)}
+.emoji-target{font-size:3.8rem;text-align:center;margin:16px 0;user-select:none;transition:.15s;display:inline-block;filter:drop-shadow(0 0 14px rgba(34,211,238,.5));}
+.emoji-wrap{text-align:center}
+.emoji-target.hit{transform:scale(1.3) rotate(15deg)}
+.drag-track{position:relative;height:70px;background:rgba(5,11,26,.8);border-radius:35px;border:1px solid var(--border);display:flex;align-items:center;padding:7px;margin:20px 0;overflow:hidden;}
+.drag-track::after{content:'KÉO SANG PHẢI →';position:absolute;right:80px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.78rem;font-weight:600;letter-spacing:1px;pointer-events:none;}
+.drag-handle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#06b6d4);display:flex;align-items:center;justify-content:center;cursor:grab;font-weight:700;color:#fff;touch-action:none;box-shadow:0 6px 20px rgba(59,130,246,.5);z-index:1;font-size:1.1rem;}
+
+.auth-tabs{display:flex;gap:8px;margin-bottom:22px;background:rgba(5,11,26,.7);padding:5px;border-radius:14px;}
+.auth-tab{flex:1;padding:14px;text-align:center;border-radius:11px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--muted);transition:var(--transition);}
+.auth-tab.active{background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;box-shadow:0 4px 14px rgba(59,130,246,.4);}
+.auth-form{display:none}
+.auth-form.active{display:block;animation:slideUp .3s ease}
+.avatar-upload{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:20px;}
+.avatar-preview{width:100px;height:100px;border-radius:50%;background:#1a2f57;border:3px solid var(--border-2);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:800;color:var(--accent);cursor:pointer;transition:var(--transition);}
+.avatar-preview:hover{border-color:var(--accent);transform:scale(1.05);box-shadow:0 0 24px rgba(34,211,238,.3);}
+.avatar-preview img{width:100%;height:100%;object-fit:cover}
+
+.profile-hero{display:flex;align-items:center;gap:16px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.profile-avatar{width:84px;height:84px;border-radius:50%;background:#1a2f57;border:3px solid var(--border-2);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:var(--accent);}
+.profile-avatar img{width:100%;height:100%;object-fit:cover}
+.profile-info h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.profile-info p{color:var(--muted);font-size:.88rem}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.stat-box{background:linear-gradient(180deg, rgba(59,130,246,.12), rgba(6,182,212,.05));border:1px solid var(--border-2);border-radius:14px;padding:18px 10px;text-align:center;transition:var(--transition);}
+.stat-box:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 10px 30px rgba(59,130,246,.25);}
+.stat-box .v{font-size:1.7rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-box .k{font-size:.78rem;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
+.stat-box.gold .v{background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+/* ===== EVENT ===== */
+.event-header{
+  text-align:center;padding:30px 20px;
+  background:linear-gradient(135deg, rgba(239,68,68,.15), rgba(251,191,36,.08));
+  border:2px solid rgba(251,191,36,.35);
+  border-radius:24px;margin-bottom:20px;
+  position:relative;overflow:hidden;
+}
+.event-header::before{
+  content:'🇻🇳';position:absolute;font-size:12rem;top:-30px;right:-40px;
+  opacity:.04;transform:rotate(-15deg);
+}
+.event-header h1{
+  font-size:1.8rem;font-weight:900;
+  background:linear-gradient(135deg,#ef4444,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:8px;
+}
+.event-header p{color:var(--muted);font-size:.9rem;line-height:1.6}
+.event-timer{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 20px;margin-top:14px;
+  background:rgba(5,11,26,.7);border-radius:14px;
+  border:1px solid rgba(251,191,36,.4);
+  font-family:'JetBrains Mono',monospace;font-size:.9rem;
+  color:var(--gold);font-weight:700;
+}
+.quiz-question{
+  background:linear-gradient(180deg, rgba(5,11,26,.8), rgba(13,26,51,.8));
+  border:1.5px solid var(--border-2);border-radius:18px;
+  padding:22px;margin-bottom:18px;
+  animation:slideUp .4s ease;
+}
+.quiz-question .q-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,#ef4444,#fbbf24);
+  color:#fff;font-weight:800;font-size:.85rem;
+  margin-bottom:12px;
+}
+.quiz-question .q-text{
+  font-size:1.02rem;font-weight:600;line-height:1.55;
+  margin-bottom:16px;color:var(--text);
+}
+.quiz-options{display:flex;flex-direction:column;gap:9px}
+.quiz-opt{
+  display:flex;align-items:center;gap:13px;
+  padding:14px 18px;border-radius:14px;
+  background:rgba(5,11,26,.6);border:1.5px solid var(--border);
+  cursor:pointer;transition:var(--transition);
+  font-size:.92rem;user-select:none;
+}
+.quiz-opt:hover{border-color:var(--primary);transform:translateX(4px);background:rgba(59,130,246,.1)}
+.quiz-opt.selected{
+  border-color:var(--primary);
+  background:linear-gradient(135deg, rgba(59,130,246,.25), rgba(6,182,212,.12));
+  box-shadow:0 0 20px rgba(59,130,246,.25);
+}
+.quiz-opt .opt-letter{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(59,130,246,.18);border:1.5px solid rgba(59,130,246,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.9rem;color:var(--accent);flex-shrink:0;
+  transition:var(--transition);
+}
+.quiz-opt.selected .opt-letter{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  border-color:var(--primary);color:#fff;
+}
+.quiz-result{
+  text-align:center;padding:30px 20px;
+  animation:slideUp .4s ease;
+}
+.quiz-result .score{
+  font-size:4rem;font-weight:900;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;
+}
+.quiz-result .msg{font-size:1.1rem;font-weight:700;margin:14px 0 8px}
+.quiz-result .sub{color:var(--muted);font-size:.9rem;line-height:1.6}
+.quiz-pct{
+  display:inline-block;padding:6px 16px;margin:12px 0;
+  background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.4);
+  border-radius:20px;font-weight:800;font-size:1rem;color:var(--gold);
+}
+
+/* ===== SHOP ===== */
+.shop-item{
+  background:linear-gradient(180deg, rgba(13,26,51,.95), rgba(10,20,40,.95));
+  border:1.5px solid var(--border);border-radius:20px;
+  padding:22px;margin-bottom:14px;
+  position:relative;overflow:hidden;
+  transition:var(--transition);
+}
+.shop-item:hover{transform:translateY(-3px);border-color:var(--border-2);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.shop-item.bronze{border-color:rgba(205,127,50,.45)}
+.shop-item.silver{border-color:rgba(203,213,225,.5)}
+.shop-item.gold{border-color:rgba(251,191,36,.55)}
+.shop-item.gold::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,#fbbf24,transparent);
+  animation:cardGlow 2s infinite;
+}
+.shop-tier{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:16px;
+  font-size:.72rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.6px;margin-bottom:12px;
+}
+.shop-tier.bronze{background:rgba(205,127,50,.2);color:#cd7f32;border:1px solid rgba(205,127,50,.5)}
+.shop-tier.silver{background:rgba(203,213,225,.15);color:#cbd5e1;border:1px solid rgba(203,213,225,.5)}
+.shop-tier.gold{background:linear-gradient(135deg, rgba(251,191,36,.25), rgba(245,158,11,.15));color:#fbbf24;border:1px solid rgba(251,191,36,.6)}
+.shop-item h3{font-size:1.15rem;font-weight:800;margin-bottom:8px}
+.shop-item .desc{color:var(--muted);font-size:.86rem;line-height:1.6;margin-bottom:14px}
+.shop-item .perks{list-style:none;margin-bottom:16px}
+.shop-item .perks li{
+  display:flex;align-items:center;gap:8px;
+  font-size:.85rem;color:#cbd5e1;padding:5px 0;
+}
+.shop-item .perks li::before{content:'✓';color:var(--success);font-weight:800}
+.shop-price{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-top:14px;border-top:1px dashed var(--border);
+}
+.shop-price .price{
+  font-size:1.3rem;font-weight:900;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.shop-price .price small{font-size:.75rem;color:var(--muted);font-weight:600;-webkit-text-fill-color:var(--muted)}
+
+/* ===== REDEEM ===== */
+.redeem-box{
+  background:linear-gradient(180deg, rgba(16,185,129,.08), rgba(6,182,212,.04));
+  border:1.5px solid rgba(16,185,129,.35);
+  border-radius:20px;padding:26px;
+}
+.redeem-code-input{
+  width:100%;padding:18px 20px;
+  background:rgba(5,11,26,.8);
+  border:2px dashed rgba(16,185,129,.4);
+  border-radius:14px;color:var(--text);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.92rem;outline:none;
+  transition:var(--transition);margin-bottom:14px;
+  text-align:center;letter-spacing:1px;
+}
+.redeem-code-input:focus{border-color:var(--success);border-style:solid;box-shadow:0 0 0 4px rgba(16,185,129,.12)}
+.code-item{
+  display:flex;align-items:center;gap:14px;
+  padding:16px;margin-bottom:10px;
+  background:rgba(5,11,26,.6);
+  border:1.5px solid var(--border);border-radius:14px;
+  transition:var(--transition);
+}
+.code-item:hover{border-color:var(--border-2)}
+.code-item.used{opacity:.5}
+.code-item.expired{border-color:rgba(239,68,68,.4)}
+.code-item .tier-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;flex-shrink:0;
+}
+.code-item.bronze .tier-icon{background:rgba(205,127,50,.2);border:1.5px solid rgba(205,127,50,.5)}
+.code-item.silver .tier-icon{background:rgba(203,213,225,.15);border:1.5px solid rgba(203,213,225,.5)}
+.code-item.gold .tier-icon{background:linear-gradient(135deg, rgba(251,191,36,.25), rgba(245,158,11,.15));border:1.5px solid rgba(251,191,36,.6)}
+.code-item .info{flex:1;min-width:0}
+.code-item .info .name{font-weight:700;font-size:.92rem;margin-bottom:3px}
+.code-item .info .code{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;color:var(--accent);
+  word-break:break-all;line-height:1.4;
+}
+.code-item .info .expiry{font-size:.72rem;color:var(--muted);margin-top:4px}
+.code-item .info .expiry.warn{color:var(--warn)}
+.code-item .info .expiry.danger{color:var(--danger);font-weight:700}
+
+.rank-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:14px;
+  font-size:.72rem;font-weight:800;
+  letter-spacing:.5px;
+}
+.rank-badge.bronze{background:rgba(205,127,50,.2);color:#cd7f32;border:1px solid rgba(205,127,50,.5)}
+.rank-badge.silver{background:rgba(203,213,225,.15);color:#cbd5e1;border:1px solid rgba(203,213,225,.5)}
+.rank-badge.gold{background:linear-gradient(135deg, rgba(251,191,36,.25), rgba(245,158,11,.15));color:#fbbf24;border:1px solid rgba(251,191,36,.6)}
+
+.title-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 10px;border-radius:12px;
+  font-size:.7rem;font-weight:700;
+  background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);
+  color:#fca5a5;margin:2px;
+}
+.title-badge.thanks{background:linear-gradient(135deg, rgba(251,191,36,.2), rgba(245,158,11,.1));border-color:rgba(251,191,36,.5);color:#fbbf24}
+.title-badge.reward{background:rgba(203,213,225,.12);border-color:rgba(203,213,225,.4);color:#e2e8f0}
+.title-badge.event{background:linear-gradient(135deg, rgba(239,68,68,.2), rgba(250,204,21,.12));border-color:rgba(239,68,68,.5);color:#fbbf24}
+
+.changelog-list{position:relative;padding-left:28px}
+.changelog-list::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--primary),transparent);border-radius:2px;}
+.changelog-item{position:relative;padding:16px 0 20px;animation:slideUp .4s ease backwards;}
+.changelog-item::before{content:'';position:absolute;left:-24px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 14px rgba(34,211,238,.7);}
+.changelog-item.latest::before{animation:pulseDot 1.5s infinite;background:var(--success);box-shadow:0 0 16px rgba(16,185,129,.8);}
+.changelog-ver{display:inline-flex;align-items:center;gap:8px;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;}
+.changelog-ver .tag{padding:2px 8px;border-radius:10px;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.tag-new{background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.4);}
+.tag-fix{background:rgba(245,158,11,.2);color:#fbbf24;border:1px solid rgba(245,158,11,.4);}
+.tag-sec{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.4);}
+.tag-vn{background:linear-gradient(135deg,rgba(239,68,68,.3),rgba(250,204,21,.2));color:#fbbf24;border:1px solid rgba(239,68,68,.5);}
+.changelog-date{font-size:.75rem;color:var(--muted);margin-bottom:10px;}
+.changelog-body{font-size:.88rem;line-height:1.7;color:#cbd5e1;}
+.changelog-body li{margin-left:18px;margin-bottom:5px;}
+.changelog-body li::marker{color:var(--accent);}
+
+.about-hero{text-align:center;padding:20px 0 28px;}
+.about-hero .vn-flag{font-size:3.5rem;margin-bottom:12px;filter:drop-shadow(0 0 20px rgba(239,68,68,.5));animation:float 3s ease-in-out infinite;}
+.about-hero h1{font-size:1.8rem;font-weight:900;letter-spacing:-.8px;background:linear-gradient(135deg,#ef4444,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
+.about-hero p{color:var(--muted);font-size:.9rem;line-height:1.65;}
+.about-block{padding:18px;margin-bottom:14px;background:linear-gradient(180deg, rgba(59,130,246,.06), rgba(6,182,212,.02));border:1px solid var(--border);border-radius:14px;transition:var(--transition);}
+.about-block:hover{border-color:var(--border-2);transform:translateY(-2px);}
+.about-block h4{font-size:.95rem;font-weight:700;margin-bottom:10px;color:var(--accent);display:flex;align-items:center;gap:8px;}
+.about-block p,.about-block li{font-size:.88rem;line-height:1.7;color:#cbd5e1;}
+.about-block ul{margin-left:18px;margin-top:6px;}
+.about-block li{margin-bottom:6px;}
+.about-block li::marker{color:var(--accent);}
+.credit-box{text-align:center;padding:22px 18px;margin-top:20px;background:linear-gradient(135deg, rgba(239,68,68,.10), rgba(250,204,21,.06));border:1px solid rgba(239,68,68,.3);border-radius:16px;position:relative;overflow:hidden;}
+.credit-box::before{content:'🇻🇳';position:absolute;font-size:8rem;right:-20px;bottom:-20px;opacity:.05;transform:rotate(-15deg);}
+.credit-box .title{font-size:1.05rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#ef4444,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.credit-box .sub{font-size:.84rem;color:var(--muted);line-height:1.6;}
+
+.footer{
+  text-align:center;margin-top:44px;padding:22px 0 8px;
+  font-size:.8rem;color:var(--muted);line-height:1.8;
+  border-top:1px solid var(--border);
+}
+.footer-brand{
+  font-weight:800;
+  background:linear-gradient(135deg,#60a5fa,#22d3ee);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.footer-vn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 10px;margin:0 4px;
+  background:rgba(239,68,68,.12);
+  border:1px solid rgba(239,68,68,.3);
+  border-radius:12px;font-size:.7rem;
+  color:#fbbf24;font-weight:600;
+}
+.footer-links{
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+  margin:10px 0;
+}
+.footer-links a{
+  color:var(--muted);text-decoration:none;
+  font-size:.8rem;transition:var(--transition);
+  cursor:pointer;
+}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:.75rem;color:var(--muted);opacity:.7;margin-top:8px}
+
+.qr-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;animation:fadeIn .25s ease;
+}
+.tamper-warn{
+  background:linear-gradient(135deg,rgba(239,68,68,.22),rgba(239,68,68,.08));
+  border:1px solid var(--danger);border-radius:12px;
+  padding:14px;margin-bottom:16px;
+  color:#fca5a5;font-size:.88rem;
+  display:flex;align-items:center;gap:10px;
+}
+.tamper-warn .ic{font-size:1.4rem}
+
+select{
+  appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%237c93bb' d='M6 8L2 4h8z'/></svg>");
+  background-repeat:no-repeat;background-position:right 12px center;
+  padding-right:34px !important;
+}
+select option{background:var(--card);color:var(--text)}
+
+.buo-fly{
+  position:fixed;pointer-events:none;z-index:9999;
+  font-weight:900;font-size:1.3rem;color:var(--gold);
+  text-shadow:0 0 16px rgba(251,191,36,.9);
+  animation:buoFly 1s ease-out forwards;
+}
+
+@media (max-width:480px){
+  .task-picker{grid-template-columns:1fr}
+  .hero h1{font-size:1.8rem}
+  .app{padding:0 14px 70px}
+  .card{padding:22px 18px}
+  .btn{padding:16px 18px;font-size:1rem;min-height:52px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+<canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+<div class="fireworks-container" id="fireworks"></div>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Nhạc Việt Nam 🎵">🎵</button>
+
+<div class="topbar" id="topbar">
+<div class="brand" onclick="go('main')"><span class="dot"></span>LinkGO</div>
+<div class="topbar-actions">
+  <div class="buo-badge" onclick="go('shop')" title="LinkBUO của bạn">
+    <span>🪙</span><span id="topBuo">0</span>
+  </div>
+  <button class="icon-btn" id="langBtn" onclick="toggleLang(event)" title="Language">
+    <span id="langFlag">🌐</span>
+    <span class="lang-code" id="langCode">VI</span>
+  </button>
+  <button class="menu-btn" id="menuBtn" onclick="toggleMenu(event)" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+</div>
+
+<div class="menu-drop" id="menuDrop"></div>
+<div class="lang-drop" id="langDrop"></div>
+<div class="app" id="app"></div>
+
+<script>
+'use strict';
+
+/* ============================================================
+   ============ CONSTANTS & STORAGE KEYS ====================
+   ============================================================ */
+const VERSION = 'v7.5';
+const EVENT_START = new Date('2026-10-01T00:00:00');
+const EVENT_END = new Date('2026-10-20T23:59:59');
+const ADMIN_CODE = 'LINKGO-TESTCODE-VN';
+const LINKBUO_PER_CORRECT = 75;
+const CODE_EXPIRY_MS = 3 * 7 * 24 * 60 * 60 * 1000; // 3 tuần
+
+const LS_USER = 'linkgo_user_v7';
+const LS_LINKS = 'linkgo_links_v7';
+const LS_PROGRESS = 'linkgo_progress_v7';
+const LS_TAMPER = 'linkgo_tamper_v7';
+const LS_LANG = 'linkgo_lang_v7';
+const LS_BUO = 'linkgo_buo_v7';
+const LS_CODES = 'linkgo_codes_v7';
+const LS_REDEEMED = 'linkgo_redeemed_v7';
+const LS_QUIZ_PROGRESS = 'linkgo_quiz_v7';
+const LS_RANK = 'linkgo_rank_v7';
+
+/* ============================================================
+   ============ SECURITY CORE ===============================
+   ============================================================ */
+const SECURITY = Object.freeze({
+  MAX_URL_LENGTH: 2048, MAX_NAME_LENGTH: 40,
+  MAX_AVATAR_BYTES: 512 * 1024, MAX_LINKS_PER_USER: 100,
+  MIN_PASSWORD_LENGTH: 8,
+  RATE_LIMIT_WINDOW: 60000, RATE_LIMIT_MAX: 10,
+  ALLOWED_URL_SCHEMES: ['http:', 'https:'],
+  ALLOWED_IMAGE_TYPES: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
+  TOKEN_LENGTH: 12, PBKDF2_ITERATIONS: 250000,
+  NONCE_LENGTH: 16, MIN_TASK_DURATION_MS: 800, MIN_LINK_DURATION_MS: 3000,
+  PROGRESS_TTL_MS: 3600000, TAMPER_LOCK_MS: 30000,
+});
+
+const SITE = 'LinkGO-Vn';
+
+const $ = id => document.getElementById(id);
+const el = (tag, cls, html) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+};
+
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;',
+    '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+async function hashPassword(password, saltB64 = null) {
+  const enc = new TextEncoder();
+  const saltBytes = saltB64
+    ? Uint8Array.from(atob(saltB64), c => c.charCodeAt(0))
+    : crypto.getRandomValues(new Uint8Array(16));
+  const keyMaterial = await crypto.subtle.importKey(
+    'raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveBits']
+  );
+  const bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: saltBytes, iterations: SECURITY.PBKDF2_ITERATIONS, hash: 'SHA-256' },
+    keyMaterial, 256
+  );
+  const hashHex = Array.from(new Uint8Array(bits))
+    .map(b => b.toString(16).padStart(2, '0')).join('');
+  const saltOut = btoa(String.fromCharCode(...saltBytes));
+  return { hash: hashHex, salt: saltOut };
+}
+async function verifyPassword(password, storedHash, storedSalt) {
+  if (!storedHash || !storedSalt) return false;
+  const { hash } = await hashPassword(password, storedSalt);
+  if (hash.length !== storedHash.length) return false;
+  let diff = 0;
+  for (let i = 0; i < hash.length; i++) diff |= hash.charCodeAt(i) ^ storedHash.charCodeAt(i);
+  return diff === 0;
+}
+
+function randomToken(len = SECURITY.TOKEN_LENGTH) {
+  const bytes = crypto.getRandomValues(new Uint8Array(len));
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
+  return Array.from(bytes, b => chars[b % chars.length]).join('');
+}
+function randomString(len, pool) {
+  const bytes = crypto.getRandomValues(new Uint8Array(len));
+  return Array.from(bytes, b => pool[b % pool.length]).join('');
+}
+
+function sanitizeUrl(raw) {
+  if (typeof raw !== 'string') return null;
+  const trimmed = raw.trim();
+  if (!trimmed || trimmed.length > SECURITY.MAX_URL_LENGTH) return null;
+  let url;
+  try { url = new URL(trimmed); } catch { return null; }
+  if (!SECURITY.ALLOWED_URL_SCHEMES.includes(url.protocol)) return null;
+  const host = url.hostname.toLowerCase();
+  if (/^(localhost|127\.|0\.0\.0\.0|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host)) return null;
+  if (host === '0' || host === '') return null;
+  return url.href;
+}
+function sanitizeName(raw) {
+  if (typeof raw !== 'string') return 'Siteblog';
+  const clean = raw.trim().replace(/[^\p{L}\p{N}\s\-_.]/gu, '').slice(0, SECURITY.MAX_NAME_LENGTH);
+  return clean || 'Siteblog';
+}
+function nameToSlug(name) {
+  return (name || 'Site').replace(/[^\p{L}\p{N}\-_]/gu, '').slice(0, 12) || 'Site';
+}
+
+async function validateAvatar(file) {
+  if (!file) return { ok: false, reason: 'Không có file' };
+  if (!SECURITY.ALLOWED_IMAGE_TYPES.includes(file.type))
+    return { ok: false, reason: 'Chỉ JPG/PNG/WebP/GIF' };
+  if (file.size > SECURITY.MAX_AVATAR_BYTES)
+    return { ok: false, reason: 'Ảnh vượt quá 512KB' };
+  const buf = await file.slice(0, 12).arrayBuffer();
+  const b = new Uint8Array(buf);
+  const isJpg = b[0] === 0xFF && b[1] === 0xD8;
+  const isPng = b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4E && b[3] === 0x47;
+  const isGif = b[0] === 0x47 && b[1] === 0x49 && b[2] === 0x46;
+  const isWebp = b[8] === 0x57 && b[9] === 0x45 && b[10] === 0x42 && b[11] === 0x50;
+  if (!isJpg && !isPng && !isGif && !isWebp)
+    return { ok: false, reason: 'File không phải ảnh' };
+  return { ok: true };
+}
+
+const RateLimit = {
+  _key: 'linkgo_ratelimit_v7',
+  check(action = 'createLink') {
+    const now = Date.now();
+    let data = {};
+    try { data = JSON.parse(localStorage.getItem(this._key) || '{}'); } catch {}
+    const bucket = Array.isArray(data[action]) ? data[action] : [];
+    const recent = bucket.filter(t => now - t < SECURITY.RATE_LIMIT_WINDOW);
+    if (recent.length >= SECURITY.RATE_LIMIT_MAX) {
+      return { ok: false, retryIn: Math.ceil((SECURITY.RATE_LIMIT_WINDOW - (now - recent[0])) / 1000) };
+    }
+    recent.push(now);
+    data[action] = recent;
+    try { localStorage.setItem(this._key, JSON.stringify(data)); } catch {}
+    return { ok: true };
+  }
+};
+
+const SafeStore = {
+  set(key, obj) {
+    try { localStorage.setItem(key, JSON.stringify(obj)); return true; }
+    catch (e) { console.warn('[LinkGO]', e); return false; }
+  },
+  get(key, fallback = null) {
+    try {
+      const raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch { return fallback; }
+  },
+  remove(key) { try { localStorage.removeItem(key); } catch {} }
+};
+
+function tokenToKey(token) {
+  const enc = new TextEncoder();
+  const seed = enc.encode(token + '|linkgo-v7|' + token.length);
+  const key = new Uint8Array(32);
+  for (let i = 0; i < key.length; i++) key[i] = seed[i % seed.length] ^ ((i * 37 + 11) & 0xff);
+  return key;
+}
+function xorBytes(data, key) {
+  const out = new Uint8Array(data.length);
+  for (let i = 0; i < data.length; i++) out[i] = data[i] ^ key[i % key.length];
+  return out;
+}
+const URL_PREFIXES = [['https://','H'],['http://','h'],['www.','w']];
+const TASK_SHORTHAND = {
+  tap:'a',seq:'b',wait:'c',phrase:'d',hold:'e',color:'f',slider:'g',
+  checklist:'h',emoji:'i',drag:'j',doubleTap:'k',reverse:'l',
+  tap500:'m',tap2000:'n',tap50000:'o',wait5:'p',wait30:'q',wait60:'r',
+  phraseLong:'s',phraseCap:'t',phraseLow:'u',hold3:'v',hold10:'w',hold15:'x',
+  colorAdv:'y',colorTarget:'z',sliderTight:'A',slider3:'B',
+  checklist10:'C',checklist20:'D',emoji50:'E',emoji100:'F',emojiFast:'G',
+  drag3:'I',dragLong:'J',doubleTap5:'K',doubleTap50:'L',tripleTap:'M',
+  reverse10:'N',ascend:'O',descend:'P',evenOnly:'Q',oddOnly:'R',primeOnly:'S',
+  swipeUp:'T',swipeDown:'U',swipeLeft:'V',swipeRight:'W',
+  shake:'X',tilt:'Y',keyboard:'Z',keyboard2:'0',keyboard3:'1',
+  mathAdd:'2',mathSub:'3',mathMul:'4',mathDiv:'5',
+  memorySeq:'6',memorySeq7:'7',memoryColor:'8',memoryEmoji:'9',
+  mirror:'!',counting:'@',typing100:'#',typing200:'$',
+  wordCount:'%',vowelCount:'^',consonantCount:'&',uppercaseCount:'*',
+  digitCount:'(',clickSeq:')',clickSeq7:'-',doubleClick:'_',
+  hover:'=',scrollTop:'+',scrollBottom:'[',fullscreen:']',
+  rotate:'{',vibrate:'}',battery:':',time:';',date:'"',
+  random:'.',dice:',',coin:'<',captcha:'>',captcha2:'?',
+  puzzle:'/',rotateImg:'\\',signDraw:'|',agree:'~',agree2:'`',
+};
+const TASK_R = Object.fromEntries(Object.entries(TASK_SHORTHAND).map(([k,v]) => [v, k]));
+
+async function shortHash(input) {
+  const enc = new TextEncoder();
+  const data = enc.encode(input);
+  let h = 0x811c9dc5;
+  for (let i = 0; i < data.length; i++) { h ^= data[i]; h = (h * 0x01000193) >>> 0; }
+  h ^= h >>> 16; h = (h * 0x85ebca6b) >>> 0;
+  h ^= h >>> 13; h = (h * 0xc2b2ae35) >>> 0;
+  h ^= h >>> 16;
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let out = '';
+  for (let i = 0; i < 4; i++) { out += chars[h % 32]; h = Math.floor(h / 32); }
+  return out;
+}
+
+async function signPayload(obj) {
+  let urlShort = obj.url;
+  for (const [full, short] of URL_PREFIXES) {
+    if (obj.url.startsWith(full)) { urlShort = short + obj.url.slice(full.length); break; }
+  }
+  const tasksShort = obj.tasks.map(t => TASK_SHORTHAND[t] || '?').join('');
+  const compact = `${urlShort}\u0001${tasksShort}\u0001${obj.ts || Date.now()}\u0001${obj.nonce}`;
+  const enc = new TextEncoder();
+  const raw = enc.encode(compact);
+  const key = tokenToKey(obj.token);
+  const xored = xorBytes(raw, key);
+  let bin = '';
+  for (let i = 0; i < xored.length; i++) bin += String.fromCharCode(xored[i]);
+  const b64 = btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const checksum = await shortHash(compact + obj.token);
+  return b64 + '~' + checksum;
+}
+
+async function verifyAndDecode(str, token) {
+  if (typeof str !== 'string' || !str.includes('~')) return null;
+  const idx = str.lastIndexOf('~');
+  const b64 = str.slice(0, idx), checksum = str.slice(idx + 1);
+  if (!b64 || !checksum || checksum.length !== 4) return null;
+  let xored;
+  try {
+    let s = b64.replace(/-/g, '+').replace(/_/g, '/');
+    while (s.length % 4) s += '=';
+    const bin = atob(s);
+    xored = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) xored[i] = bin.charCodeAt(i);
+  } catch { return null; }
+  const key = tokenToKey(token);
+  const raw = xorBytes(xored, key);
+  let compact;
+  try { compact = new TextDecoder().decode(raw); }
+  catch { return null; }
+  const parts = compact.split('\u0001');
+  if (parts.length !== 4) return null;
+  const [urlShort, tasksShort, tsStr, nonce] = parts;
+  const expect = await shortHash(compact + token);
+  if (expect !== checksum) return null;
+  let url = urlShort;
+  for (const [full, short] of URL_PREFIXES) {
+    if (url.startsWith(short)) { url = full + url.slice(1); break; }
+  }
+  const tasks = [];
+  for (const c of tasksShort) if (TASK_R[c]) tasks.push(TASK_R[c]);
+  return { url, tasks, ts: parseInt(tsStr), nonce };
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const TamperGuard = {
+  _key: LS_TAMPER,
+  isLocked() {
+    const data = SafeStore.get(this._key, {});
+    return data.lockedUntil && Date.now() < data.lockedUntil;
+  },
+  lockTimeLeft() {
+    const data = SafeStore.get(this._key, {});
+    if (!data.lockedUntil) return 0;
+    return Math.max(0, Math.ceil((data.lockedUntil - Date.now()) / 1000));
+  },
+  trigger(reason = 'unknown') {
+    const data = SafeStore.get(this._key, {});
+    data.lockedUntil = Date.now() + SECURITY.TAMPER_LOCK_MS;
+    data.reason = reason;
+    data.count = (data.count || 0) + 1;
+    SafeStore.set(this._key, data);
+    console.warn('[LinkGO] Tamper:', reason);
+  },
+  clear() { SafeStore.remove(this._key); }
+};
+
+const NATIVE = {
+  setTimeout: window.setTimeout.bind(window),
+  setInterval: window.setInterval.bind(window),
+  clearTimeout: window.clearTimeout.bind(window),
+  clearInterval: window.clearInterval.bind(window),
+};
+
+const ProgressStore = {
+  _key: LS_PROGRESS,
+  getAll() {
+    const data = SafeStore.get(this._key, {});
+    const now = Date.now();
+    let dirty = false;
+    for (const k of Object.keys(data)) {
+      if (!data[k].lastUpdate || now - data[k].lastUpdate > SECURITY.PROGRESS_TTL_MS) {
+        delete data[k]; dirty = true;
+      }
+    }
+    if (dirty) SafeStore.set(this._key, data);
+    return data;
+  },
+  get(nonce) { return this.getAll()[nonce] || null; },
+  start(nonce, token, taskCount) {
+    const all = this.getAll();
+    all[nonce] = {
+      token, taskCount, completed: [],
+      startedAt: Date.now(), lastUpdate: Date.now(),
+      verified: false, sig: null,
+    };
+    SafeStore.set(this._key, all);
+    return all[nonce];
+  },
+  markTask(nonce, idx) {
+    const all = this.getAll();
+    if (!all[nonce]) return null;
+    if (!all[nonce].completed.includes(idx)) all[nonce].completed.push(idx);
+    all[nonce].lastUpdate = Date.now();
+    SafeStore.set(this._key, all);
+    return all[nonce];
+  },
+  async finalize(nonce) {
+    const all = this.getAll();
+    if (!all[nonce]) return null;
+    const p = all[nonce];
+    if (p.completed.length !== p.taskCount) { TamperGuard.trigger('incomplete'); return null; }
+    const elapsed = Date.now() - p.startedAt;
+    if (elapsed < SECURITY.MIN_LINK_DURATION_MS) { TamperGuard.trigger('too_fast'); return null; }
+    p.verified = true;
+    p.sig = await shortHash(p.token + nonce + p.startedAt + p.completed.length);
+    p.lastUpdate = Date.now();
+    SafeStore.set(this._key, all);
+    return p;
+  },
+  isVerified(nonce) {
+    const p = this.get(nonce);
+    return p && p.verified && p.sig;
+  },
+  reset(nonce) {
+    const all = this.getAll();
+    delete all[nonce];
+    SafeStore.set(this._key, all);
+  },
+};
+
+/* ============================================================
+   ============ EVENT QUIZ QUESTIONS (150+) ================
+   ============================================================ */
+const EVENT_QUESTIONS = [
+  // ===== LỊCH SỬ VIỆT NAM =====
+  {q:"Ngày giải phóng Miền Nam thống nhất đất nước là?",opts:["30/4/1975","2/9/1945","7/5/1954","19/5/1890"],ans:0},
+  {q:"Chiến thắng Điện Biên Phủ diễn ra vào năm nào?",opts:["1954","1945","1968","1972"],ans:0},
+  {q:"Bác Hồ đọc Tuyên ngôn Độc lập vào ngày nào?",opts:["2/9/1945","30/4/1975","19/5/1890","3/2/1930"],ans:0},
+  {q:"Đảng Cộng sản Việt Nam thành lập ngày nào?",opts:["3/2/1930","2/9/1945","19/5/1890","30/4/1975"],ans:0},
+  {q:"Ai là người thành lập Đảng Cộng sản Việt Nam?",opts:["Hồ Chí Minh","Võ Nguyên Giáp","Phạm Văn Đồng","Trường Chinh"],ans:0},
+  {q:"Chiến dịch Hồ Chí Minh kết thúc ngày nào?",opts:["30/4/1975","1/5/1975","29/4/1975","2/5/1975"],ans:0},
+  {q:"Việt Nam gia nhập ASEAN vào năm nào?",opts:["1995","1990","2000","1985"],ans:0},
+  {q:"Việt Nam gia nhập WTO năm nào?",opts:["2007","2000","2010","1995"],ans:0},
+  {q:"Thủ đô của Việt Nam là?",opts:["Hà Nội","TP.HCM","Đà Nẵng","Huế"],ans:0},
+  {q:"Việt Nam có bao nhiêu tỉnh thành?",opts:["63","64","62","65"],ans:0},
+  {q:"Đỉnh núi cao nhất Việt Nam là?",opts:["Phan Xi Păng","Ngọc Linh","Bà Đen","Tam Đảo"],ans:0},
+  {q:"Phan Xi Păng cao bao nhiêu mét?",opts:["3143m","3000m","3200m","2800m"],ans:0},
+  {q:"Sông dài nhất Việt Nam là?",opts:["Sông Đồng Nai","Sông Hồng","Sông Mekong","Sông Mã"],ans:0},
+  {q:"Vịnh Hạ Long thuộc tỉnh nào?",opts:["Quảng Ninh","Hải Phòng","Thanh Hóa","Nghệ An"],ans:0},
+  {q:"Vịnh Hạ Long được UNESCO công nhận năm nào?",opts:["1994","2000","1987","2010"],ans:0},
+  {q:"Cố đô của Việt Nam là?",opts:["Huế","Hà Nội","TP.HCM","Nha Trang"],ans:0},
+  {q:"Nhã nhạc cung đình Huế được UNESCO công nhận năm nào?",opts:["2003","2005","2000","2008"],ans:0},
+  {q:"Việt Nam có bao nhiêu di sản thế giới được UNESCO công nhận?",opts:["8","7","6","9"],ans:0},
+  {q:"Võ Nguyên Giáp sinh năm nào?",opts:["1911","1910","1912","1913"],ans:0},
+  {q:"Võ Nguyên Giáp mất năm nào?",opts:["2013","2014","2012","2015"],ans:0},
+  {q:"Hồ Chí Minh sinh năm nào?",opts:["1890","1891","1889","1892"],ans:0},
+  {q:"Hồ Chí Minh mất năm nào?",opts:["1969","1970","1968","1971"],ans:0},
+  {q:"Quê của Hồ Chí Minh ở đâu?",opts:["Nghệ An","Hà Tĩnh","Thanh Hóa","Quảng Bình"],ans:0},
+  {q:"Quê của Võ Nguyên Giáp ở đâu?",opts:["Quảng Bình","Quảng Trị","Nghệ An","Hà Tĩnh"],ans:0},
+  {q:"Trận 'Hà Nội - Điện Biên Phủ trên không' diễn ra năm nào?",opts:["1972","1968","1975","1954"],ans:0},
+  {q:"Hiệp định Paris được ký kết năm nào?",opts:["1973","1972","1975","1968"],ans:0},
+  {q:"Chiến dịch Mậu Thân diễn ra năm nào?",opts:["1968","1972","1975","1960"],ans:0},
+  {q:"Miền Nam hoàn toàn giải phóng vào ngày?",opts:["30/4/1975","1/5/1975","29/4/1975","2/5/1975"],ans:0},
+  {q:"Việt Nam thống nhất đất nước năm nào?",opts:["1976","1975","1977","1978"],ans:0},
+  {q:"Đổi mới đất nước bắt đầu năm nào?",opts:["1986","1985","1987","1990"],ans:0},
+  {q:"Việt Nam bình thường hóa quan hệ với Mỹ năm nào?",opts:["1995","1990","2000","1985"],ans:0},
+  {q:"Việt Nam trở thành thành viên Liên Hợp Quốc năm nào?",opts:["1977","1975","1980","1985"],ans:0},
+  {q:"Việt Nam đảm nhiệm Chủ tịch ASEAN năm nào?",opts:["2020","2019","2021","2018"],ans:0},
+  {q:"Việt Nam đăng cai SEA Games lần đầu năm nào?",opts:["2003","2000","2005","2010"],ans:0},
+  {q:"Việt Nam từng đăng cai APEC năm nào?",opts:["2017","2015","2019","2010"],ans:0},
+  {q:"Việt Nam từng đăng cai Hội nghị Thượng đỉnh Mỹ-Triều năm nào?",opts:["2019","2018","2020","2017"],ans:0},
+  {q:"Việt Nam đăng cai Hội nghị Thượng đỉnh Mỹ-Triều ở thành phố nào?",opts:["Hà Nội","TP.HCM","Đà Nẵng","Hạ Long"],ans:0},
+  {q:"Việt Nam có bao nhiêu dân tộc?",opts:["54","53","55","56"],ans:0},
+  {q:"Dân tộc chiếm đa số ở Việt Nam là?",opts:["Kinh","Tày","Thái","Mường"],ans:0},
+  {q:"Trang phục truyền thống của phụ nữ Việt Nam là?",opts:["Áo dài","Áo tứ thân","Áo bà ba","Áo yếm"],ans:0},
+  {q:"Món ăn nổi tiếng nhất của Việt Nam là?",opts:["Phở","Bún chả","Bánh mì","Cơm tấm"],ans:0},
+  {q:"Phở có nguồn gốc từ vùng nào?",opts:["Nam Định","Hà Nội","Huế","TP.HCM"],ans:0},
+  {q:"Bánh mì Việt Nam nổi tiếng thế giới với tên gì?",opts:["Banh Mi","Vietnamese Bread","Saigon Bread","Baguette"],ans:0},
+  {q:"Cà phê sữa đá là đặc sản của vùng nào?",opts:["TP.HCM","Hà Nội","Huế","Đà Nẵng"],ans:0},
+  {q:"Áo dài có nguồn gốc từ triều đại nào?",opts:["Nguyễn","Lê","Trần","Lý"],ans:0},
+  {q:"Nón lá Việt Nam làm từ lá gì?",opts:["Lá cọ","Lá chuối","Lá dừa","Lá tre"],ans:0},
+  {q:"Quốc hoa của Việt Nam là?",opts:["Hoa sen","Hoa đào","Hoa mai","Hoa hồng"],ans:0},
+  {q:"Quốc kỳ Việt Nam có nền màu gì?",opts:["Đỏ","Vàng","Xanh","Trắng"],ans:0},
+  {q:"Quốc kỳ Việt Nam có ngôi sao màu gì?",opts:["Vàng","Đỏ","Trắng","Xanh"],ans:0},
+  {q:"Quốc kỳ Việt Nam có bao nhiêu cánh sao?",opts:["5","4","6","3"],ans:0},
+  {q:"Quốc ca Việt Nam có tên là?",opts:["Tiến quân ca","Đất nước","Việt Nam quê hương tôi","Quốc ca"],ans:0},
+  {q:"Ai sáng tác Quốc ca Việt Nam?",opts:["Văn Cao","Trịnh Công Sơn","Phạm Tuyên","Nguyễn Văn Tý"],ans:0},
+  {q:"Văn Cao sinh năm nào?",opts:["1923","1920","1925","1930"],ans:0},
+  {q:"Văn Cao mất năm nào?",opts:["1995","1996","1994","1997"],ans:0},
+  {q:"Trịnh Công Sơn sinh năm nào?",opts:["1939","1938","1940","1941"],ans:0},
+  {q:"Trịnh Công Sơn mất năm nào?",opts:["2001","2000","2002","2003"],ans:0},
+  {q:"Trịnh Công Sơn quê ở đâu?",opts:["Huế","Đà Nẵng","Quảng Nam","Quảng Bình"],ans:0},
+  {q:"Trịnh Công Sơn được mệnh danh là?",opts:["Nhạc sĩ của tình yêu","Ông hoàng nhạc pop","Cha đẻ nhạc rock","Thần đồng âm nhạc"],ans:0},
+  {q:"Bài hát 'Biết ơn chị Võ Thị Sáu' do ai sáng tác?",opts:["Nguyễn Đức Toàn","Trịnh Công Sơn","Văn Cao","Phạm Tuyên"],ans:0},
+  {q:"Võ Thị Sáu bị xử bắn năm nào?",opts:["1952","1950","1954","1948"],ans:0},
+  {q:"Võ Thị Sáu quê ở đâu?",opts:["Bà Rịa - Vũng Tàu","Long An","Tiền Giang","Bến Tre"],ans:0},
+  {q:"Nguyễn Văn Trỗi bị xử bắn năm nào?",opts:["1964","1963","1965","1962"],ans:0},
+  {q:"Nguyễn Văn Trỗi quê ở đâu?",opts:["Quảng Nam","Quảng Ngãi","Đà Nẵng","Huế"],ans:0},
+  {q:"Nguyễn Văn Trỗi nổi tiếng với hành động gì?",opts:["Ám sát Bộ trưởng Quốc phòng Mỹ","Đánh bom sứ quán","Cướp máy bay","Bắn tỉa"],ans:0},
+  {q:"Anh hùng Phan Đình Giót hy sinh trong chiến dịch nào?",opts:["Điện Biên Phủ","Biên giới","Hồ Chí Minh","Mậu Thân"],ans:0},
+  {q:"Anh hùng Tô Vĩnh Diện hy sinh trong chiến dịch nào?",opts:["Điện Biên Phủ","Biên giới","Hồ Chí Minh","Mậu Thân"],ans:0},
+  {q:"Bế Văn Đàn hy sinh trong chiến dịch nào?",opts:["Điện Biên Phủ","Biên giới","Hồ Chí Minh","Mậu Thân"],ans:0},
+  {q:"Chiến thắng Bạch Đằng năm 938 do ai lãnh đạo?",opts:["Ngô Quyền","Lê Lợi","Trần Hưng Đạo","Lý Thường Kiệt"],ans:0},
+  {q:"Chiến thắng Bạch Đằng năm 1288 do ai lãnh đạo?",opts:["Trần Hưng Đạo","Ngô Quyền","Lê Lợi","Lý Thường Kiệt"],ans:0},
+  {q:"Trần Hưng Đạo tên thật là gì?",opts:["Trần Quốc Tuấn","Trần Quốc Toản","Trần Thái Tông","Trần Nhân Tông"],ans:0},
+  {q:"Lý Thường Kiệt nổi tiếng với bài thơ nào?",opts:["Nam quốc sơn hà","Bình Ngô đại cáo","Hịch tướng sĩ","Truyện Kiều"],ans:0},
+  {q:"Lê Lợi lãnh đạo khởi nghĩa nào?",opts:["Lam Sơn","Tây Sơn","Hai Bà Trưng","Phùng Hưng"],ans:0},
+  {q:"Nguyễn Huệ lãnh đạo chiến thắng nào?",opts:["Ngọc Hồi - Đống Đa","Bạch Đằng","Rạch Gầm","Tốt Động"],ans:0},
+  {q:"Nguyễn Huệ lên ngôi hoàng đế với niên hiệu gì?",opts:["Quang Trung","Cảnh Thịnh","Gia Long","Tây Sơn"],ans:0},
+  {q:"Hai Bà Trưng khởi nghĩa năm nào?",opts:["40","43","39","41"],ans:0},
+  {q:"Bà Triệu khởi nghĩa năm nào?",opts:["248","246","250","244"],ans:0},
+  {q:"Lý Bí khởi nghĩa năm nào?",opts:["542","540","544","546"],ans:0},
+  {q:"Lý Bí lập ra nhà nước nào?",opts:["Vạn Xuân","Đại Việt","Đại Cồ Việt","Văn Lang"],ans:0},
+  {q:"Đinh Bộ Lĩnh lập ra nhà nước nào?",opts:["Đại Cồ Việt","Đại Việt","Vạn Xuân","Văn Lang"],ans:0},
+  {q:"Lý Công Uẩn dời đô từ đâu về Thăng Long?",opts:["Hoa Lư","Phú Xuân","Thăng Long","Đại La"],ans:0},
+  {q:"Lý Công Uẩn dời đô năm nào?",opts:["1010","1009","1011","1012"],ans:0},
+  {q:"Thăng Long ngày nay là thành phố nào?",opts:["Hà Nội","TP.HCM","Huế","Đà Nẵng"],ans:0},
+  {q:"Nhà Trần có bao nhiêu lần kháng chiến chống Mông-Nguyên?",opts:["3","2","1","4"],ans:0},
+  {q:"Hịch tướng sĩ do ai viết?",opts:["Trần Quốc Tuấn","Lý Thường Kiệt","Nguyễn Trãi","Trần Nhân Tông"],ans:0},
+  {q:"Bình Ngô đại cáo do ai viết?",opts:["Nguyễn Trãi","Lê Lợi","Trần Hưng Đạo","Nguyễn Huệ"],ans:0},
+  {q:"Nguyễn Trãi bị xử án oan vào năm nào?",opts:["1442","1440","1444","1446"],ans:0},
+  {q:"Nguyễn Trãi được minh oan năm nào?",opts:["1464","1460","1470","1465"],ans:0},
+  {q:"Truyện Kiều do ai viết?",opts:["Nguyễn Du","Nguyễn Trãi","Hồ Xuân Hương","Cao Bá Quát"],ans:0},
+  {q:"Nguyễn Du sống ở thế kỷ nào?",opts:["18-19","17-18","19-20","16-17"],ans:0},
+  {q:"Truyện Kiều còn có tên gọi khác là?",opts:["Đoạn trường tân thanh","Kim Vân Kiều","Thúy Kiều","Kiều truyện"],ans:0},
+  {q:"Hồ Xuân Hương được mệnh danh là?",opts:["Bà chúa thơ Nôm","Nữ sĩ thơ Nôm","Thần thơ","Thi tiên"],ans:0},
+  {q:"Cao Bá Quát nổi tiếng với câu nói nào?",opts:["Nhất sinh đê thủ bái mai hoa","Thi trung hữu họa","Văn dĩ tải đạo","Thơ ngôn chí"],ans:0},
+  {q:"Văn Miếu Quốc Tử Giám được xây dựng năm nào?",opts:["1070","1076","1010","1040"],ans:0},
+  {q:"Văn Miếu Quốc Tử Giám thờ ai?",opts:["Khổng Tử","Chu Công","Mạnh Tử","Lão Tử"],ans:0},
+  {q:"Quốc Tử Giám được thành lập năm nào?",opts:["1076","1070","1010","1040"],ans:0},
+  {q:"Trường đại học đầu tiên của Việt Nam là?",opts:["Quốc Tử Giám","Văn Miếu","Đại học Đông Dương","Đại học Hà Nội"],ans:0},
+  {q:"Đại học Đông Dương thành lập năm nào?",opts:["1906","1900","1910","1920"],ans:0},
+  {q:"Đại học Quốc gia Hà Nội thành lập năm nào?",opts:["1993","1990","1995","2000"],ans:0},
+  {q:"Đại học Quốc gia TP.HCM thành lập năm nào?",opts:["1995","1990","2000","1993"],ans:0},
+  {q:"Việt Nam có bao nhiêu khu dự trữ sinh quyển thế giới?",opts:["11","9","10","12"],ans:0},
+  {q:"Vườn quốc gia đầu tiên của Việt Nam là?",opts:["Cúc Phương","Ba Vì","Tam Đảo","Cát Tiên"],ans:0},
+  {q:"Vườn quốc gia Cúc Phương thành lập năm nào?",opts:["1962","1960","1965","1970"],ans:0},
+  {q:"Hang Sơn Đoòng thuộc tỉnh nào?",opts:["Quảng Bình","Quảng Trị","Quảng Nam","Hà Tĩnh"],ans:0},
+  {q:"Hang Sơn Đoòng được phát hiện năm nào?",opts:["1990","1991","2009","2010"],ans:0},
+  {q:"Hang Sơn Đoòng là hang động lớn nhất thế giới ở đâu?",opts:["Việt Nam","Trung Quốc","Mỹ","Mexico"],ans:0},
+  {q:"Thác Bản Giốc thuộc tỉnh nào?",opts:["Cao Bằng","Lạng Sơn","Hà Giang","Lào Cai"],ans:0},
+  {q:"Sa Pa thuộc tỉnh nào?",opts:["Lào Cai","Hà Giang","Lai Châu","Sơn La"],ans:0},
+  {q:"Đà Lạt thuộc tỉnh nào?",opts:["Lâm Đồng","Đắk Lắk","Gia Lai","Kon Tum"],ans:0},
+  {q:"Nha Trang thuộc tỉnh nào?",opts:["Khánh Hòa","Phú Yên","Bình Định","Ninh Thuận"],ans:0},
+  {q:"Vũng Tàu thuộc tỉnh nào?",opts:["Bà Rịa - Vũng Tàu","Bình Dương","Đồng Nai","Long An"],ans:0},
+  {q:"Phú Quốc thuộc tỉnh nào?",opts:["Kiên Giang","Cà Mau","An Giang","Bạc Liêu"],ans:0},
+  {q:"Phú Quốc là đảo lớn thứ mấy Việt Nam?",opts:["1","2","3","4"],ans:0},
+  {q:"Côn Đảo thuộc tỉnh nào?",opts:["Bà Rịa - Vũng Tàu","Cà Mau","Kiên Giang","Sóc Trăng"],ans:0},
+  {q:"Mũi Cà Mau là điểm cực nào của Việt Nam?",opts:["Nam","Bắc","Đông","Tây"],ans:0},
+  {q:"Lũng Cú là điểm cực nào của Việt Nam?",opts:["Bắc","Nam","Đông","Tây"],ans:0},
+  {q:"Điện Biên Phủ thuộc tỉnh nào?",opts:["Điện Biên","Lai Châu","Sơn La","Hòa Bình"],ans:0},
+  {q:"Tây Bắc Bộ gồm bao nhiêu tỉnh?",opts:["6","4","5","7"],ans:0},
+  {q:"Đồng bằng sông Cửu Long có bao nhiêu tỉnh thành?",opts:["13","12","14","15"],ans:0},
+  {q:"Đồng bằng sông Hồng có bao nhiêu tỉnh thành?",opts:["11","10","12","9"],ans:0},
+  {q:"Tây Nguyên có bao nhiêu tỉnh?",opts:["5","4","6","7"],ans:0},
+  {q:"Tây Nguyên gồm những tỉnh nào?",opts:["Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông, Lâm Đồng","Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông","Gia Lai, Đắk Lắk, Lâm Đồng","Kon Tum, Đắk Lắk, Lâm Đồng"],ans:0},
+  {q:"Cà phê Việt Nam nổi tiếng ở vùng nào?",opts:["Tây Nguyên","Tây Bắc","Đông Nam Bộ","Đồng bằng sông Cửu Long"],ans:0},
+  {q:"Việt Nam là nước xuất khẩu cà phê lớn thứ mấy thế giới?",opts:["2","1","3","4"],ans:0},
+  {q:"Việt Nam là nước xuất khẩu gạo lớn thứ mấy thế giới?",opts:["3","1","2","4"],ans:0},
+  {q:"Việt Nam là nước xuất khẩu hồ tiêu lớn thứ mấy thế giới?",opts:["1","2","3","4"],ans:0},
+  {q:"Việt Nam là nước xuất khẩu điều lớn thứ mấy thế giới?",opts:["1","2","3","4"],ans:0},
+  {q:"Việt Nam là nước sản xuất hạt tiêu lớn nhất thế giới ở tỉnh nào?",opts:["Bình Phước","Đắk Lắk","Gia Lai","Đồng Nai"],ans:0},
+  {q:"Cao su Việt Nam nổi tiếng ở vùng nào?",opts:["Đông Nam Bộ","Tây Nguyên","Tây Bắc","Đồng bằng sông Cửu Long"],ans:0},
+  {q:"Việt Nam có bao nhiêu sân bay quốc tế?",opts:["9","8","7","10"],ans:0},
+  {q:"Sân bay quốc tế lớn nhất Việt Nam là?",opts:["Tân Sơn Nhất","Nội Bài","Đà Nẵng","Cam Ranh"],ans:0},
+  {q:"Sân bay Nội Bài ở thành phố nào?",opts:["Hà Nội","TP.HCM","Đà Nẵng","Hải Phòng"],ans:0},
+  {q:"Sân bay Tân Sơn Nhất ở thành phố nào?",opts:["TP.HCM","Hà Nội","Đà Nẵng","Cần Thơ"],ans:0},
+  {q:"Việt Nam có bao nhiêu thành phố trực thuộc trung ương?",opts:["5","4","6","3"],ans:0},
+  {q:"Thành phố trực thuộc trung ương mới nhất của Việt Nam là?",opts:["Huế","Đà Nẵng","Cần Thơ","Hải Phòng"],ans:0},
+  {q:"TP.HCM còn có tên gọi cũ là?",opts:["Sài Gòn","Gia Định","Chợ Lớn","Bến Nghé"],ans:0},
+  {q:"TP.HCM được đặt tên theo ai?",opts:["Hồ Chí Minh","Võ Nguyên Giáp","Phạm Văn Đồng","Trần Hưng Đạo"],ans:0},
+  {q:"TP.HCM có bao nhiêu quận huyện?",opts:["22","21","23","24"],ans:0},
+  {q:"Hà Nội có bao nhiêu quận huyện?",opts:["30","29","31","28"],ans:0},
+  {q:"Hà Nội được UNESCO công nhận là thành phố vì hòa bình năm nào?",opts:["1999","2000","1998","2001"],ans:0},
+  {q:"Hoàng thành Thăng Long được UNESCO công nhận năm nào?",opts:["2010","2008","2012","2015"],ans:0},
+  {q:"Thánh địa Mỹ Sơn thuộc tỉnh nào?",opts:["Quảng Nam","Quảng Ngãi","Quảng Bình","Quảng Trị"],ans:0},
+  {q:"Thánh địa Mỹ Sơn được UNESCO công nhận năm nào?",opts:["1999","2000","1998","2001"],ans:0},
+  {q:"Phố cổ Hội An thuộc tỉnh nào?",opts:["Quảng Nam","Quảng Ngãi","Đà Nẵng","Huế"],ans:0},
+  {q:"Phố cổ Hội An được UNESCO công nhận năm nào?",opts:["1999","2000","1998","2001"],ans:0},
+  {q:"Cố đô Huế được UNESCO công nhận năm nào?",opts:["1993","1994","1992","1995"],ans:0},
+  {q:"Quần thể danh thắng Tràng An thuộc tỉnh nào?",opts:["Ninh Bình","Thanh Hóa","Nam Định","Hà Nam"],ans:0},
+  {q:"Tràng An được UNESCO công nhận năm nào?",opts:["2014","2012","2016","2018"],ans:0},
+  {q:"Cao nguyên đá Đồng Văn thuộc tỉnh nào?",opts:["Hà Giang","Cao Bằng","Lào Cai","Yên Bái"],ans:0},
+  {q:"Cao nguyên đá Đồng Văn được UNESCO công nhận năm nào?",opts:["2010","2008","2012","2015"],ans:0},
+  {q:"Đờn ca tài tử Nam Bộ được UNESCO công nhận năm nào?",opts:["2013","2011","2015","2010"],ans:0},
+  {q:"Dân ca ví giặm Nghệ Tĩnh được UNESCO công nhận năm nào?",opts:["2014","2012","2016","2010"],ans:0},
+  {q:"Hát xoan Phú Thọ được UNESCO công nhận năm nào?",opts:["2011","2010","2012","2013"],ans:0},
+  {q:"Ca trù được UNESCO công nhận năm nào?",opts:["2009","2010","2008","2011"],ans:0},
+  {q:"Quan họ Bắc Ninh được UNESCO công nhận năm nào?",opts:["2009","2010","2008","2011"],ans:0},
+  {q:"Nhã nhạc cung đình Huế được UNESCO công nhận năm nào?",opts:["2003","2005","2000","2008"],ans:0},
+  {q:"Không gian văn hóa cồng chiêng Tây Nguyên được UNESCO công nhận năm nào?",opts:["2005","2003","2008","2010"],ans:0},
+  {q:"Hội Gióng được UNESCO công nhận năm nào?",opts:["2010","2008","2012","2015"],ans:0},
+  {q:"Tín ngưỡng thờ Mẫu được UNESCO công nhận năm nào?",opts:["2016","2014","2018","2012"],ans:0},
+  {q:"Bài chòi Trung Bộ được UNESCO công nhận năm nào?",opts:["2017","2015","2019","2013"],ans:0},
+  {q:"Then Tày được UNESCO công nhận năm nào?",opts:["2019","2017","2021","2015"],ans:0},
+  {q:"Xòe Thái được UNESCO công nhận năm nào?",opts:["2021","2019","2023","2017"],ans:0},
+  {q:"Việt Nam có bao nhiêu di sản văn hóa phi vật thể đại diện nhân loại?",opts:["14","12","13","15"],ans:0},
+  {q:"Việt Nam có bao nhiêu di sản tư liệu thế giới?",opts:["9","7","8","10"],ans:0},
+];
+
+/* ============================================================
+   ============ BUO STORE (LinkBUO) =========================
+   ============================================================ */
+const BuoStore = {
+  getUserKey() {
+    return currentUser ? currentUser.email : 'guest';
+  },
+  getAll() {
+    return SafeStore.get(LS_BUO, {});
+  },
+  getBalance() {
+    const all = this.getAll();
+    return all[this.getUserKey()] || 0;
+  },
+  add(amount, reason = '') {
+    const all = this.getAll();
+    const key = this.getUserKey();
+    all[key] = (all[key] || 0) + amount;
+    SafeStore.set(LS_BUO, all);
+    updateTopBuo();
+    return all[key];
+  },
+  spend(amount) {
+    const all = this.getAll();
+    const key = this.getUserKey();
+    if ((all[key] || 0) < amount) return false;
+    all[key] -= amount;
+    SafeStore.set(LS_BUO, all);
+    updateTopBuo();
+    return true;
+  },
+  set(amount) {
+    const all = this.getAll();
+    all[this.getUserKey()] = amount;
+    SafeStore.set(LS_BUO, all);
+    updateTopBuo();
+  },
+};
+
+function updateTopBuo() {
+  const elx = $('topBuo');
+  if (elx) elx.textContent = BuoStore.getBalance();
+}
+
+/* ============================================================
+   ============ CODE STORE ==================================
+   ============================================================ */
+const CodeStore = {
+  getAll() {
+    return SafeStore.get(LS_CODES, {});
+  },
+  saveAll(data) {
+    SafeStore.set(LS_CODES, data);
+  },
+  create(tier) {
+    const pools = {
+      bronze: 'LINKG0-VIP-',
+      silver: 'LINKG0-VVIP-',
+      gold: 'LINKG0-SSS-VIP',
+    };
+    const suffixes = {
+      bronze: '-C0DE',
+      silver: '-LGCODE',
+      gold: '-LINKGO-CODE',
+    };
+    const randomPart = randomString(35, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789');
+    const code = `${pools[tier]}${randomPart}${suffixes[tier]}`;
+    const all = this.getAll();
+    const userKey = currentUser ? currentUser.email : 'guest';
+    if (!all[userKey]) all[userKey] = [];
+    all[userKey].push({
+      code,
+      tier,
+      createdAt: Date.now(),
+      expiresAt: Date.now() + CODE_EXPIRY_MS,
+      used: false,
+    });
+    this.saveAll(all);
+    return code;
+  },
+  getMine() {
+    const all = this.getAll();
+    const userKey = currentUser ? currentUser.email : 'guest';
+    return (all[userKey] || []).filter(c => !c.used);
+  },
+  validate(code) {
+    const all = this.getAll();
+    for (const userKey of Object.keys(all)) {
+      const list = all[userKey];
+      for (const item of list) {
+        if (item.code === code && !item.used && Date.now() < item.expiresAt) {
+          return { ok: true, item, owner: userKey };
+        }
+      }
+    }
+    return { ok: false };
+  },
+  markUsed(code) {
+    const all = this.getAll();
+    for (const userKey of Object.keys(all)) {
+      for (const item of all[userKey]) {
+        if (item.code === code) {
+          item.used = true;
+          item.usedAt = Date.now();
+          this.saveAll(all);
+          return true;
+        }
+      }
+    }
+    return false;
+  },
+};
+
+/* ============================================================
+   ============ RANK STORE ==================================
+   ============================================================ */
+const RankStore = {
+  getRank(tier) {
+    const ranks = {
+      bronze: { name: 'VIP', icon: '🥉', color: '#cd7f32', cls: 'bronze' },
+      silver: { name: 'VVIP', icon: '🥈', color: '#cbd5e1', cls: 'silver' },
+      gold: { name: 'SSS-VIP', icon: '🥇', color: '#fbbf24', cls: 'gold' },
+    };
+    return ranks[tier];
+  },
+  getTitles(tier) {
+    const titles = {
+      bronze: ['VietNam-Event'],
+      silver: ['VietNam-Reward', 'VietNam-Event'],
+      gold: ['Thanks-Vietnam', 'VietNam-Reward', 'VietNam-Event'],
+    };
+    return titles[tier] || [];
+  },
+  getCrown(tier) {
+    const crowns = {
+      bronze: '♛',
+      silver: '♛♛',
+      gold: '✦♛✦',
+    };
+    return crowns[tier] || '';
+  },
+  applyToUser(tier) {
+    if (!currentUser) return;
+    currentUser.rank = tier;
+    currentUser.titles = this.getTitles(tier);
+    saveUser();
+  },
+  getUserRank() {
+    return currentUser?.rank || null;
+  },
+  getUserTitles() {
+    return currentUser?.titles || [];
+  },
+};
+
+function renderRankBadge(tier, size = 'normal') {
+  const r = RankStore.getRank(tier);
+  if (!r) return '';
+  return `<span class="rank-badge ${r.cls}">${r.icon} ${r.name}</span>`;
+}
+
+function renderTitleBadges(titles) {
+  return titles.map(tt => {
+    let cls = 'title-badge';
+    if (tt === 'Thanks-Vietnam') cls += ' thanks';
+    else if (tt === 'VietNam-Reward') cls += ' reward';
+    else if (tt === 'VietNam-Event') cls += ' event';
+    return `<span class="${cls}">${escapeHtml(tt)}</span>`;
+  }).join('');
+}
+
+/* ============================================================
+   ============ EVENT LOGIC =================================
+   ============================================================ */
+const EventStore = {
+  getProgress() {
+    const all = SafeStore.get(LS_QUIZ_PROGRESS, {});
+    return all[currentUser?.email || 'guest'] || null;
+  },
+  saveProgress(p) {
+    const all = SafeStore.get(LS_QUIZ_PROGRESS, {});
+    all[currentUser?.email || 'guest'] = p;
+    SafeStore.set(LS_QUIZ_PROGRESS, all);
+  },
+  isEventActive() {
+    const now = Date.now();
+    return now >= EVENT_START.getTime() && now <= EVENT_END.getTime();
+  },
+  getTimeLeft() {
+    const now = Date.now();
+    if (now < EVENT_START.getTime()) return { state: 'not_started', ms: EVENT_START.getTime() - now };
+    if (now > EVENT_END.getTime()) return { state: 'ended', ms: 0 };
+    return { state: 'active', ms: EVENT_END.getTime() - now };
+  },
+  startBatch() {
+    const p = this.getProgress();
+    if (p && !p.completed) return p;
+    const batch = shuffle(EVENT_QUESTIONS).slice(0, 5);
+    const newP = {
+      batchId: randomToken(8),
+      questions: batch.map(q => ({
+        q: q.q,
+        opts: shuffle(q.opts.map((opt, i) => ({ text: opt, correct: i === q.ans }))),
+      })),
+      answers: [],
+      completed: false,
+      startedAt: Date.now(),
+    };
+    this.saveProgress(newP);
+    return newP;
+  },
+  answer(qIdx, optIdx) {
+    const p = this.getProgress();
+    if (!p || p.completed) return null;
+    p.answers[qIdx] = optIdx;
+    this.saveProgress(p);
+    return p;
+  },
+  finish() {
+    const p = this.getProgress();
+    if (!p || p.completed) return null;
+    let correct = 0;
+    p.questions.forEach((qq, i) => {
+      const ans = p.answers[i];
+      if (ans != null && qq.opts[ans] && qq.opts[ans].correct) correct++;
+    });
+    p.completed = true;
+    p.correct = correct;
+    p.total = p.questions.length;
+    p.percent = Math.round(correct / p.questions.length * 100);
+    p.passed = p.percent >= 80;
+    p.finishedAt = Date.now();
+    this.saveProgress(p);
+    if (p.passed) {
+      const gained = LINKBUO_PER_CORRECT;
+      BuoStore.add(gained, 'event');
+      p.rewarded = gained;
+      this.saveProgress(p);
+    }
+    return p;
+  },
+  resetBatch() {
+    const all = SafeStore.get(LS_QUIZ_PROGRESS, {});
+    delete all[currentUser?.email || 'guest'];
+    SafeStore.set(LS_QUIZ_PROGRESS, all);
+  },
+};
+
+/* ============================================================
+   ============ STATE =======================================
+   ============================================================ */
+let currentUser = null;
+let currentPage = 'main';
+let authMode = 'login';
+let pickedAvatarDataUrl = null;
+let lastLink = null;
+let selectedTasks = new Set(['tap', 'seq', 'wait', 'phrase']);
+let queue = [];
+let targetUrl = '';
+let finished = false;
+let currentNonce = '';
+let currentToken = '';
+let taskStartTime = 0;
+
+function loadUser() {
+  currentUser = SafeStore.get(LS_USER, null);
+  if (currentUser && (!currentUser.email || !currentUser.passwordHash)) currentUser = null;
+}
+function saveUser() {
+  if (currentUser) SafeStore.set(LS_USER, currentUser);
+  else SafeStore.remove(LS_USER);
+}
+function loadLinks() {
+  const arr = SafeStore.get(LS_LINKS, []);
+  return Array.isArray(arr) ? arr : [];
+}
+function saveLinks(list) { SafeStore.set(LS_LINKS, list); }
+
+/* ============================================================
+   ============ CHANGELOG ===================================
+   ============================================================ */
+const CHANGELOG = [
+  {
+    version: '7.5.0',
+    date: '2026-09-30',
+    latest: true,
+    tags: [{cls:'tag-new', label:'WOW'}, {cls:'tag-vn', label:'KỶ NIỆM 1 NĂM'}, {cls:'tag-new', label:'NHẠC'}],
+    items: [
+      '🎊 PHIÊN BẢN KỶ NIỆM 1 NĂM LINKGO — Event Vietnam WOW Edition',
+      '🎵 Thêm nhạc nền Việt Nam (nhạc dân tộc & truyền thống) — nút 🎵 góc phải',
+      '✨ Animation siêu đẹp: confetti, pháo hoa, flag wave, score pop, gold pulse',
+      '🇻🇳 Event-Vietnam được nâng cấp "WOW" — header mới, hiệu ứng vàng đỏ',
+      '🪙 Tăng thưởng LinkBUO lên 75 mỗi lần đạt ≥80%',
+      '🏆 Banner kỷ niệm 1 năm với hiệu ứng shine & pulse',
+      '🎇 Pháo hoa + confetti tự động khi vượt Event',
+      '📱 Nút nhạc thông minh: bật/tắt, tự pause khi tab ẩn',
+      '🎨 CSS nâng cấp toàn diện cho cảm giác cao cấp',
+      '💾 Giữ toàn bộ tính năng v7.3 + bảo mật Anti-Bypass',
+    ],
+  },
+  {
+    version: '7.3.0',
+    date: '2026-10-01',
+    tags: [{cls:'tag-new', label:'EVENT'}, {cls:'tag-vn', label:'VIỆT NAM'}],
+    items: [
+      '🎉 Thêm mục EVENT — LinkGO Event-VietNam',
+      '📝 150+ câu hỏi về Việt Nam (lịch sử, văn hóa, địa lý, con người)',
+      '🪙 Nhận 50 LinkBUO mỗi lần trả lời đúng ≥80% (4/5 câu)',
+      '🛍️ Thêm mục SHOP — đổi LinkBUO lấy rank VIP/VVIP/SSS-VIP',
+      '🎫 Thêm mục REDEEM — nhập code nhận rank và danh hiệu',
+      '♛ Vương miện đồng/bạc/vàng cuối tên',
+      '🏷️ Danh hiệu: VietNam-Event, VietNam-Reward, Thanks-Vietnam',
+      '⏰ Code hạn 3 tuần — hết hạn mất code nhưng giữ danh hiệu',
+      '🔐 Code admin:............ (không hiện ngoài web)',
+      '📊 Hiển thị số dư LinkBUO trên topbar',
+      '🎯 Mỗi nhiệm vụ gồm 5 câu hỏi, tối đa 20 nhiệm vụ/lần',
+      '💾 LinkBUO lưu vĩnh viễn trong profile',
+    ],
+  },
+  {
+    version: '6.1.0',
+    date: '2026-09-29',
+    tags: [{cls:'tag-fix', label:'FIX'}, {cls:'tag-new', label:'MỚI'}],
+    items: [
+      '🐛 Fix lỗi hiển thị QR Code',
+      '🖼️ Cho phép api.qrserver.com trong CSP',
+      '📱 Trang lỗi link có nút về trang chính',
+      '🔘 Nút to hơn 30% — dễ bấm trên mobile',
+    ],
+  },
+  {
+    version: '6.0.0',
+    date: '2026-09-29',
+    tags: [{cls:'tag-new', label:'MỚI'}, {cls:'tag-vn', label:'VIỆT NAM'}],
+    items: [
+      '🌐 Đa ngôn ngữ: 14 quốc gia',
+      '🇻🇳 Thêm mục Giới thiệu — Made in Vietnam',
+      '📢 Thêm mục Cập nhật — Nhật ký thay đổi',
+      '©️ Bổ sung bản quyền ở footer',
+    ],
+  },
+  {
+    version: '5.0.0',
+    date: '2026-09-28',
+    tags: [{cls:'tag-sec', label:'BẢO MẬT'}],
+    items: [
+      '🛡️ Anti-bypass: bắt buộc làm từng nhiệm vụ',
+      '💾 Lưu tiến trình tự động',
+      '⏱️ Kiểm tra thời gian thực hiện tối thiểu',
+      '🔐 Nonce mỗi link — chống replay',
+    ],
+  },
+  {
+    version: '1.0.0',
+    date: '2026-09-24',
+    tags: [{cls:'tag-vn', label:'RA MẮT'}],
+    items: [
+      '🎉 Phiên bản đầu tiên',
+      '🔗 Rút gọn link + 12 nhiệm vụ',
+      '👤 Đăng ký / đăng nhập cục bộ',
+    ],
+  },
+];
+
+/* ============================================================
+   ============ i18n ========================================
+   ============================================================ */
+const LANGS = {
+  vi: { flag:'🇻🇳', name:'Tiếng Việt', code:'VI' },
+  en: { flag:'🇺🇸', name:'English',    code:'EN' },
+};
+
+const TRANSLATIONS = {
+  vi: {
+    main:'Trang chính', profile:'Hồ sơ', login:'Đăng nhập', register:'Đăng ký',
+    logout:'Đăng xuất', email:'Email', password:'Mật khẩu', name:'Tên hiển thị',
+    hero_title:'Rút gọn link bảo mật',
+    hero_sub:'Được tạo bởi người Việt Nam 🇻🇳',
+    target_url:'Link đích (URL gốc)', link_name:'Tên link cuối',
+    choose_tasks:'Chọn nhiệm vụ', select_all:'Chọn hết', deselect_all:'Bỏ hết',
+    random:'Ngẫu nhiên', create_link:'✨ Tạo link rút gọn', link_created:'✅ Link đã tạo!',
+    copy_link:'📋 Sao chép link', show_qr:'📱 Xem QR Code', download_txt:'📄 Tải file .txt',
+    task_protection:'🔒 Bảo vệ bởi LinkGO', complete_tasks:'Hoàn thành {n} nhiệm vụ để tiếp tục',
+    progress_saved:'Tiến trình đã lưu', all_complete:'🎉 Hoàn thành!', redirecting:'Đang chuyển hướng...',
+    profile_title:'Profile', joined:'Tham gia', links_created:'Link tạo',
+    total_clicks:'Lượt mở', tasks_avail:'Nhiệm vụ', share_profile:'Link chia sẻ Profile',
+    history:'📚 Lịch sử link', sort_new:'Mới nhất', sort_old:'Cũ nhất',
+    sort_clicks:'Nhiều click', sort_name:'Tên A-Z',
+    filter_all:'Tất cả', filter_today:'Hôm nay', filter_week:'7 ngày', filter_zero:'0 click',
+    no_links:'Chưa có link nào', no_match:'Không tìm thấy link khớp',
+    welcome:'Chào mừng', login_or_register:'Đăng nhập hoặc tạo tài khoản',
+    create_account:'✨ Tạo tài khoản', update_title:'Cập nhật', update_sub:'Nhật ký thay đổi',
+    about_title:'Về chúng tôi', made_in_vn:'Được tạo bởi người Việt Nam',
+    copyright:'Bản quyền', all_rights:'Mọi quyền được bảo lưu',
+    made_with:'Made with ❤️ in Vietnam',
+    search_placeholder:'🔍 Tìm theo URL, tên, token...',
+    logout_btn:'🚪 Đăng xuất', copy_btn:'📋 Copy', open_btn:'🔗 Mở', delete_btn:'🗑️',
+    vn_badge:'Made in Vietnam 🇻🇳',
+    secure_v5:'🛡️ Anti-Bypass v7.5 • Event Vietnam WOW',
+  },
+  en: {
+    main:'Home', profile:'Profile', login:'Login', register:'Register',
+    logout:'Logout', email:'Email', password:'Password', name:'Display name',
+    hero_title:'Secure link shortener',
+    hero_sub:'Made by Vietnamese developers 🇻🇳',
+    target_url:'Target URL', link_name:'Link name',
+    choose_tasks:'Choose tasks', select_all:'Select all', deselect_all:'Deselect all',
+    random:'Random', create_link:'✨ Create short link', link_created:'✅ Link created!',
+    copy_link:'📋 Copy link', show_qr:'📱 Show QR', download_txt:'📄 Download .txt',
+    task_protection:'🔒 Protected by LinkGO', complete_tasks:'Complete {n} tasks to continue',
+    progress_saved:'Progress saved', all_complete:'🎉 Completed!', redirecting:'Redirecting...',
+    profile_title:'Profile', joined:'Joined', links_created:'Links',
+    total_clicks:'Clicks', tasks_avail:'Tasks', share_profile:'Share profile',
+    history:'📚 Link history', sort_new:'Newest', sort_old:'Oldest',
+    sort_clicks:'Most clicks', sort_name:'Name A-Z',
+    filter_all:'All', filter_today:'Today', filter_week:'7 days', filter_zero:'0 click',
+    no_links:'No links yet', no_match:'No matching links',
+    welcome:'Welcome', login_or_register:'Login or create account',
+    create_account:'✨ Create account', update_title:'Update', update_sub:'Changelog',
+    about_title:'About us', made_in_vn:'Made by Vietnamese',
+    copyright:'Copyright', all_rights:'All rights reserved',
+    made_with:'Made with ❤️ in Vietnam',
+    search_placeholder:'🔍 Search by URL, name, token...',
+    logout_btn:'🚪 Logout', copy_btn:'📋 Copy', open_btn:'🔗 Open', delete_btn:'🗑️',
+    vn_badge:'Made in Vietnam 🇻🇳',
+    secure_v5:'🛡️ Anti-Bypass v7.5 • Event Vietnam WOW',
+  },
+};
+
+let currentLang = 'vi';
+
+function t(key, vars) {
+  const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.vi;
+  let str = dict[key] || TRANSLATIONS.vi[key] || key;
+  if (vars) {
+    for (const k of Object.keys(vars)) str = str.replace('{' + k + '}', vars[k]);
+  }
+  return str;
+}
+
+function setLang(lang) {
+  if (!LANGS[lang]) lang = 'vi';
+  currentLang = lang;
+  SafeStore.set(LS_LANG, lang);
+  document.documentElement.lang = lang;
+  const flagEl = $('langFlag'); if (flagEl) flagEl.textContent = LANGS[lang].flag;
+  const codeEl = $('langCode'); if (codeEl) codeEl.textContent = LANGS[lang].code;
+  const ld = $('langDrop'); if (ld) ld.classList.remove('open');
+  renderMenu();
+  if (currentPage === 'main') renderCreator();
+  else if (currentPage === 'profile') renderProfile();
+  else if (currentPage === 'auth') renderAuth();
+  else if (currentPage === 'update') renderUpdate();
+  else if (currentPage === 'about') renderAbout();
+  else if (currentPage === 'event') renderEvent();
+  else if (currentPage === 'shop') renderShop();
+  else if (currentPage === 'redeem') renderRedeem();
+}
+
+function detectLang() {
+  const saved = SafeStore.get(LS_LANG, null);
+  if (saved && LANGS[saved]) return saved;
+  const nav = (navigator.language || 'vi').toLowerCase();
+  const short = nav.split('-')[0];
+  return LANGS[short] ? short : 'vi';
+}
+
+/* ============================================================
+   ============ HASH ROUTER ================================
+   ============================================================ */
+function getShortLinkData() {
+  const hash = location.hash.slice(1);
+  if (!hash.startsWith('/')) return null;
+  const [path, query] = hash.split('?');
+  const parts = path.split('/').filter(Boolean);
+  if (parts.length >= 2 && parts[0] === 'u') {
+    return { profileUser: decodeURIComponent(parts[1]) };
+  }
+  if (parts.length >= 3 && parts[2] === SITE) {
+    const token = parts[0];
+    if (!/^[A-Za-z0-9]{8,24}$/.test(token)) return null;
+    const params = new URLSearchParams(query || '');
+    const data = params.get('t');
+    if (!data || !data.includes('~')) return null;
+    return { token, name: decodeURIComponent(parts[1]), data };
+  }
+  return null;
+}
+
+/* ============================================================
+   ============ MENU ========================================
+   ============================================================ */
+function toggleMenu(e) {
+  if (e) e.stopPropagation();
+  const m = $('menuDrop');
+  const ld = $('langDrop'); if (ld) ld.classList.remove('open');
+  renderMenu();
+  m.classList.toggle('open');
+}
+function toggleLang(e) {
+  if (e) e.stopPropagation();
+  const ld = $('langDrop');
+  const m = $('menuDrop'); if (m) m.classList.remove('open');
+  renderLangDrop();
+  ld.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const m = $('menuDrop');
+  const ld = $('langDrop');
+  if (m && !m.contains(e.target) && !e.target.closest('#menuBtn')) m.classList.remove('open');
+  if (ld && !ld.contains(e.target) && !e.target.closest('#langBtn')) ld.classList.remove('open');
+});
+
+function renderMenu() {
+  const m = $('menuDrop');
+  if (!m) return;
+  const eventActive = EventStore.isEventActive();
+  const avatarHtml = currentUser
+    ? (currentUser.avatar
+        ? `<img src="${escapeHtml(currentUser.avatar)}" alt="">`
+        : escapeHtml((currentUser.name || '?').charAt(0).toUpperCase()))
+    : '?';
+  const rankBadge = currentUser?.rank ? renderRankBadge(currentUser.rank) : '';
+  const profileLine = currentUser
+    ? `<div class="menu-item" onclick="go('profile')">
+         <div class="ic-img">${avatarHtml}</div>
+         <div><div style="font-weight:600">${t('profile')} ${rankBadge}</div>
+         <small>${escapeHtml(currentUser.name)}</small></div>
+       </div>`
+    : `<div class="menu-item" onclick="go('auth')">
+         <div class="ic">👤</div>
+         <div><div style="font-weight:600">${t('profile')}</div>
+         <small>${t('login_or_register')}</small></div>
+       </div>`;
+  m.innerHTML = `
+    <div class="menu-item" onclick="go('main')">
+      <div class="ic">🏠</div>
+      <div><div style="font-weight:600">${t('main')}</div>
+      <small>${t('hero_title')}</small></div>
+    </div>
+    ${profileLine}
+    <div class="menu-sep"></div>
+    <div class="menu-item event" onclick="go('event')">
+      <div class="ic">🎉</div>
+      <div><div style="font-weight:600">EVENT</div>
+      <small>LinkGO Event-VietNam ${eventActive ? '• Đang diễn ra' : '• Đã hết'}</small></div>
+      ${eventActive ? '<span class="badge-new">HOT</span>' : ''}
+    </div>
+    <div class="menu-item shop" onclick="go('shop')">
+      <div class="ic">🛍️</div>
+      <div><div style="font-weight:600">SHOP</div>
+      <small>Đổi LinkBUO lấy rank</small></div>
+    </div>
+    <div class="menu-item redeem" onclick="go('redeem')">
+      <div class="ic">🎫</div>
+      <div><div style="font-weight:600">REDEEM</div>
+      <small>Nhập code nhận rank</small></div>
+    </div>
+    <div class="menu-sep"></div>
+    <div class="menu-item" onclick="go('update')">
+      <div class="ic">📢</div>
+      <div><div style="font-weight:600">${t('update_title')}</div>
+      <small>${t('update_sub')}</small></div>
+    </div>
+    <div class="menu-item" onclick="go('about')">
+      <div class="ic">🇻🇳</div>
+      <div><div style="font-weight:600">${t('about_title')}</div>
+      <small>${t('made_in_vn')}</small></div>
+    </div>
+    ${currentUser ? `
+      <div class="menu-sep"></div>
+      <div class="menu-item" onclick="logout()">
+        <div class="ic">🚪</div>
+        <div><div style="font-weight:600;color:#fca5a5">${t('logout')}</div>
+        <small>${t('logout_btn')}</small></div>
+      </div>` : ''}
+  `;
+}
+
+function renderLangDrop() {
+  const ld = $('langDrop');
+  if (!ld) return;
+  const list = Object.keys(LANGS).map(k => {
+    const L = LANGS[k];
+    const active = k === currentLang ? ' active' : '';
+    return `<div class="lang-item${active}" onclick="setLang('${k}')">
+      <span class="flag">${L.flag}</span>
+      <span class="name">${L.name}</span>
+      <span class="code">${L.code}</span>
+    </div>`;
+  }).join('');
+  ld.innerHTML = `<div id="langList">${list}</div>`;
+}
+
+/* ============================================================
+   ============ NAV =========================================
+   ============================================================ */
+function go(page) {
+  currentPage = page;
+  const m = $('menuDrop'); if (m) m.classList.remove('open');
+  const ld = $('langDrop'); if (ld) ld.classList.remove('open');
+  window.scrollTo(0, 0);
+  if (page === 'main') renderCreator();
+  else if (page === 'profile') renderProfile();
+  else if (page === 'auth') renderAuth();
+  else if (page === 'update') renderUpdate();
+  else if (page === 'about') renderAbout();
+  else if (page === 'event') renderEvent();
+  else if (page === 'shop') renderShop();
+  else if (page === 'redeem') renderRedeem();
+  updateTopBuo();
+}
+
+/* ============================================================
+   ============ AUTH ========================================
+   ============================================================ */
+function renderAuth() {
+  $('app').innerHTML = `
+    <div class="hero">
+      <div class="sec-badge">🔒 PBKDF2 + Anti-Bypass v7.5</div>
+      <h1>${t('welcome')}</h1>
+      <p>${t('login_or_register')}</p>
+    </div>
+    <div class="card">
+      <div class="auth-tabs">
+        <div class="auth-tab ${authMode==='login'?'active':''}" onclick="setAuthMode('login')">${t('login')}</div>
+        <div class="auth-tab ${authMode==='register'?'active':''}" onclick="setAuthMode('register')">${t('register')}</div>
+      </div>
+      <div class="auth-form ${authMode==='login'?'active':''}" id="formLogin">
+        <div class="form-group"><label>${t('email')}</label>
+          <input type="email" id="lgEmail" placeholder="you@example.com" autocomplete="email" maxlength="120"></div>
+        <div class="form-group"><label>${t('password')}</label>
+          <input type="password" id="lgPass" placeholder="••••••••" autocomplete="current-password" maxlength="128"></div>
+        <div class="error-msg" id="lgErr"></div>
+        <button class="btn btn-primary" style="margin-top:8px" onclick="doLogin()">🔓 ${t('login')}</button>
+      </div>
+      <div class="auth-form ${authMode==='register'?'active':''}" id="formRegister">
+        <div class="avatar-upload">
+          <div class="avatar-preview" id="avatarPreview" onclick="pickAvatar()"><span id="avatarInitial">?</span></div>
+          <input type="file" id="avatarInput" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none" onchange="onAvatarPick(event)">
+          <small style="color:var(--muted);font-size:.8rem">📷 ≤512KB</small>
+        </div>
+        <div class="form-group"><label>${t('name')}</label>
+          <input type="text" id="rgName" placeholder="Nguyễn Văn A" maxlength="30" autocomplete="nickname"></div>
+        <div class="form-group"><label>${t('email')}</label>
+          <input type="email" id="rgEmail" placeholder="you@example.com" autocomplete="email" maxlength="120"></div>
+        <div class="form-group"><label>${t('password')}</label>
+          <input type="password" id="rgPass" placeholder="≥8 ký tự" autocomplete="new-password" maxlength="128"></div>
+        <div class="error-msg" id="rgErr"></div>
+        <button class="btn btn-primary" style="margin-top:8px" onclick="doRegister()">${t('create_account')}</button>
+      </div>
+    </div>
+    ${renderFooter()}
+  `;
+  updateAvatarPreview();
+}
+function setAuthMode(mode) { authMode = mode; renderAuth(); }
+function pickAvatar() { const i = $('avatarInput'); if (i) i.click(); }
+async function onAvatarPick(e) {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  const v = await validateAvatar(file);
+  if (!v.ok) { alert('Ảnh không hợp lệ: ' + v.reason); e.target.value = ''; return; }
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const max = 256;
+        const scale = Math.min(1, max / Math.max(img.width, img.height));
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        pickedAvatarDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+        updateAvatarPreview();
+      } catch { alert('Không xử lý được ảnh'); }
+    };
+    img.onerror = () => alert('Ảnh bị lỗi');
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+function updateAvatarPreview() {
+  const prev = $('avatarPreview');
+  if (!prev) return;
+  if (pickedAvatarDataUrl) prev.innerHTML = `<img src="${escapeHtml(pickedAvatarDataUrl)}" alt="">`;
+  else {
+    const n = ($('rgName')?.value || '').trim();
+    prev.innerHTML = `<span>${escapeHtml(n ? n.charAt(0).toUpperCase() : '?')}</span>`;
+  }
+}
+document.addEventListener('input', e => {
+  if (e.target && e.target.id === 'rgName') updateAvatarPreview();
+});
+async function doRegister() {
+  const name = ($('rgName')?.value || '').trim();
+  const email = ($('rgEmail')?.value || '').trim().toLowerCase();
+  const pass = $('rgPass')?.value || '';
+  const err = $('rgErr');
+  const showErr = msg => { err.textContent = msg; err.classList.add('show'); };
+  if (!name || name.length < 2) return showErr('Tên cần ít nhất 2 ký tự');
+  if (name.length > 30) return showErr('Tên quá dài');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showErr('Email không hợp lệ');
+  if (pass.length < SECURITY.MIN_PASSWORD_LENGTH) return showErr(`Mật khẩu ≥ ${SECURITY.MIN_PASSWORD_LENGTH}`);
+  if (!/[A-Z]/.test(pass) || !/[a-z]/.test(pass) || !/[0-9]/.test(pass))
+    return showErr('Cần chữ HOA, thường, số');
+  const existing = SafeStore.get(LS_USER, null);
+  if (existing && existing.email === email) return showErr('Email đã đăng ký trên máy này');
+  try {
+    const { hash, salt } = await hashPassword(pass);
+    currentUser = {
+      name: escapeHtml(name), email,
+      passwordHash: hash, passwordSalt: salt,
+      avatar: pickedAvatarDataUrl || null,
+      createdAt: Date.now(),
+      rank: null, titles: [],
+    };
+    saveUser();
+    pickedAvatarDataUrl = null;
+    go('profile');
+  } catch (e) { showErr('Lỗi: ' + e.message); }
+}
+async function doLogin() {
+  const email = ($('lgEmail')?.value || '').trim().toLowerCase();
+  const pass = $('lgPass')?.value || '';
+  const err = $('lgErr');
+  const showErr = msg => { err.textContent = msg; err.classList.add('show'); };
+  if (!email || !pass) return showErr('Nhập đầy đủ');
+  const rl = RateLimit.check('login');
+  if (!rl.ok) return showErr(`Quá nhiều lần thử. Đợi ${rl.retryIn}s`);
+  const stored = SafeStore.get(LS_USER, null);
+  if (!stored) return showErr('Chưa có tài khoản trên máy này');
+  try {
+    const ok = await verifyPassword(pass, stored.passwordHash, stored.passwordSalt);
+    if (!ok || stored.email !== email) return showErr('Email hoặc mật khẩu sai');
+    currentUser = stored;
+    TamperGuard.clear();
+    updateTopBuo();
+    go('profile');
+  } catch (e) { showErr('Lỗi: ' + e.message); }
+}
+function logout() {
+  currentUser = null;
+  saveUser();
+  const m = $('menuDrop'); if (m) m.classList.remove('open');
+  go('main');
+}
+
+/* ============================================================
+   ============ FOOTER ======================================
+   ============================================================ */
+function renderFooter() {
+  return `
+    <div class="footer">
+      <div class="footer-brand">LinkGO ${VERSION}</div>
+      <div style="font-size:.75rem;margin-top:4px">
+        <span class="footer-vn">🇻🇳 ${t('made_in_vn')}</span>
+      </div>
+      <div class="footer-links">
+        <a onclick="go('main')">${t('main')}</a>
+        <a onclick="go('event')">Event</a>
+        <a onclick="go('shop')">Shop</a>
+        <a onclick="go('redeem')">Redeem</a>
+        <a onclick="go('update')">${t('update_title')}</a>
+        <a onclick="go('about')">${t('about_title')}</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 <strong>LinkGO</strong> — ${t('copyright')}. ${t('all_rights')}.
+      </div>
+      <div class="footer-copy" style="margin-top:4px;opacity:.55">
+        ${VERSION} • ${t('made_with')}
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   ============ EVENT PAGE ==================================
+   ============================================================ */
+function renderEvent() {
+  const tl = EventStore.getTimeLeft();
+  const eventActive = tl.state === 'active';
+
+  if (!currentUser) {
+    $('app').innerHTML = `
+      <div class="anniversary-banner">🇻🇳 KỶ NIỆM 1 NĂM LINKGO • EVENT VIETNAM WOW 🇻🇳</div>
+      <div class="event-wow-header">
+        <div class="big-flag">🇻🇳</div>
+        <h1>LinkGO Event-VietNam</h1>
+        <p style="color:var(--muted);font-size:.95rem">Sự kiện đặc biệt — Trả lời câu hỏi về Việt Nam & nhận LinkBUO</p>
+      </div>
+      <div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">🔐</div>
+        <h2 style="margin-bottom:12px">Cần đăng nhập</h2>
+        <p style="color:var(--muted);margin-bottom:20px">Đăng nhập để tham gia Event và nhận LinkBUO</p>
+        <button class="btn btn-primary" onclick="go('auth')">👤 Đăng nhập / Đăng ký</button>
+      </div>
+      ${renderFooter()}
+    `;
+    return;
+  }
+
+  if (!eventActive) {
+    $('app').innerHTML = `
+      <div class="anniversary-banner">🇻🇳 KỶ NIỆM 1 NĂM LINKGO • EVENT VIETNAM WOW 🇻🇳</div>
+      <div class="event-wow-header">
+        <div class="big-flag">🇻🇳</div>
+        <h1>LinkGO Event-VietNam</h1>
+        <p style="color:var(--muted);font-size:.95rem">Sự kiện đặc biệt — Trả lời câu hỏi về Việt Nam</p>
+      </div>
+      <div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:4rem;margin-bottom:14px">⏰</div>
+        <h2 style="margin-bottom:12px;color:#fca5a5">
+          ${tl.state === 'not_started' ? 'Event chưa bắt đầu' : 'Event đã hết'}
+        </h2>
+        <p style="color:var(--muted);line-height:1.7">
+          ${tl.state === 'not_started'
+            ? `Event sẽ bắt đầu vào <strong>01/10/2026</strong>`
+            : `Event đã kết thúc vào <strong>20/10/2026</strong>`}
+        </p>
+        <div style="margin-top:24px;padding:16px;background:rgba(5,11,26,.6);border-radius:14px;border:1px solid var(--border)">
+          <div style="font-size:.85rem;color:var(--muted);margin-bottom:8px">Thời gian Event</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--accent)">
+            01/10/2026 → 20/10/2026
+          </div>
+        </div>
+        <button class="btn btn-outline" style="margin-top:20px" onclick="go('main')">🏠 ${t('main')}</button>
+      </div>
+      ${renderFooter()}
+    `;
+    return;
+  }
+
+  const progress = EventStore.getProgress();
+
+  if (progress && progress.completed) {
+    renderEventResult(progress);
+    return;
+  }
+
+  if (!progress) {
+    EventStore.startBatch();
+    renderEvent();
+    return;
+  }
+
+  const answered = progress.answers.filter(a => a != null).length;
+  const allAnswered = answered === progress.questions.length;
+
+  const timeLeftStr = formatDuration(tl.ms);
+
+  const questionsHtml = progress.questions.map((qq, qi) => {
+    const selected = progress.answers[qi];
+    const optsHtml = qq.opts.map((opt, oi) => {
+      const sel = selected === oi;
+      return `<div class="quiz-opt${sel ? ' selected' : ''}" onclick="answerQuiz(${qi},${oi})">
+        <span class="opt-letter">${String.fromCharCode(65 + oi)}</span>
+        <span>${escapeHtml(opt.text)}</span>
+      </div>`;
+    }).join('');
+    return `<div class="quiz-question">
+      <div class="q-num">${qi + 1}</div>
+      <div class="q-text">${escapeHtml(qq.q)}</div>
+      <div class="quiz-options">${optsHtml}</div>
+    </div>`;
+  }).join('');
+
+  $('app').innerHTML = `
+    <div class="anniversary-banner">🇻🇳 KỶ NIỆM 1 NĂM LINKGO • EVENT VIETNAM WOW 🇻🇳</div>
+    <div class="event-wow-header">
+      <div class="big-flag">🇻🇳</div>
+      <h1>Event-VietNam WOW</h1>
+      <p>Trả lời đúng ≥80% (4/5 câu) để nhận <strong style="color:var(--gold)">75 LinkBUO</strong> 🪙</p>
+      <div class="event-timer">⏰ Còn lại: ${timeLeftStr}</div>
+    </div>
+    <div class="card event-card">
+      <div class="section-title">📝 Nhiệm vụ ${progress.batchId?.slice(0,6) || ''}</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${answered/progress.questions.length*100}%"></div></div>
+      <div style="text-align:center;color:var(--muted);font-size:.85rem;margin-bottom:16px">
+        Đã trả lời: <strong style="color:var(--accent)">${answered}/${progress.questions.length}</strong>
+      </div>
+      ${questionsHtml}
+      <button class="btn btn-gold" ${allAnswered ? '' : 'disabled'} onclick="submitQuiz()">
+        ${allAnswered ? '🏆 Nộp bài & Ăn mừng' : `⏳ Còn ${progress.questions.length - answered} câu`}
+      </button>
+      <button class="btn btn-outline" style="margin-top:12px" onclick="resetQuizBatch()">🔄 Đổi bộ câu hỏi</button>
+    </div>
+    <div class="card" style="background:linear-gradient(180deg, rgba(251,191,36,.06), rgba(245,158,11,.02));border-color:rgba(251,191,36,.3)">
+      <div class="section-title" style="color:var(--gold)">🪙 LinkBUO của bạn</div>
+      <div style="text-align:center;padding:14px">
+        <div style="font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${BuoStore.getBalance()}</div>
+        <div style="color:var(--muted);font-size:.82rem;margin-top:4px">LinkBUO</div>
+        <button class="btn btn-outline btn-sm" style="margin-top:12px" onclick="go('shop')">🛍️ Đến Shop đổi quà</button>
+      </div>
+    </div>
+    ${renderFooter()}
+  `;
+}
+
+function formatDuration(ms) {
+  if (ms <= 0) return '00:00:00';
+  const s = Math.floor(ms / 1000);
+  const d = Math.floor(s / 86400);
+  const h = Math.floor((s % 86400) / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  if (d > 0) return `${d} ngày ${h}h ${m}m`;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+function answerQuiz(qIdx, oIdx) {
+  EventStore.answer(qIdx, oIdx);
+  renderEvent();
+}
+
+function submitQuiz() {
+  const result = EventStore.finish();
+  if (!result) return;
+  if (result.passed) {
+    showBuoFly(`+${result.rewarded} 🪙`);
+    launchConfetti();
+    launchFireworks();
+  }
+  renderEventResult(result);
+}
+
+function resetQuizBatch() {
+  EventStore.resetBatch();
+  EventStore.startBatch();
+  renderEvent();
+  toast('🔄 Đã đổi bộ câu hỏi mới');
+}
+
+function renderEventResult(p) {
+  const pct = p.percent;
+  const passed = p.passed;
+  const msg = passed
+    ? (pct === 100 ? '🏆 Xuất sắc! Bạn là chuyên gia Việt Nam!' : '🎉 Chúc mừng! Bạn đã vượt qua!')
+    : '😢 Chưa đạt 80%. Hãy thử lại!';
+  const color = passed ? '#6ee7b7' : '#fca5a5';
+
+  $('app').innerHTML = `
+    <div class="anniversary-banner">🇻🇳 KỶ NIỆM 1 NĂM • EVENT VIETNAM WOW 🇻🇳</div>
+    <div class="event-wow-header">
+      <div class="big-flag">${passed ? '🏆' : '🇻🇳'}</div>
+      <h1>Kết quả Event</h1>
+      <p>Phiên bản kỷ niệm 1 năm LinkGO</p>
+    </div>
+    <div class="card event-card">
+      <div class="quiz-result">
+        <div class="score" style="animation:scorePop .6s cubic-bezier(.22,1,.36,1)">${pct}%</div>
+        <div class="quiz-pct">${p.correct}/${p.total} câu đúng</div>
+        <div class="msg" style="color:${color}">${msg}</div>
+        <div class="sub">
+          ${passed
+            ? `Bạn nhận được <strong style="color:var(--gold);font-size:1.2rem">+${p.rewarded} LinkBUO</strong> 🪙`
+            : `Cần đúng ≥80% (4/5 câu). Bạn đúng ${p.correct}/${p.total}.`}
+        </div>
+      </div>
+      ${passed ? `
+        <div style="text-align:center;padding:16px;background:linear-gradient(135deg,rgba(251,191,36,.12),rgba(245,158,11,.05));border-radius:14px;border:1px solid rgba(251,191,36,.4);margin-bottom:16px">
+          <div style="font-size:.82rem;color:var(--muted);margin-bottom:6px">Số dư LinkBUO hiện tại</div>
+          <div style="font-size:2rem;font-weight:900;color:var(--gold)">${BuoStore.getBalance()} 🪙</div>
+        </div>
+      ` : ''}
+      <button class="btn ${passed ? 'btn-gold' : 'btn-primary'}" onclick="resetQuizBatch()">
+        🔄 Làm nhiệm vụ mới
+      </button>
+      <button class="btn btn-outline" style="margin-top:10px" onclick="go('shop')">🛍️ Đến Shop</button>
+      <button class="btn btn-outline" style="margin-top:10px" onclick="go('main')">🏠 ${t('main')}</button>
+    </div>
+    ${renderFooter()}
+  `;
+  if (passed) {
+    setTimeout(() => { launchConfetti(); launchFireworks(); }, 300);
+  }
+}
+
+function showBuoFly(text) {
+  const f = el('div', 'buo-fly', text);
+  f.style.left = '50%';
+  f.style.top = '40%';
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 1100);
+}
+
+/* ============================================================
+   ============ SHOP PAGE ===================================
+   ============================================================ */
+function renderShop() {
+  if (!currentUser) {
+    $('app').innerHTML = `
+      <div class="hero">
+        <h1>🛍️ SHOP</h1>
+        <p>Đổi LinkBUO lấy rank và danh hiệu</p>
+      </div>
+      <div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">🔐</div>
+        <h2 style="margin-bottom:12px">Cần đăng nhập</h2>
+        <button class="btn btn-primary" onclick="go('auth')">👤 Đăng nhập / Đăng ký</button>
+      </div>
+      ${renderFooter()}
+    `;
+    return;
+  }
+
+  const balance = BuoStore.getBalance();
+  const myRank = RankStore.getUserRank();
+  const myTitles = RankStore.getUserTitles();
+
+  const items = [
+    {
+      tier: 'bronze', price: 150,
+      name: 'VIP Đồng',
+      desc: 'Rank VIP cơ bản — phù hợp người mới',
+      perks: ['Vương miện đồng ♛ cuối tên', 'Danh hiệu VietNam-Event', 'Hiển thị rank trong profile'],
+    },
+    {
+      tier: 'silver', price: 250,
+      name: 'VVIP Bạc',
+      desc: 'Rank VVIP — nhiều đặc quyền hơn',
+      perks: ['Vương miện bạc ♛♛ cuối tên', 'Danh hiệu VietNam-Reward + VietNam-Event', 'Tất cả quyền lợi VIP Đồng'],
+    },
+    {
+      tier: 'gold', price: 450,
+      name: 'SSS-VIP Vàng',
+      desc: 'Rank cao cấp nhất — vương miện vàng lấp lánh',
+      perks: ['Vương miện vàng ✦♛✦ cuối tên', 'Danh hiệu Thanks-Vietnam + VietNam-Reward + VietNam-Event', 'Tất cả quyền lợi VVIP Bạc'],
+    },
+  ];
+
+  const itemsHtml = items.map(item => {
+    const r = RankStore.getRank(item.tier);
+    const canAfford = balance >= item.price;
+    const owned = myRank === item.tier;
+    const rankOrder = { bronze: 1, silver: 2, gold: 3 };
+    const myOrder = myRank ? rankOrder[myRank] : 0;
+    const itemOrder = rankOrder[item.tier];
+    const alreadyHigher = myOrder >= itemOrder && !owned;
+    const disabled = !canAfford || owned || alreadyHigher;
+    const btnText = owned ? '✅ Đã sở hữu'
+      : alreadyHigher ? '⬆️ Bạn đã có rank cao hơn'
+      : !canAfford ? `Thiếu ${item.price - balance} LinkBUO 🪙`
+      : `🎁 Đổi ${item.price} LinkBUO`;
+    return `
+      <div class="shop-item ${item.tier}">
+        <div class="shop-tier ${item.tier}">${r.icon} ${r.name}</div>
+        <h3>${escapeHtml(item.name)}</h3>
+        <div class="desc">${escapeHtml(item.desc)}</div>
+        <ul class="perks">${item.perks.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul>
+        <div class="shop-price">
+          <div class="price">${item.price} <small>LinkBUO 🪙</small></div>
+          <button class="btn btn-sm ${item.tier === 'gold' ? 'btn-gold' : item.tier === 'silver' ? 'btn-outline' : 'btn-outline'}"
+            ${disabled ? 'disabled' : ''} onclick="buyRank('${item.tier}', ${item.price})">
+            ${btnText}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  $('app').innerHTML = `
+    <div class="hero">
+      <h1>🛍️ SHOP</h1>
+      <p>Đổi LinkBUO lấy rank và danh hiệu</p>
+    </div>
+    <div class="card shop-card" style="background:linear-gradient(180deg, rgba(251,191,36,.08), rgba(245,158,11,.03));border-color:rgba(251,191,36,.35)">
+      <div style="text-align:center;padding:10px">
+        <div style="font-size:.85rem;color:var(--muted);margin-bottom:6px">Số dư LinkBUO</div>
+        <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1">${balance} 🪙</div>
+        ${myRank ? `<div style="margin-top:14px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap">${renderRankBadge(myRank)}</div>` : ''}
+        ${myTitles.length ? `<div style="margin-top:10px">${renderTitleBadges(myTitles)}</div>` : ''}
+      </div>
+      <div style="display:flex;gap:8px;margin-top:16px">
+        <button class="btn btn-outline btn-sm" style="flex:1" onclick="go('event')">🎉 Kiếm LinkBUO</button>
+        <button class="btn btn-outline btn-sm" style="flex:1" onclick="go('redeem')">🎫 Nhập code</button>
+      </div>
+    </div>
+    <div class="section-title" style="margin-top:20px">🏆 Các gói rank</div>
+    ${itemsHtml}
+    <div class="card" style="margin-top:16px;background:linear-gradient(180deg, rgba(16,185,129,.06), rgba(6,182,212,.02));border-color:rgba(16,185,129,.3)">
+      <div class="section-title" style="color:#6ee7b7">💡 Cách kiếm LinkBUO</div>
+      <ul style="font-size:.88rem;line-height:1.9;color:#cbd5e1;padding-left:20px">
+        <li>🎉 Tham gia <strong>Event</strong> — trả lời đúng ≥80% nhận <strong style="color:var(--gold)">50 LinkBUO</strong>/nhiệm vụ</li>
+        <li>🎫 Nhập code từ Admin hoặc từ đổi thưởng</li>
+        <li>💎 LinkBUO lưu vĩnh viễn trong profile</li>
+      </ul>
+    </div>
+    ${renderFooter()}
+  `;
+}
+
+function buyRank(tier, price) {
+  if (!currentUser) return;
+  if (currentUser.rank) {
+    const order = { bronze: 1, silver: 2, gold: 3 };
+    if (order[currentUser.rank] >= order[tier]) {
+      toast('⚠️ Bạn đã có rank tương đương hoặc cao hơn');
+      return;
+    }
+  }
+  if (!confirm(`Đổi ${price} LinkBUO lấy rank ${RankStore.getRank(tier).name}?`)) return;
+  if (!BuoStore.spend(price)) { toast('❌ Không đủ LinkBUO'); return; }
+  RankStore.applyToUser(tier);
+  toast(`🎉 Nhận rank ${RankStore.getRank(tier).name}!`);
+  renderShop();
+  renderMenu();
+}
+
+/* ============================================================
+   ============ REDEEM PAGE ================================
+   ============================================================ */
+function renderRedeem() {
+  if (!currentUser) {
+    $('app').innerHTML = `
+      <div class="hero">
+        <h1>🎫 REDEEM</h1>
+        <p>Nhập code để nhận rank và danh hiệu</p>
+      </div>
+      <div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">🔐</div>
+        <h2 style="margin-bottom:12px">Cần đăng nhập</h2>
+        <button class="btn btn-primary" onclick="go('auth')">👤 Đăng nhập / Đăng ký</button>
+      </div>
+      ${renderFooter()}
+    `;
+    return;
+  }
+
+  const myCodes = CodeStore.getMine();
+  const now = Date.now();
+  const codesHtml = myCodes.length ? myCodes.map(c => {
+    const r = RankStore.getRank(c.tier);
+    const msLeft = c.expiresAt - now;
+    const daysLeft = Math.floor(msLeft / 86400000);
+    const hoursLeft = Math.floor((msLeft % 86400000) / 3600000);
+    let expiryCls = '', expiryText = '';
+    if (msLeft <= 0) { expiryCls = 'danger'; expiryText = '❌ Đã hết hạn'; }
+    else if (daysLeft < 2) { expiryCls = 'danger'; expiryText = `⚠️ Còn ${hoursLeft}h`; }
+    else if (daysLeft < 5) { expiryCls = 'warn'; expiryText = `⏰ Còn ${daysLeft} ngày`; }
+    else { expiryText = `⏰ Còn ${daysLeft} ngày`; }
+    return `
+      <div class="code-item ${c.tier}">
+        <div class="tier-icon">${r.icon}</div>
+        <div class="info">
+          <div class="name">${r.name}</div>
+          <div class="code">${escapeHtml(c.code)}</div>
+          <div class="expiry ${expiryCls}">${expiryText}</div>
+        </div>
+      </div>
+    `;
+  }).join('') : `
+    <div style="text-align:center;padding:30px 16px;color:var(--muted);font-size:.88rem">
+      <div style="font-size:2.5rem;margin-bottom:10px;opacity:.5">🎫</div>
+      Chưa có code nào.<br>Đổi LinkBUO ở Shop để nhận code!
+    </div>
+  `;
+
+  $('app').innerHTML = `
+    <div class="hero">
+      <h1>🎫 REDEEM</h1>
+      <p>Nhập code để nhận rank và danh hiệu</p>
+    </div>
+    <div class="card">
+      <div class="redeem-box">
+        <div class="section-title" style="color:#6ee7b7">🔑 Nhập code</div>
+        <input class="redeem-code-input" id="redeemInput" placeholder="Dán code vào đây..." autocomplete="off" spellcheck="false">
+        <button class="btn btn-success" onclick="doRedeem()">✅ Xác nhận code</button>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:12px;line-height:1.6">
+          💡 Code có hạn <strong>3 tuần</strong> kể từ ngày tạo.<br>
+          Hết hạn code mất nhưng <strong>danh hiệu đã nhận vẫn giữ</strong>.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">🎫 Code của bạn (${myCodes.length})</div>
+      ${codesHtml}
+    </div>
+    ${renderFooter()}
+  `;
+}
+
+function doRedeem() {
+  const input = $('redeemInput');
+  if (!input) return;
+  const code = input.value.trim();
+  if (!code) { toast('⚠️ Nhập code trước'); return; }
+
+  // Admin code đặc biệt
+  if (code === ADMIN_CODE) {
+    if (!currentUser) { toast('❌ Cần đăng nhập'); return; }
+    currentUser.rank = 'gold';
+    currentUser.titles = ['Thanks-Vietnam', 'VietNam-Reward', 'VietNam-Event'];
+    saveUser();
+    input.value = '';
+    toast('👑 Admin code! Nhận rank SSS-VIP + 3 danh hiệu');
+    renderRedeem();
+    renderMenu();
+    return;
+  }
+
+  const result = CodeStore.validate(code);
+  if (!result.ok) {
+    toast('❌ Code không hợp lệ hoặc đã hết hạn');
+    return;
+  }
+
+  const item = result.item;
+  const tier = item.tier;
+  const order = { bronze: 1, silver: 2, gold: 3 };
+
+  // Nếu chưa có rank hoặc rank mới cao hơn
+  if (!currentUser.rank || order[tier] > order[currentUser.rank]) {
+    currentUser.rank = tier;
+    currentUser.titles = RankStore.getTitles(tier);
+    saveUser();
+  } else {
+    // Vẫn cộng danh hiệu nếu chưa có
+    const newTitles = RankStore.getTitles(tier);
+    const merged = [...new Set([...(currentUser.titles || []), ...newTitles])];
+    currentUser.titles = merged;
+    saveUser();
+  }
+
+  CodeStore.markUsed(code);
+  input.value = '';
+  toast(`🎉 Nhận rank ${RankStore.getRank(tier).name}!`);
+  renderRedeem();
+  renderMenu();
+}
+
+/* ============================================================
+   ============ PROFILE =====================================
+   ============================================================ */
+function renderProfile() {
+  if (!currentUser) { authMode = 'register'; return go('auth'); }
+  const links = loadLinks();
+  const myLinks = links.filter(l => l.ownerEmail === currentUser.email).sort((a, b) => b.createdAt - a.createdAt);
+  const totalClicks = myLinks.reduce((s, l) => s + (l.clicks || 0), 0);
+  const avatarHtml = currentUser.avatar
+    ? `<img src="${escapeHtml(currentUser.avatar)}" alt="">`
+    : escapeHtml((currentUser.name || '?').charAt(0).toUpperCase());
+  const usernameSlug = encodeURIComponent(
+    (currentUser.email.split('@')[0] + '-' + currentUser.name.replace(/\s+/g, ''))
+      .slice(0, 40).replace(/[^a-zA-Z0-9\-]/g, '')
+  );
+  const profileShareLink = location.href.split('#')[0].split('?')[0] + `#/u/${usernameSlug}`;
+  const balance = BuoStore.getBalance();
+  const myRank = RankStore.getUserRank();
+  const myTitles = RankStore.getUserTitles();
+  const crown = myRank ? RankStore.getCrown(myRank) : '';
+
+  $('app').innerHTML = `
+    <div class="hero" style="padding:8px 0 20px">
+      <div class="vn-badge"><span class="flag">🇻🇳</span> ${t('vn_badge')}</div>
+      <h1 style="font-size:1.6rem">${t('profile_title')}</h1>
+    </div>
+    <div class="card">
+      <div class="profile-hero">
+        <div class="profile-avatar">${avatarHtml}</div>
+        <div class="profile-info">
+          <h3>${escapeHtml(currentUser.name)} ${crown}</h3>
+          <p>${escapeHtml(currentUser.email)}</p>
+          <p style="font-size:.78rem;margin-top:4px">${t('joined')} ${new Date(currentUser.createdAt).toLocaleDateString('vi-VN')}</p>
+          ${myRank ? `<div style="margin-top:8px">${renderRankBadge(myRank)}</div>` : ''}
+          ${myTitles.length ? `<div style="margin-top:6px">${renderTitleBadges(myTitles)}</div>` : ''}
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="v">${myLinks.length}</div><div class="k">${t('links_created')}</div></div>
+        <div class="stat-box"><div class="v">${totalClicks}</div><div class="k">${t('total_clicks')}</div></div>
+        <div class="stat-box gold"><div class="v">${balance}</div><div class="k">LinkBUO 🪙</div></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+        <button class="btn btn-outline btn-sm" style="flex:1" onclick="go('event')">🎉 Event</button>
+        <button class="btn btn-outline btn-sm" style="flex:1" onclick="go('shop')">🛍️ Shop</button>
+        <button class="btn btn-outline btn-sm" style="flex:1" onclick="go('redeem')">🎫 Redeem</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title" style="margin-top:4px">${t('share_profile')}</div>
+      <div class="short-link" id="profShare">${escapeHtml(profileShareLink)}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+        <button class="btn btn-success btn-sm" onclick="copyProfileLink()">${t('copy_btn')}</button>
+        <button class="btn btn-outline btn-sm" onclick="shareProfile()">🔗 ${t('share_profile')}</button>
+        <button class="btn btn-outline btn-sm" onclick="showQRModal('${escapeHtml(profileShareLink).replace(/'/g,"\\'")}', 'Profile')">📱 QR</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px;flex-wrap:wrap">
+        <div class="section-title" style="margin:0">${t('history')} (${myLinks.length})</div>
+        <select id="linkSort" onchange="renderLinkList()">
+          <option value="new">${t('sort_new')}</option>
+          <option value="old">${t('sort_old')}</option>
+          <option value="clicks">${t('sort_clicks')}</option>
+          <option value="name">${t('sort_name')}</option>
+        </select>
+      </div>
+      <input type="text" id="linkSearch" placeholder="${t('search_placeholder')}"
+        autocomplete="off"
+        style="width:100%;background:rgba(5,11,26,.7);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--text);font-size:.92rem;outline:none;font-family:inherit;margin-bottom:12px">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+        <button class="btn btn-outline btn-sm" onclick="filterLinks('all')" data-filter="all">${t('filter_all')}</button>
+        <button class="btn btn-outline btn-sm" onclick="filterLinks('today')" data-filter="today">${t('filter_today')}</button>
+        <button class="btn btn-outline btn-sm" onclick="filterLinks('week')" data-filter="week">${t('filter_week')}</button>
+        <button class="btn btn-outline btn-sm" onclick="filterLinks('zero')" data-filter="zero">${t('filter_zero')}</button>
+      </div>
+      <div id="linkList"></div>
+    </div>
+
+    <div class="card">
+      <button class="btn btn-danger" onclick="logout()">${t('logout_btn')}</button>
+    </div>
+    ${renderFooter()}
+  `;
+  window.__myLinks = myLinks;
+  window.__linkFilter = 'all';
+  const search = $('linkSearch');
+  let debounce;
+  search.oninput = () => {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => renderLinkList(), 180);
+  };
+  renderLinkList();
+}
+
+function filterLinks(kind) {
+  window.__linkFilter = kind;
+  document.querySelectorAll('[data-filter]').forEach(b => {
+    const active = b.dataset.filter === kind;
+    b.style.background = active ? 'rgba(59,130,246,.3)' : '';
+    b.style.borderColor = active ? 'var(--primary)' : '';
+  });
+  renderLinkList();
+}
+
+function renderLinkList() {
+  const wrap = $('linkList');
+  if (!wrap) return;
+  const q = ($('linkSearch')?.value || '').trim().toLowerCase();
+  const sort = $('linkSort')?.value || 'new';
+  const filter = window.__linkFilter || 'all';
+  let list = [...(window.__myLinks || [])];
+  const now = Date.now();
+  if (filter === 'today') {
+    const start = new Date(); start.setHours(0,0,0,0);
+    list = list.filter(l => l.createdAt >= start.getTime());
+  } else if (filter === 'week') {
+    list = list.filter(l => now - l.createdAt < 7 * 86400_000);
+  } else if (filter === 'zero') {
+    list = list.filter(l => !l.clicks);
+  }
+  if (q) {
+    list = list.filter(l =>
+      (l.target || '').toLowerCase().includes(q) ||
+      (l.name || '').toLowerCase().includes(q) ||
+      (l.token || '').toLowerCase().includes(q)
+    );
+  }
+  if (sort === 'new') list.sort((a, b) => b.createdAt - a.createdAt);
+  else if (sort === 'old') list.sort((a, b) => a.createdAt - b.createdAt);
+  else if (sort === 'clicks') list.sort((a, b) => (b.clicks || 0) - (a.clicks || 0));
+  else if (sort === 'name') list.sort((a, b) => (a.name || '').localeCompare(b.name || '', 'vi'));
+
+  if (list.length === 0) {
+    wrap.innerHTML = `<p style="color:var(--muted);font-size:.88rem;text-align:center;padding:24px">
+      ${q ? t('no_match') : t('no_links')}
+    </p>`;
+    return;
+  }
+
+  wrap.innerHTML = list.map(l => {
+    const shortEsc = escapeHtml(l.short).replace(/'/g, "\\'");
+    const targetShort = (l.target || '').length > 55
+      ? escapeHtml(l.target.slice(0, 55)) + '...'
+      : escapeHtml(l.target);
+    const timeStr = new Date(l.createdAt).toLocaleString('vi-VN', {
+      day: '2-digit', month: '2-digit', year: '2-digit',
+      hour: '2-digit', minute: '2-digit',
+    });
+    const taskCount = Array.isArray(l.tasks) ? l.tasks.length : 0;
+    return `
+      <div style="padding:14px;background:rgba(5,11,26,.6);border:1px solid var(--border);border-radius:12px;margin-bottom:10px">
+        <div style="min-width:0;flex:1;margin-bottom:10px">
+          <div style="font-weight:600;font-size:.88rem;word-break:break-all;line-height:1.35">${targetShort}</div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:6px;display:flex;gap:10px;flex-wrap:wrap">
+            <span>🎯 <strong style="color:var(--accent)">${escapeHtml(l.name)}</strong></span>
+            <span>🔢 ${taskCount} task</span>
+            <span>👁️ ${l.clicks || 0}</span>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);margin-top:4px">
+            🕐 ${timeStr} • Token: <code style="color:#93c5fd">${escapeHtml(l.token || '')}</code>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn btn-success btn-sm" onclick="copyOneLink('${shortEsc}')">${t('copy_btn')}</button>
+          <button class="btn btn-outline btn-sm" onclick="showQRModal('${shortEsc}', '${escapeHtml(l.name).replace(/'/g,"\\'")}')">📱 QR</button>
+          <button class="btn btn-outline btn-sm" onclick="openShort('${shortEsc}')">${t('open_btn')}</button>
+          <button class="btn btn-outline btn-sm" onclick="deleteLink('${escapeHtml(l.token).replace(/'/g,"\\'")}')">${t('delete_btn')}</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function openShort(url) {
+  const hashIdx = url.indexOf('#');
+  if (hashIdx >= 0) location.hash = url.slice(hashIdx + 1);
+  else window.open(url, '_blank', 'noopener,noreferrer');
+}
+function deleteLink(token) {
+  if (!confirm('Xoá link này?')) return;
+  const links = loadLinks();
+  const filtered = links.filter(l => !(l.token === token && l.ownerEmail === currentUser?.email));
+  saveLinks(filtered);
+  toast('🗑️ Đã xoá');
+  renderProfile();
+}
+function copyProfileLink() {
+  const txt = $('profShare')?.textContent || '';
+  navigator.clipboard.writeText(txt).then(() => toast('✅ Đã copy')).catch(() => toast('❌ Không copy được'));
+}
+function shareProfile() {
+  const txt = $('profShare')?.textContent || '';
+  if (navigator.share) navigator.share({ title: 'LinkGO Profile', text: 'Profile của tôi', url: txt }).catch(()=>{});
+  else copyProfileLink();
+}
+function copyOneLink(txt) {
+  navigator.clipboard.writeText(txt).then(() => toast('✅ Đã copy')).catch(() => toast('❌ Không copy được'));
+}
+function toast(msg) {
+  const tt = el('div', '', msg);
+  tt.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);'
+    + 'background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;padding:14px 24px;'
+    + 'border-radius:14px;font-weight:600;font-size:.92rem;'
+    + 'box-shadow:0 12px 32px rgba(59,130,246,.5);z-index:9999;'
+    + 'animation:slideUp .3s ease;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis;';
+  document.body.appendChild(tt);
+  setTimeout(() => {
+    tt.style.transition = 'opacity .3s, transform .3s';
+    tt.style.opacity = '0';
+    tt.style.transform = 'translate(-50%, 20px)';
+    setTimeout(() => tt.remove(), 350);
+  }, 2000);
+}
+
+/* ============================================================
+   ============ CREATOR =====================================
+   ============================================================ */
+function renderCreator() {
+  selectedTasks = new Set(['tap', 'seq', 'wait', 'phrase']);
+  $('app').innerHTML = `
+    <div class="hero">
+      <div class="vn-badge"><span class="flag">🇻🇳</span> ${t('vn_badge')}</div>
+      <div class="sec-badge">${t('secure_v5')}</div>
+      <h1>${t('hero_title')}</h1>
+      <p>${t('hero_sub')}</p>
+    </div>
+    <div class="card">
+      <div class="form-group">
+        <label>${t('target_url')}</label>
+        <input type="url" id="targetUrl" placeholder="https://example.com/trang-cua-ban" maxlength="2048" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label>${t('link_name')}</label>
+        <input type="text" id="linkName" placeholder="Siteblog / Blog / Shop..." maxlength="40" value="Siteblog">
+      </div>
+      <div class="section-title">${t('choose_tasks')} (${Object.keys(TASKS).length})</div>
+      <div class="picker-tools">
+        <button class="btn btn-outline btn-sm" onclick="selectAllTasks(true)">${t('select_all')}</button>
+        <button class="btn btn-outline btn-sm" onclick="selectAllTasks(false)">${t('deselect_all')}</button>
+        <button class="btn btn-outline btn-sm" onclick="selectRandomTasks()">${t('random')}</button>
+      </div>
+      <div class="task-picker" id="taskPicker"></div>
+      <button class="btn btn-primary" onclick="createLink()">${t('create_link')}</button>
+      <div class="result-box" id="resultBox">
+        <div style="font-weight:600;margin-bottom:6px;color:#6ee7b7">${t('link_created')}</div>
+        <div class="short-link" id="shortLink"></div>
+        <div class="token-info" id="tokenInfo"></div>
+        <button class="btn btn-success" style="margin-top:14px" onclick="copyLink()">${t('copy_link')}</button>
+        <button class="btn btn-outline" style="margin-top:10px" onclick="showQRLast()">${t('show_qr')}</button>
+        <button class="btn btn-outline" style="margin-top:10px" onclick="downloadTxt()">${t('download_txt')}</button>
+      </div>
+    </div>
+    ${renderFooter()}
+  `;
+  renderTaskPicker();
+}
+
+function renderTaskPicker() {
+  const wrap = $('taskPicker');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  Object.keys(TASKS).forEach(key => {
+    const tt = TASKS[key];
+    const checked = selectedTasks.has(key);
+    const opt = el('label', 'task-opt' + (checked ? ' checked' : ''));
+    opt.innerHTML = `
+      <span class="box">✓</span>
+      <span class="lbl">${escapeHtml(tt.icon)} ${escapeHtml(tt.name)}</span>
+    `;
+    opt.onclick = () => {
+      if (selectedTasks.has(key)) selectedTasks.delete(key);
+      else selectedTasks.add(key);
+      renderTaskPicker();
+    };
+    wrap.appendChild(opt);
+  });
+}
+function selectAllTasks(all) {
+  selectedTasks = all ? new Set(Object.keys(TASKS)) : new Set();
+  renderTaskPicker();
+}
+function selectRandomTasks() {
+  selectedTasks = new Set(shuffle(Object.keys(TASKS)).slice(0, 6));
+  renderTaskPicker();
+}
+
+async function createLink() {
+  const rl = RateLimit.check('createLink');
+  if (!rl.ok) return toast(`⏳ Quá nhanh. Đợi ${rl.retryIn}s`);
+  const target = sanitizeUrl($('targetUrl').value);
+  if (!target) return alert('URL không hợp lệ (chỉ http/https)');
+  const name = nameToSlug(sanitizeName($('linkName').value));
+  if (selectedTasks.size === 0) return alert('Chọn ít nhất 1 nhiệm vụ!');
+  const links = loadLinks();
+  if (currentUser) {
+    const owned = links.filter(l => l.ownerEmail === currentUser.email).length;
+    if (owned >= SECURITY.MAX_LINKS_PER_USER)
+      return alert(`Tối đa ${SECURITY.MAX_LINKS_PER_USER} link / tài khoản`);
+  }
+  try {
+    const token = randomToken(12);
+    const nonce = randomToken(SECURITY.NONCE_LENGTH);
+    const tasks = Object.keys(TASKS).filter(k => selectedTasks.has(k));
+    const encoded = await signPayload({ url: target, tasks, ts: Date.now(), nonce, token });
+    const base = location.href.split('#')[0].split('?')[0];
+    const short = `${base}#/${token}/${encodeURIComponent(name)}/${SITE}?t=${encoded}`;
+    lastLink = { short, target, token, nonce, name, tasks };
+    links.push({
+      short, target, token, nonce, name, tasks,
+      ownerEmail: currentUser?.email || null,
+      createdAt: Date.now(),
+      clicks: 0, clickFingerprints: [],
+    });
+    saveLinks(links);
+    $('shortLink').textContent = short;
+    $('tokenInfo').innerHTML =
+      `Token: <code style="color:#93c5fd">${escapeHtml(token)}</code><br>` +
+      `Nhiệm vụ: <strong>${tasks.length}</strong> • Độ dài: <strong>${short.length}</strong> ký tự`;
+    $('resultBox').classList.add('show');
+  } catch (e) { alert('Lỗi: ' + e.message); }
+}
+function copyLink() {
+  if (!lastLink) return;
+  navigator.clipboard.writeText(lastLink.short).then(() => toast('✅ Đã sao chép!')).catch(() => toast('❌ Không copy được'));
+}
+function showQRLast() { if (lastLink) showQRModal(lastLink.short, lastLink.name); }
+function downloadTxt() {
+  if (!lastLink) return;
+  const c = `LinkGO ${VERSION}\n==========\nLink đích : ${lastLink.target}\nToken : ${lastLink.token}\nNonce : ${lastLink.nonce}\nTên : ${lastLink.name}\nNhiệm vụ : ${lastLink.tasks.join(', ')}\nShort link: ${lastLink.short}\nTạo lúc : ${new Date().toLocaleString('vi-VN')}\n© 2026 LinkGO — Made in Vietnam\n`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([c], { type: 'text/plain' }));
+  a.download = `LinkGO-${lastLink.token.slice(0, 8)}.txt`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+/* ============================================================
+   ============ TASK RUNNER ================================
+   ============================================================ */
+async function renderTasks(data) {
+  try {
+    if (!data || !data.data || !data.token) {
+      $('app').innerHTML = `<div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">❌</div>
+        <h2>Link không hợp lệ</h2>
+        <button class="btn btn-primary" style="margin-top:20px" onclick="go('main')">🏠 Về trang chính</button>
+      </div>`;
+      return;
+    }
+    if (TamperGuard.isLocked()) {
+      const left = TamperGuard.lockTimeLeft();
+      $('app').innerHTML = `
+        <div class="card" style="text-align:center;padding:40px 24px">
+          <div style="font-size:3rem;margin-bottom:14px">⛔</div>
+          <h2 style="color:#fca5a5">Tạm khoá ${left}s</h2>
+          <p style="color:var(--muted);margin-top:12px">Phát hiện hành vi bất thường.</p>
+          <button class="btn btn-primary" style="margin-top:20px" onclick="go('main')">🏠 Về trang chính</button>
+        </div>
+      `;
+      return;
+    }
+    const payload = await verifyAndDecode(data.data, data.token);
+    if (!payload || !payload.url) {
+      $('app').innerHTML = `<div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">❌</div>
+        <h2>Link không hợp lệ hoặc đã bị sửa</h2>
+        <button class="btn btn-primary" style="margin-top:20px" onclick="go('main')">🏠 Về trang chính</button>
+      </div>`;
+      return;
+    }
+    const safeUrl = sanitizeUrl(payload.url);
+    if (!safeUrl) {
+      $('app').innerHTML = `<div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">❌</div>
+        <h2>URL đích không hợp lệ</h2>
+        <button class="btn btn-primary" style="margin-top:20px" onclick="go('main')">🏠 Về trang chính</button>
+      </div>`;
+      return;
+    }
+    targetUrl = safeUrl;
+    currentNonce = payload.nonce;
+    currentToken = data.token;
+
+    let sid = sessionStorage.getItem('lg_sid');
+    if (!sid) { sid = randomToken(8); sessionStorage.setItem('lg_sid', sid); }
+    const fp = `${data.token}|${new Date().toDateString()}|${sid}`;
+    const links = loadLinks();
+    const found = links.find(l => l.token === data.token);
+    if (found) {
+      if (!Array.isArray(found.clickFingerprints)) found.clickFingerprints = [];
+      if (!found.clickFingerprints.includes(fp)) {
+        found.clickFingerprints.push(fp);
+        if (found.clickFingerprints.length > 1000) found.clickFingerprints.shift();
+        found.clicks = found.clickFingerprints.length;
+        saveLinks(links);
+      }
+    }
+
+    queue = Array.isArray(payload.tasks) && payload.tasks.length
+      ? payload.tasks.filter(k => Object.prototype.hasOwnProperty.call(TASKS, k))
+      : ['tap'];
+    if (queue.length === 0) queue = ['tap'];
+    finished = false;
+
+    let progress = ProgressStore.get(currentNonce);
+    if (!progress || progress.token !== currentToken || progress.taskCount !== queue.length) {
+      progress = ProgressStore.start(currentNonce, currentToken, queue.length);
+    }
+    const completedSet = new Set(progress.completed);
+
+    if (progress.verified) { redirectNow(); return; }
+
+    const cardsHtml = queue.map((key, i) => {
+      const tt = TASKS[key] || TASKS.tap;
+      const isDone = completedSet.has(i);
+      return `<div class="task-card${isDone ? ' done' : ''}" id="t${i}" data-idx="${i}">
+        <div class="task-title"><span class="num">${i + 1}</span> ${escapeHtml(tt.icon)} ${escapeHtml(tt.name)}${isDone ? '<span class="persist-badge">✓ Đã xong</span>' : ''}</div>
+        <div class="task-body" id="body${i}"></div>
+      </div>`;
+    }).join('');
+
+    const resumeBanner = completedSet.size > 0 && completedSet.size < queue.length
+      ? `<div class="tamper-warn" style="background:linear-gradient(135deg,rgba(16,185,129,.2),rgba(16,185,129,.05));border-color:var(--success);color:#6ee7b7">
+           <span class="ic">💾</span>
+           <span>${t('progress_saved')}: <strong>${completedSet.size}/${queue.length}</strong></span>
+         </div>`
+      : '';
+
+    $('app').innerHTML = `
+      <div class="task-header">
+        <div class="vn-badge" style="margin-bottom:8px"><span class="flag">🇻🇳</span> LinkGO ${VERSION}</div>
+        <h2>${t('task_protection')}</h2>
+        <p>${t('complete_tasks', { n: queue.length })}</p>
+      </div>
+      ${resumeBanner}
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:${completedSet.size / queue.length * 100}%"></div></div>
+      ${cardsHtml}
+      <div class="task-card" id="tDone">
+        <div class="success-screen">
+          <div class="check">🎉</div>
+          <h2 style="color:#6ee7b7">${t('all_complete')}</h2>
+          <p style="color:var(--muted);margin:10px 0 20px">${t('redirecting')}</p>
+          <div class="progress-bar" style="max-width:180px;margin:0 auto">
+            <div class="progress-fill" id="redir" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        © 2026 LinkGO — ${t('copyright')}. ${t('all_rights')}.
+      </div>
+    `;
+    const firstIncomplete = queue.findIndex((_, i) => !completedSet.has(i));
+    showStep(firstIncomplete >= 0 ? firstIncomplete : 0);
+  } catch (err) {
+    console.error('[LinkGO]', err);
+    $('app').innerHTML = `<div class="card" style="text-align:center;padding:40px 24px">
+      <div style="font-size:3rem;margin-bottom:14px">⚠️</div>
+      <h2>Lỗi xử lý link</h2>
+      <p style="color:var(--muted);margin-top:12px">${escapeHtml(err.message || 'Unknown')}</p>
+      <button class="btn btn-primary" style="margin-top:20px" onclick="go('main')">🏠 Về trang chính</button>
+    </div>`;
+  }
+}
+
+function showStep(i) {
+  document.querySelectorAll('.task-card').forEach(c => c.classList.remove('active'));
+  if (i >= queue.length) return goDone();
+  const card = $('t' + i);
+  if (!card) return goDone();
+  card.classList.add('active');
+  const prog = $('progress');
+  if (prog) prog.style.width = (i / queue.length * 100) + '%';
+  const key = queue[i];
+  const body = $('body' + i);
+  if (!body) return goDone();
+  body.innerHTML = '';
+  taskStartTime = Date.now();
+
+  const safeDone = () => {
+    const elapsed = Date.now() - taskStartTime;
+    if (elapsed < SECURITY.MIN_TASK_DURATION_MS) {
+      const isWaitTask = key.startsWith('wait');
+      if (!isWaitTask) {
+        TamperGuard.trigger('task_too_fast:' + key);
+        toast('⚠️ Phát hiện thao tác bất thường');
+      }
+    }
+    ProgressStore.markTask(currentNonce, i);
+    if (prog) prog.style.width = ((i + 1) / queue.length * 100) + '%';
+    NATIVE.setTimeout(() => showStep(i + 1), 300);
+  };
+  buildTask(key, body, safeDone);
+}
+
+async function goDone() {
+  if (finished) return;
+  finished = true;
+  const verified = await ProgressStore.finalize(currentNonce);
+  if (!verified) {
+    $('app').innerHTML = `
+      <div class="card" style="text-align:center;padding:40px 24px">
+        <div style="font-size:3rem;margin-bottom:14px">🚫</div>
+        <h2 style="color:#fca5a5">Truy cập bị từ chối</h2>
+        <p style="color:var(--muted);margin-top:12px">
+          Không thể xác minh hoàn thành.<br>
+          ${TamperGuard.isLocked() ? `Tạm khoá trong ${TamperGuard.lockTimeLeft()}s.` : 'Vui lòng thử lại.'}
+        </p>
+        <button class="btn btn-outline" style="margin-top:20px" onclick="ProgressStore.reset('${currentNonce}'); location.reload()">🔄 Làm lại</button>
+        <button class="btn btn-primary" style="margin-top:10px" onclick="go('main')">🏠 Về trang chính</button>
+      </div>
+    `;
+    return;
+  }
+  redirectNow();
+}
+
+function redirectNow() {
+  document.querySelectorAll('.task-card').forEach(c => c.classList.remove('active'));
+  const done = $('tDone'); if (done) done.classList.add('active');
+  const prog = $('progress'); if (prog) prog.style.width = '100%';
+  let p = 0;
+  const bar = $('redir');
+  const iv = NATIVE.setInterval(() => {
+    p += 5;
+    if (bar) bar.style.width = p + '%';
+    if (p >= 100) {
+      NATIVE.clearInterval(iv);
+      if (ProgressStore.isVerified(currentNonce)) location.href = targetUrl;
+    }
+  }, 40);
+}
+
+/* ============================================================
+   ============ TASKS LIST =================================
+   ============================================================ */
+const TASKS = {
+  tap:{name:'Bấm màn hình 1.000 lần',icon:'👆'}, seq:{name:'Nhấn số đúng thứ tự',icon:'🔢'},
+  wait:{name:'Chờ 15 giây',icon:'⏳'}, phrase:{name:'Gõ chính xác cụm từ',icon:'⌨️'},
+  hold:{name:'Giữ nút 5 giây',icon:'⏱️'}, color:{name:'Chọn đúng ô màu',icon:'🎨'},
+  slider:{name:'Kéo thanh trượt chính xác',icon:'🎚️'}, checklist:{name:'Tick hết 5 mục',icon:'☑️'},
+  emoji:{name:'Bấm trúng 10 emoji',icon:'🎯'}, drag:{name:'Kéo nút sang phải hết',icon:'➡️'},
+  doubleTap:{name:'Double tap 5 lần',icon:'⚡'}, reverse:{name:'Nhấn số ngược lại',icon:'🔄'},
+  tap500:{name:'Bấm 500 lần',icon:'👆'}, tap2000:{name:'Bấm 2.000 lần',icon:'👆'},
+  tap50000:{name:'Bấm 50.000 lần',icon:'🔥'}, wait5:{name:'Chờ 5 giây',icon:'⏳'},
+  wait30:{name:'Chờ 30 giây',icon:'⏳'}, wait60:{name:'Chờ 60 giây',icon:'⌛'},
+  phraseLong:{name:'Gõ câu dài',icon:'⌨️'}, phraseCap:{name:'Gõ IN HOA',icon:'🔠'},
+  phraseLow:{name:'Gõ chữ thường',icon:'🔡'}, hold3:{name:'Giữ 3 giây',icon:'⏱️'},
+  hold10:{name:'Giữ 10 giây',icon:'⏱️'}, hold15:{name:'Giữ 15 giây',icon:'⏱️'},
+  colorAdv:{name:'Chọn màu HEX',icon:'🎨'}, colorTarget:{name:'Chọn 5 ô cùng màu',icon:'🎨'},
+  sliderTight:{name:'Trượt sai số ±1',icon:'🎚️'}, slider3:{name:'Trượt 3 lần',icon:'🎚️'},
+  checklist10:{name:'Tick 10 mục',icon:'☑️'}, checklist20:{name:'Tick 20 mục',icon:'☑️'},
+  emoji50:{name:'50 emoji',icon:'🎯'}, emoji100:{name:'100 emoji',icon:'🎯'},
+  emojiFast:{name:'20 emoji nhanh',icon:'⚡'}, drag3:{name:'Kéo 3 lần',icon:'➡️'},
+  dragLong:{name:'Kéo đường dài',icon:'➡️'}, doubleTap5:{name:'Double tap 5',icon:'⚡'},
+  doubleTap50:{name:'Double tap 50',icon:'⚡'}, tripleTap:{name:'Triple tap 10',icon:'⚡'},
+  reverse10:{name:'Số ngược 10',icon:'🔄'}, ascend:{name:'Tăng dần 1-9',icon:'⬆️'},
+  descend:{name:'Giảm dần 9-1',icon:'⬇️'}, evenOnly:{name:'Chỉ số chẵn',icon:'2️⃣'},
+  oddOnly:{name:'Chỉ số lẻ',icon:'1️⃣'}, primeOnly:{name:'Chỉ số nguyên tố',icon:'🔢'},
+  swipeUp:{name:'Vuốt lên 10',icon:'⬆️'}, swipeDown:{name:'Vuốt xuống 10',icon:'⬇️'},
+  swipeLeft:{name:'Vuốt trái 10',icon:'⬅️'}, swipeRight:{name:'Vuốt phải 10',icon:'➡️'},
+  shake:{name:'Lắc 10 lần',icon:'📳'}, tilt:{name:'Nghiêng 5 lần',icon:'📐'},
+  keyboard:{name:'Gõ A 20 lần',icon:'⌨️'}, keyboard2:{name:'Space 50 lần',icon:'⌨️'},
+  keyboard3:{name:'Enter 10 lần',icon:'⌨️'}, mathAdd:{name:'Cộng 5 phép',icon:'➕'},
+  mathSub:{name:'Trừ 5 phép',icon:'➖'}, mathMul:{name:'Nhân 5 phép',icon:'✖️'},
+  mathDiv:{name:'Chia 5 phép',icon:'➗'}, memorySeq:{name:'Nhớ 5 số',icon:'🧠'},
+  memorySeq7:{name:'Nhớ 7 số',icon:'🧠'}, memoryColor:{name:'Nhớ 4 màu',icon:'🎨'},
+  memoryEmoji:{name:'Nhớ 3 emoji',icon:'🎯'}, mirror:{name:'Gõ từ đối xứng',icon:'🪞'},
+  counting:{name:'Đếm 20 số',icon:'🔢'}, typing100:{name:'Gõ 100 ký tự',icon:'⌨️'},
+  typing200:{name:'Gõ 200 ký tự',icon:'⌨️'}, wordCount:{name:'Đếm từ',icon:'📝'},
+  vowelCount:{name:'Đếm nguyên âm',icon:'📝'}, consonantCount:{name:'Đếm phụ âm',icon:'📝'},
+  uppercaseCount:{name:'Đếm in hoa',icon:'📝'}, digitCount:{name:'Đếm chữ số',icon:'🔢'},
+  clickSeq:{name:'Chuỗi 5 vị trí',icon:'🎯'}, clickSeq7:{name:'Chuỗi 7 vị trí',icon:'🎯'},
+  doubleClick:{name:'Double click 15',icon:'🖱️'}, hover:{name:'Hover 10 ô',icon:'🖱️'},
+  scrollTop:{name:'Cuộn lên đầu',icon:'⬆️'}, scrollBottom:{name:'Cuộn xuống cuối',icon:'⬇️'},
+  fullscreen:{name:'Bật fullscreen',icon:'⛶'}, rotate:{name:'Xoay màn hình',icon:'🔄'},
+  vibrate:{name:'Rung 5 lần',icon:'📳'}, battery:{name:'Xem mức pin',icon:'🔋'},
+  time:{name:'Xem giờ',icon:'🕐'}, date:{name:'Xem ngày',icon:'📅'},
+  random:{name:'Random 30 lần',icon:'🎲'}, dice:{name:'Tung xúc xắc 10',icon:'🎲'},
+  coin:{name:'Tung đồng xu 10',icon:'🪙'}, captcha:{name:'Xác minh CAPTCHA',icon:'🔐'},
+  captcha2:{name:'CAPTCHA lần 2',icon:'🔐'}, puzzle:{name:'Xếp hình',icon:'🧩'},
+  rotateImg:{name:'Xoay ảnh',icon:'🖼️'}, signDraw:{name:'Vẽ chữ ký',icon:'✍️'},
+  agree:{name:'Đồng ý điều khoản',icon:'📜'}, agree2:{name:'Tick 3 cam kết',icon:'📋'},
+};
+
+/* ============================================================
+   ============ TASK BUILDERS ==============================
+   ============================================================ */
+function buildTask(key, body, done) {
+  const map = {
+    tap: buildTap(1000), tap500: buildTap(500), tap2000: buildTap(2000), tap50000: buildTap(5000),
+    wait: buildWait(15), wait5: buildWait(5), wait30: buildWait(30), wait60: buildWait(60),
+    phrase: buildPhrase('LinkGO xác minh người dùng'),
+    phraseLong: buildPhrase('LinkGO bảo mật nâng cao cho mọi người dùng Việt Nam'),
+    phraseCap: buildPhrase('LINKGO SECURE'), phraseLow: buildPhrase('linkgo secure'),
+    hold: buildHold(5), hold3: buildHold(3), hold10: buildHold(10), hold15: buildHold(15),
+    seq: buildSeq(5), reverse: buildReverse(5), reverse10: buildReverse(5),
+    ascend: buildAscend(), descend: buildDescend(),
+    evenOnly: buildParity('even'), oddOnly: buildParity('odd'),
+    checklist: buildChecklist(5), checklist10: buildChecklist(10), checklist20: buildChecklist(20),
+    emoji: buildEmoji(10), emoji50: buildEmoji(50), emoji100: buildEmoji(100), emojiFast: buildEmoji(20),
+    color: buildColor(), colorAdv: buildColor(), colorTarget: buildColor(),
+    slider: buildSlider(), sliderTight: buildSlider(), slider3: buildSlider3(),
+    drag: buildDrag(), drag3: buildDrag3(), dragLong: buildDrag(),
+    doubleTap: buildDoubleTap(5), doubleTap5: buildDoubleTap(5), doubleTap50: buildDoubleTap(50),
+    tripleTap: buildDoubleTap(10),
+    mathAdd: buildMath('+'), mathSub: buildMath('-'), mathMul: buildMath('*'), mathDiv: buildMath('/'),
+    typing100: buildTyping(100), typing200: buildTyping(200), wordCount: buildWordCount(),
+    memorySeq: buildMemory(5), memorySeq7: buildMemory(7),
+    clickSeq: buildClickSeq(5), clickSeq7: buildClickSeq(7), doubleClick: buildDoubleTap(15),
+    coin: buildCoin(), dice: buildDice(),
+    agree: buildAgree(1), agree2: buildAgree(3),
+    captcha: buildCaptcha(), captcha2: buildCaptcha(),
+    time: buildTimeShow(), date: buildDateShow(), random: buildRandom(30),
+    swipeUp: buildSwipe('up'), swipeDown: buildSwipe('down'),
+    swipeLeft: buildSwipe('left'), swipeRight: buildSwipe('right'),
+    fullscreen: buildFullscreen(), hover: buildHover(10),
+    scrollTop: buildScroll('top'), scrollBottom: buildScroll('bottom'),
+  };
+  const fn = map[key];
+  if (typeof fn === 'function') fn(body, done);
+  else {
+    body.innerHTML = `<div class="hint">${escapeHtml(TASKS[key]?.name || key)}</div>
+      <button class="btn btn-primary" id="fbk">Hoàn thành</button>`;
+    $('fbk').onclick = done;
+  }
+}
+
+function buildTap(target) {
+  return (body, done) => {
+    let count = 0;
+    body.innerHTML = `
+      <div class="hint">Bấm liên tục vào ô bên dưới</div>
+      <div class="tap-area" id="tapArea">
+        <div class="big" id="tapCount">0</div>
+        <div class="sub">/ ${target}</div>
+      </div>
+      <div class="tap-progress"><div class="tap-progress-fill" id="tapBar"></div></div>
+    `;
+    const area = body.querySelector('#tapArea');
+    const cnt = body.querySelector('#tapCount');
+    const bar = body.querySelector('#tapBar');
+    area.onclick = e => {
+      count++;
+      cnt.textContent = count;
+      bar.style.width = Math.min(100, count / target * 100) + '%';
+      const pop = el('div', 'tap-pop', '+1');
+      const rect = area.getBoundingClientRect();
+      pop.style.left = (e.clientX - rect.left) + 'px';
+      pop.style.top = (e.clientY - rect.top) + 'px';
+      area.appendChild(pop);
+      NATIVE.setTimeout(() => pop.remove(), 700);
+      if (count >= target) { area.onclick = null; done(); }
+    };
+  };
+}
+function buildWait(seconds) {
+  return (body, done) => {
+    let left = seconds;
+    body.innerHTML = `<div class="hint">Đợi ${seconds} giây</div>
+      <div class="wait-circle spinning" id="wc">${left}</div>`;
+    const wc = body.querySelector('#wc');
+    const iv = NATIVE.setInterval(() => {
+      left--;
+      if (wc) wc.textContent = left;
+      if (left <= 0) { NATIVE.clearInterval(iv); done(); }
+    }, 1000);
+  };
+}
+function buildPhrase(phrase) {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Gõ chính xác cụm từ</div>
+      <div class="phrase-box">${escapeHtml(phrase)}</div>
+      <input type="text" id="phInput" placeholder="Nhập..." autocomplete="off">
+      <div class="error-msg" id="phErr">Sai!</div>`;
+    const inp = body.querySelector('#phInput');
+    const err = body.querySelector('#phErr');
+    inp.oninput = () => {
+      if (inp.value === phrase) { inp.disabled = true; done(); }
+      else if (phrase.startsWith(inp.value)) err.classList.remove('show');
+      else err.classList.add('show');
+    };
+  };
+}
+function buildHold(seconds) {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Giữ nút ${seconds} giây</div>
+      <div class="hold-btn" id="holdBtn">GIỮ</div>`;
+    const btn = body.querySelector('#holdBtn');
+    let timer = null, st = 0;
+    const start = () => {
+      st = Date.now();
+      btn.classList.add('holding');
+      timer = NATIVE.setInterval(() => {
+        const elx = (Date.now() - st) / 1000;
+        btn.textContent = (seconds - elx).toFixed(1);
+        if (elx >= seconds) { NATIVE.clearInterval(timer); btn.classList.remove('holding'); btn.textContent='✓'; done(); }
+      }, 100);
+    };
+    const stop = () => {
+      if (timer) { NATIVE.clearInterval(timer); timer=null; }
+      btn.classList.remove('holding'); btn.textContent='GIỮ';
+    };
+    btn.addEventListener('mousedown', start);
+    btn.addEventListener('touchstart', start, { passive: true });
+    btn.addEventListener('mouseup', stop);
+    btn.addEventListener('mouseleave', stop);
+    btn.addEventListener('touchend', stop);
+  };
+}
+function buildSeq() {
+  return (body, done) => {
+    const nums = shuffle([1,2,3,4,5,6,7,8,9]);
+    let next = 1;
+    body.innerHTML = `<div class="hint">Nhấn 1→9</div>
+      <div class="seq-grid">${nums.map(n => `<button class="seq-btn" data-n="${n}">${n}</button>`).join('')}</div>`;
+    body.querySelector('.seq-grid').onclick = e => {
+      const b = e.target.closest('.seq-btn');
+      if (!b) return;
+      if (parseInt(b.dataset.n) === next) {
+        b.classList.add('correct'); b.disabled = true; next++;
+        if (next > 9) done();
+      } else { b.classList.add('wrong'); NATIVE.setTimeout(() => b.classList.remove('wrong'), 400); }
+    };
+  };
+}
+function buildReverse(len) {
+  return (body, done) => {
+    const nums = shuffle([1,2,3,4,5,6,7,8,9]).slice(0, len);
+    const target = [...nums].sort((a,b) => b-a);
+    let idx = 0;
+    body.innerHTML = `<div class="hint">Giảm dần: ${target.join(' → ')}</div>
+      <div class="seq-grid">${nums.map(n => `<button class="seq-btn" data-n="${n}">${n}</button>`).join('')}</div>`;
+    body.querySelector('.seq-grid').onclick = e => {
+      const b = e.target.closest('.seq-btn'); if (!b) return;
+      if (parseInt(b.dataset.n) === target[idx]) {
+        b.classList.add('correct'); b.disabled = true; idx++;
+        if (idx >= target.length) done();
+      } else { b.classList.add('wrong'); NATIVE.setTimeout(() => b.classList.remove('wrong'), 400); }
+    };
+  };
+}
+function buildAscend() {
+  return (body, done) => {
+    const nums = shuffle([1,2,3,4,5,6,7,8,9]); let next = 1;
+    body.innerHTML = `<div class="hint">Tăng dần 1→9</div>
+      <div class="seq-grid">${nums.map(n => `<button class="seq-btn" data-n="${n}">${n}</button>`).join('')}</div>`;
+    body.querySelector('.seq-grid').onclick = e => {
+      const b = e.target.closest('.seq-btn'); if (!b) return;
+      if (parseInt(b.dataset.n) === next) {
+        b.classList.add('correct'); b.disabled = true; next++;
+        if (next > 9) done();
+      } else { b.classList.add('wrong'); NATIVE.setTimeout(() => b.classList.remove('wrong'), 400); }
+    };
+  };
+}
+function buildDescend() {
+  return (body, done) => {
+    const nums = shuffle([1,2,3,4,5,6,7,8,9]); let next = 9;
+    body.innerHTML = `<div class="hint">Giảm dần 9→1</div>
+      <div class="seq-grid">${nums.map(n => `<button class="seq-btn" data-n="${n}">${n}</button>`).join('')}</div>`;
+    body.querySelector('.seq-grid').onclick = e => {
+      const b = e.target.closest('.seq-btn'); if (!b) return;
+      if (parseInt(b.dataset.n) === next) {
+        b.classList.add('correct'); b.disabled = true; next--;
+        if (next < 1) done();
+      } else { b.classList.add('wrong'); NATIVE.setTimeout(() => b.classList.remove('wrong'), 400); }
+    };
+  };
+}
+function buildParity(kind) {
+  return (body, done) => {
+    const nums = shuffle([1,2,3,4,5,6,7,8,9]);
+    const isOk = n => kind === 'even' ? n % 2 === 0 : n % 2 === 1;
+    const total = nums.filter(isOk).length; let hits = 0;
+    body.innerHTML = `<div class="hint">Chỉ số ${kind === 'even' ? 'CHẴN' : 'LẺ'}</div>
+      <div class="seq-grid">${nums.map(n => `<button class="seq-btn" data-n="${n}">${n}</button>`).join('')}</div>`;
+    body.querySelector('.seq-grid').onclick = e => {
+      const b = e.target.closest('.seq-btn'); if (!b || b.disabled) return;
+      const n = parseInt(b.dataset.n);
+      if (isOk(n)) { b.classList.add('correct'); b.disabled = true; hits++; if (hits >= total) done(); }
+      else { b.classList.add('wrong'); NATIVE.setTimeout(() => { b.classList.remove('wrong'); b.disabled = false; }, 400); }
+    };
+  };
+}
+function buildChecklist(n) {
+  return (body, done) => {
+    const items = Array.from({ length: n }, (_, i) => `Mục ${i + 1}`);
+    body.innerHTML = `<div class="hint">Tick ${n} mục</div>
+      <ul class="checklist" id="cl">${items.map((tt, i) => `<li data-i="${i}"><span class="dot"></span>${escapeHtml(tt)}</li>`).join('')}</ul>`;
+    let ok = 0;
+    body.querySelector('#cl').onclick = e => {
+      const li = e.target.closest('li');
+      if (!li || li.classList.contains('done')) return;
+      li.classList.add('done'); ok++;
+      if (ok >= n) done();
+    };
+  };
+}
+function buildEmoji(target) {
+  return (body, done) => {
+    let hits = 0;
+    const emojis = ['🎯', '⭐', '💎', '🎪', '🎨', '🎭', '⚡', '🔥'];
+    body.innerHTML = `<div class="hint">Bấm ${target} emoji</div>
+      <div class="emoji-wrap"><span class="emoji-target" id="em">🎯</span></div>
+      <div class="tap-progress"><div class="tap-progress-fill" id="ebar"></div></div>`;
+    const em = body.querySelector('#em'), bar = body.querySelector('#ebar');
+    em.onclick = () => {
+      hits++;
+      em.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      em.classList.add('hit');
+      NATIVE.setTimeout(() => em.classList.remove('hit'), 150);
+      bar.style.width = hits / target * 100 + '%';
+      if (hits >= target) { em.onclick = null; done(); }
+    };
+  };
+}
+function buildColor() {
+  return (body, done) => {
+    const colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16'];
+    const target = colors[Math.floor(Math.random() * colors.length)];
+    const palette = shuffle(colors);
+    body.innerHTML = `<div class="hint">Chọn ô màu <strong style="color:${target}">này</strong></div>
+      <div style="height:40px;border-radius:10px;background:${target};margin-bottom:14px"></div>
+      <div class="color-grid">${palette.map(c => `<div class="color-cell" data-c="${c}" style="background:${c}"></div>`).join('')}</div>`;
+    body.querySelector('.color-grid').onclick = e => {
+      const c = e.target.closest('.color-cell'); if (!c) return;
+      if (c.dataset.c === target) { c.classList.add('picked'); done(); }
+      else { c.classList.add('picked'); NATIVE.setTimeout(() => c.classList.remove('picked'), 300); }
+    };
+  };
+}
+function buildSlider() {
+  return (body, done) => {
+    const target = Math.floor(Math.random() * 80) + 10;
+    body.innerHTML = `<div class="hint">Kéo đến <strong>${target}</strong></div>
+      <div class="slider-wrap"><input type="range" id="sl" min="0" max="100" value="0">
+      <div style="text-align:center;margin-top:10px;font-weight:700" id="slv">0</div></div>`;
+    const sl = body.querySelector('#sl'), v = body.querySelector('#slv');
+    sl.oninput = () => {
+      v.textContent = sl.value;
+      if (Math.abs(parseInt(sl.value) - target) <= 1) { sl.disabled = true; done(); }
+    };
+  };
+}
+function buildSlider3() {
+  return (body, done) => {
+    let round = 0; const total = 3;
+    const next = () => {
+      if (round >= total) return done();
+      const target = Math.floor(Math.random() * 80) + 10;
+      body.innerHTML = `<div class="hint">Lần ${round+1}/${total} — <strong>${target}</strong></div>
+        <div class="slider-wrap"><input type="range" id="sl" min="0" max="100" value="0">
+        <div style="text-align:center;margin-top:10px;font-weight:700" id="slv">0</div></div>`;
+      const sl = body.querySelector('#sl'), v = body.querySelector('#slv');
+      sl.oninput = () => {
+        v.textContent = sl.value;
+        if (Math.abs(parseInt(sl.value) - target) <= 1) { round++; NATIVE.setTimeout(next, 300); }
+      };
+    };
+    next();
+  };
+}
+function buildDrag() {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Kéo nút sang phải hết</div>
+      <div class="drag-track" id="dt"><div class="drag-handle" id="dh">→</div></div>`;
+    const track = body.querySelector('#dt'), handle = body.querySelector('#dh');
+    let dragging = false;
+    const start = () => dragging = true;
+    const move = e => {
+      if (!dragging) return;
+      const rect = track.getBoundingClientRect();
+      const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left - 28;
+      const max = rect.width - 70;
+      const px = Math.max(0, Math.min(max, x));
+      handle.style.transform = `translateX(${px}px)`;
+      if (px >= max - 5) { dragging = false; done(); }
+    };
+    const end = () => dragging = false;
+    handle.addEventListener('mousedown', start);
+    handle.addEventListener('touchstart', start, { passive: true });
+    document.addEventListener('mousemove', move);
+    document.addEventListener('touchmove', move, { passive: true });
+    document.addEventListener('mouseup', end);
+    document.addEventListener('touchend', end);
+  };
+}
+function buildDrag3() {
+  return (body, done) => {
+    let round = 0; const total = 3;
+    const next = () => {
+      if (round >= total) return done();
+      body.innerHTML = `<div class="hint">Lần ${round+1}/${total}</div>
+        <div class="drag-track" id="dt"><div class="drag-handle" id="dh">→</div></div>`;
+      const track = body.querySelector('#dt'), handle = body.querySelector('#dh');
+      let dragging = false;
+      const start = () => dragging = true;
+      const move = e => {
+        if (!dragging) return;
+        const rect = track.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left - 28;
+        const max = rect.width - 70;
+        const px = Math.max(0, Math.min(max, x));
+        handle.style.transform = `translateX(${px}px)`;
+        if (px >= max - 5) { dragging = false; round++; NATIVE.setTimeout(next, 300); }
+      };
+      const end = () => dragging = false;
+      handle.addEventListener('mousedown', start);
+      handle.addEventListener('touchstart', start, { passive: true });
+      document.addEventListener('mousemove', move);
+      document.addEventListener('touchmove', move, { passive: true });
+      document.addEventListener('mouseup', end);
+      document.addEventListener('touchend', end);
+    };
+    next();
+  };
+}
+function buildDoubleTap(target) {
+  return (body, done) => {
+    let count = 0;
+    body.innerHTML = `<div class="hint">Double tap ${target} lần</div>
+      <div class="tap-area" id="dta"><div class="big">${count}/${target}</div></div>`;
+    const area = body.querySelector('#dta');
+    area.ondblclick = () => {
+      count++;
+      area.querySelector('.big').textContent = `${count}/${target}`;
+      if (count >= target) { area.ondblclick = null; done(); }
+    };
+  };
+}
+function buildMath(op) {
+  return (body, done) => {
+    let round = 0; const total = 5;
+    const next = () => {
+      if (round >= total) return done();
+      let a, b, ans;
+      if (op === '+') { a = Math.floor(Math.random()*50)+10; b = Math.floor(Math.random()*50)+10; ans = a+b; }
+      else if (op === '-') { a = Math.floor(Math.random()*50)+30; b = Math.floor(Math.random()*20)+1; ans = a-b; }
+      else if (op === '*') { a = Math.floor(Math.random()*12)+2; b = Math.floor(Math.random()*12)+2; ans = a*b; }
+      else { b = Math.floor(Math.random()*11)+2; ans = Math.floor(Math.random()*11)+2; a = ans*b; }
+      body.innerHTML = `<div class="hint">Câu ${round+1}/${total}</div>
+        <div style="text-align:center;font-size:2rem;font-weight:800;margin:20px 0">${a} ${op==='*'?'×':op==='/'?'÷':op} ${b} = ?</div>
+        <input type="number" id="mathIn" placeholder="Đáp án" autocomplete="off">
+        <div class="error-msg" id="mathErr">Sai!</div>`;
+      const inp = body.querySelector('#mathIn'), err = body.querySelector('#mathErr');
+      inp.focus();
+      inp.oninput = () => {
+        if (parseInt(inp.value) === ans) { round++; inp.disabled = true; NATIVE.setTimeout(next, 300); }
+        else if (inp.value.length >= String(ans).length) err.classList.add('show');
+        else err.classList.remove('show');
+      };
+    };
+    next();
+  };
+}
+function buildTyping(len) {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Gõ ${len} ký tự</div>
+      <textarea id="typIn" rows="4" placeholder="Nhập..." maxlength="${len}"></textarea>
+      <div class="tap-progress"><div class="tap-progress-fill" id="tbar"></div></div>
+      <div class="hint" id="tcnt" style="text-align:center">0 / ${len}</div>`;
+    const ta = body.querySelector('#typIn'), bar = body.querySelector('#tbar'), cnt = body.querySelector('#tcnt');
+    ta.focus();
+    ta.oninput = () => {
+      const n = ta.value.length;
+      bar.style.width = Math.min(100, n/len*100)+'%';
+      cnt.textContent = `${n} / ${len}`;
+      if (n >= len) { ta.disabled = true; done(); }
+    };
+  };
+}
+function buildWordCount() {
+  return (body, done) => {
+    const words = ['Cam','Táo','Chuối','Nho','Ổi','Xoài'];
+    const sample = shuffle(words).slice(0, 5);
+    const total = sample.length;
+    body.innerHTML = `<div class="hint">Đếm số từ: "${sample.join(' ')}"</div>
+      <input type="number" id="wcIn" placeholder="Số từ" autocomplete="off">
+      <div class="error-msg" id="wcErr">Sai!</div>`;
+    const inp = body.querySelector('#wcIn'), err = body.querySelector('#wcErr');
+    inp.focus();
+    inp.oninput = () => {
+      if (parseInt(inp.value) === total) { inp.disabled = true; done(); }
+      else if (inp.value.length >= 2) err.classList.add('show');
+      else err.classList.remove('show');
+    };
+  };
+}
+function buildMemory(len) {
+  return (body, done) => {
+    const nums = Array.from({ length: len }, () => Math.floor(Math.random()*10));
+    body.innerHTML = `<div class="hint">Nhớ dãy số (3s)...</div>
+      <div class="phrase-box">${nums.join(' ')}</div>`;
+    NATIVE.setTimeout(() => {
+      body.innerHTML = `<div class="hint">Nhập lại (${len} số)</div>
+        <input type="text" id="memIn" placeholder="VD: 1234" maxlength="${len}" autocomplete="off">
+        <div class="error-msg" id="memErr">Sai!</div>`;
+      const inp = body.querySelector('#memIn'), err = body.querySelector('#memErr');
+      inp.focus();
+      inp.oninput = () => {
+        const val = inp.value.trim();
+        if (val === nums.join('')) { inp.disabled = true; done(); }
+        else if (val.length >= len) err.classList.add('show');
+        else err.classList.remove('show');
+      };
+    }, 3000);
+  };
+}
+function buildClickSeq(len) {
+  return (body, done) => {
+    const cells = shuffle(Array.from({ length: 9 }, (_, i) => i));
+    const target = cells.slice(0, len);
+    let idx = 0;
+    body.innerHTML = `<div class="hint">Bấm theo số 1→${len}</div>
+      <div class="seq-grid" id="csGrid">${cells.map(c => {
+        const pos = target.indexOf(c);
+        return `<button class="seq-btn" data-pos="${pos}">${pos >= 0 ? pos + 1 : ''}</button>`;
+      }).join('')}</div>`;
+    body.querySelector('#csGrid').onclick = e => {
+      const b = e.target.closest('.seq-btn');
+      if (!b || b.disabled) return;
+      if (parseInt(b.dataset.pos) === idx) {
+        b.classList.add('correct'); b.disabled = true; idx++;
+        if (idx >= len) done();
+      } else { b.classList.add('wrong'); NATIVE.setTimeout(() => b.classList.remove('wrong'), 400); }
+    };
+  };
+}
+function buildCoin() {
+  return (body, done) => {
+    let count = 0; const total = 10;
+    body.innerHTML = `<div class="hint">Tung đồng xu ${total} lần</div>
+      <div style="text-align:center;font-size:5rem;margin:20px 0" id="coin">🪙</div>
+      <div class="tap-progress"><div class="tap-progress-fill" id="cbar"></div></div>
+      <div class="hint" id="ccnt" style="text-align:center">0 / ${total}</div>
+      <button class="btn btn-primary" id="cbtn" style="margin-top:14px">Tung!</button>`;
+    const coin = body.querySelector('#coin'), bar = body.querySelector('#cbar'), cnt = body.querySelector('#ccnt');
+    body.querySelector('#cbtn').onclick = () => {
+      coin.textContent = Math.random() < 0.5 ? '🌝' : '🌚';
+      count++;
+      bar.style.width = count/total*100+'%';
+      cnt.textContent = `${count} / ${total}`;
+      if (count >= total) done();
+    };
+  };
+}
+function buildDice() {
+  return (body, done) => {
+    let count = 0; const total = 10;
+    const faces = ['⚀','⚁','⚂','⚃','⚄','⚅'];
+    body.innerHTML = `<div class="hint">Tung xúc xắc ${total} lần</div>
+      <div style="text-align:center;font-size:5rem;margin:20px 0" id="dice">🎲</div>
+      <div class="tap-progress"><div class="tap-progress-fill" id="dbar"></div></div>
+      <div class="hint" id="dcnt" style="text-align:center">0 / ${total}</div>
+      <button class="btn btn-primary" id="dbtn" style="margin-top:14px">Tung!</button>`;
+    const dice = body.querySelector('#dice'), bar = body.querySelector('#dbar'), cnt = body.querySelector('#dcnt');
+    body.querySelector('#dbtn').onclick = () => {
+      dice.textContent = faces[Math.floor(Math.random()*6)];
+      count++;
+      bar.style.width = count/total*100+'%';
+      cnt.textContent = `${count} / ${total}`;
+      if (count >= total) done();
+    };
+  };
+}
+function buildAgree(n) {
+  return (body, done) => {
+    const items = Array.from({ length: n }, (_, i) => `Cam kết ${i + 1}`);
+    body.innerHTML = `<div class="hint">Tick để đồng ý</div>
+      <ul class="checklist" id="ag">${items.map((tt, i) => `<li data-i="${i}"><span class="dot"></span>${escapeHtml(tt)}</li>`).join('')}</ul>`;
+    let ok = 0;
+    body.querySelector('#ag').onclick = e => {
+      const li = e.target.closest('li');
+      if (!li || li.classList.contains('done')) return;
+      li.classList.add('done'); ok++;
+      if (ok >= n) done();
+    };
+  };
+}
+function buildCaptcha() {
+  return (body, done) => {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    const len = 5; let code = '';
+    for (let i = 0; i < len; i++) code += chars[Math.floor(Math.random() * chars.length)];
+    body.innerHTML = `<div class="hint">Nhập CAPTCHA</div>
+      <div class="phrase-box" style="letter-spacing:8px;font-size:1.4rem;text-decoration:line-through">${escapeHtml(code)}</div>
+      <input type="text" id="capIn" placeholder="Nhập mã" maxlength="${len}" autocomplete="off" style="text-transform:uppercase">
+      <div class="error-msg" id="capErr">Sai!</div>`;
+    const inp = body.querySelector('#capIn'), err = body.querySelector('#capErr');
+    inp.focus();
+    inp.oninput = () => {
+      if (inp.value.toUpperCase() === code) { inp.disabled = true; done(); }
+      else if (inp.value.length >= len) err.classList.add('show');
+      else err.classList.remove('show');
+    };
+  };
+}
+function buildTimeShow() {
+  return (body, done) => {
+    const now = new Date();
+    body.innerHTML = `<div class="hint">Xem giờ và xác nhận</div>
+      <div class="phrase-box" style="font-size:2rem">${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}</div>
+      <button class="btn btn-primary" id="tc">Đã xem</button>`;
+    body.querySelector('#tc').onclick = done;
+  };
+}
+function buildDateShow() {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Xem ngày</div>
+      <div class="phrase-box" style="font-size:1.6rem">${new Date().toLocaleDateString('vi-VN')}</div>
+      <button class="btn btn-primary" id="dc">Đã xem</button>`;
+    body.querySelector('#dc').onclick = done;
+  };
+}
+function buildRandom(target) {
+  return (body, done) => {
+    let count = 0;
+    body.innerHTML = `<div class="hint">Bấm random ${target} lần</div>
+      <div style="text-align:center;font-size:3rem;margin:20px 0;font-weight:800;color:var(--accent)" id="rnd">0</div>
+      <div class="tap-progress"><div class="tap-progress-fill" id="rbar"></div></div>
+      <button class="btn btn-primary" id="rbtn" style="margin-top:14px">Random!</button>`;
+    body.querySelector('#rbtn').onclick = () => {
+      body.querySelector('#rnd').textContent = Math.floor(Math.random() * 100);
+      count++;
+      body.querySelector('#rbar').style.width = count/target*100+'%';
+      if (count >= target) done();
+    };
+  };
+}
+function buildSwipe(dir) {
+  return (body, done) => {
+    let count = 0; const total = 10;
+    body.innerHTML = `<div class="hint">Vuốt ${dir} ${total} lần</div>
+      <div class="tap-area" id="swArea" style="height:220px">
+        <div class="big" id="swCnt">0</div>
+        <div class="sub">/ ${total}</div>
+      </div>`;
+    const area = body.querySelector('#swArea'), cnt = body.querySelector('#swCnt');
+    let sx = 0, sy = 0;
+    area.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    area.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      const ok = dir === 'up' ? dy < -50 : dir === 'down' ? dy > 50 : dir === 'left' ? dx < -50 : dx > 50;
+      if (ok) { count++; cnt.textContent = count; if (count >= total) done(); }
+    });
+    area.addEventListener('mousedown', e => { sx = e.clientX; sy = e.clientY; });
+    area.addEventListener('mouseup', e => {
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      const ok = dir === 'up' ? dy < -50 : dir === 'down' ? dy > 50 : dir === 'left' ? dx < -50 : dx > 50;
+      if (ok) { count++; cnt.textContent = count; if (count >= total) done(); }
+    });
+  };
+}
+function buildFullscreen() {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Bật chế độ toàn màn hình</div>
+      <button class="btn btn-primary" id="fs">Bật Fullscreen</button>`;
+    body.querySelector('#fs').onclick = async () => {
+      try { if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen(); } catch {}
+      done();
+    };
+  };
+}
+function buildHover(target) {
+  return (body, done) => {
+    let count = 0;
+    body.innerHTML = `<div class="hint">Hover ${target} ô</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px">
+        ${Array.from({ length: 20 }, (_, i) => `<div data-i="${i}" style="aspect-ratio:1;background:rgba(59,130,246,.15);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:.15s"></div>`).join('')}
+      </div>
+      <div class="hint" style="text-align:center;margin-top:12px" id="hcnt">0 / ${target}</div>`;
+    body.querySelectorAll('[data-i]').forEach(elx => {
+      elx.addEventListener('mouseenter', () => {
+        if (elx.dataset.done) return;
+        elx.dataset.done = '1';
+        elx.style.background = 'rgba(16,185,129,.4)';
+        elx.style.borderColor = 'var(--success)';
+        count++;
+        body.querySelector('#hcnt').textContent = `${count} / ${target}`;
+        if (count >= target) done();
+      });
+    });
+  };
+}
+function buildScroll(dir) {
+  return (body, done) => {
+    body.innerHTML = `<div class="hint">Cuộn ${dir === 'top' ? 'lên đầu' : 'xuống cuối'}</div>
+      <div style="height:400px;overflow-y:auto;background:rgba(5,11,26,.7);border-radius:12px;padding:20px;border:1px solid var(--border)" id="scrollBox">
+        ${Array.from({ length: 40 }, (_, i) => `<div style="padding:16px;border-bottom:1px solid var(--border)">Dòng số ${i + 1}</div>`).join('')}
+      </div>`;
+    const box = body.querySelector('#scrollBox');
+    let hasScrolled = false;
+    const check = () => {
+      const atTop = box.scrollTop <= 5;
+      const atBottom = box.scrollTop + box.clientHeight >= box.scrollHeight - 5;
+      if (dir === 'top' && atTop && hasScrolled) done();
+      else if (dir === 'bottom' && atBottom) done();
+      hasScrolled = true;
+    };
+    box.addEventListener('scroll', check);
+    if (dir === 'top') NATIVE.setTimeout(() => { box.scrollTop = box.scrollHeight; }, 100);
+  };
+}
+
+/* ============================================================
+   ============ UPDATE ======================================
+   ============================================================ */
+function renderUpdate() {
+  const itemsHtml = CHANGELOG.map((c, i) => {
+    const tags = c.tags.map(tg => `<span class="tag ${tg.cls}">${tg.label}</span>`).join('');
+    const list = c.items.map(x => `<li>${escapeHtml(x)}</li>`).join('');
+    return `
+      <div class="changelog-item${c.latest ? ' latest' : ''}" style="animation-delay:${i * 0.08}s">
+        <div class="changelog-ver">v${escapeHtml(c.version)} ${tags}</div>
+        <div class="changelog-date">📅 ${escapeHtml(c.date)}</div>
+        <ul class="changelog-body">${list}</ul>
+      </div>
+    `;
+  }).join('');
+
+  $('app').innerHTML = `
+    <div class="hero" style="padding:16px 0 24px">
+      <div class="sec-badge">📢 CHANGELOG</div>
+      <h1>${t('update_title')}</h1>
+      <p>${t('update_sub')}</p>
+    </div>
+    <div class="card">
+      <div class="changelog-list">${itemsHtml}</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:.92rem;color:var(--muted);line-height:1.65">
+        🎯 Phiên bản hiện tại: <strong style="color:var(--accent)">${VERSION}</strong>
+        <br>📅 Cập nhật gần nhất: <strong>01/10/2026</strong>
+      </div>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="go('main')">🏠 ${t('main')}</button>
+    </div>
+    ${renderFooter()}
+  `;
+}
+
+/* ============================================================
+   ============ ABOUT =======================================
+   ============================================================ */
+function renderAbout() {
+  $('app').innerHTML = `
+    <div class="about-hero">
+      <div class="vn-flag">🇻🇳</div>
+      <h1>${t('about_title')}</h1>
+      <p>${t('made_in_vn')}</p>
+    </div>
+    <div class="card">
+      <div class="about-block">
+        <h4>🎯 Sứ mệnh</h4>
+        <p>LinkGO ra đời với mong muốn mang đến cho người Việt một công cụ rút gọn link <strong>miễn phí, bảo mật, dễ dùng</strong> — không cần đăng ký phức tạp, không theo dõi người dùng, không quảng cáo làm phiền.</p>
+      </div>
+      <div class="about-block">
+        <h4>🇻🇳 Event Vietnam</h4>
+        <p>Sự kiện đặc biệt dành cho cộng đồng người Việt — trả lời câu hỏi về lịch sử, văn hóa, địa lý Việt Nam để nhận <strong>LinkBUO</strong> và đổi lấy rank VIP/VVIP/SSS-VIP.</p>
+      </div>
+      <div class="about-block">
+        <h4>🎊 Kỷ niệm 1 Năm — v7.5 WOW</h4>
+        <p>Phiên bản đặc biệt kỷ niệm 1 năm LinkGO với nhạc nền Việt Nam (Web Audio pentatonic), confetti + pháo hoa khi vượt Event, animation cao cấp và thưởng LinkBUO tăng lên <strong>75</strong>.</p>
+      </div>
+      <div class="about-block">
+        <h4>🛡️ Bảo mật</h4>
+        <ul>
+          <li>Mật khẩu hash <strong>PBKDF2-SHA256</strong> 250.000 vòng lặp</li>
+          <li>Chống bypass: bắt buộc làm từng nhiệm vụ</li>
+          <li>Link được ký <strong>HMAC + XOR</strong>, chống sửa đổi</li>
+          <li>Rate limit, validate URL, chống XSS</li>
+        </ul>
+      </div>
+      <div class="about-block">
+        <h4>💎 Hệ thống rank</h4>
+        <ul>
+          <li>🥉 <strong>VIP Đồng</strong> — 150 LinkBUO — vương miện đồng + VietNam-Event</li>
+          <li>🥈 <strong>VVIP Bạc</strong> — 250 LinkBUO — vương miện bạc + VietNam-Reward + VietNam-Event</li>
+          <li>🥇 <strong>SSS-VIP Vàng</strong> — 450 LinkBUO — vương miện vàng + Thanks-Vietnam + VietNam-Reward + VietNam-Event</li>
+        </ul>
+      </div>
+      <div class="credit-box">
+        <div class="title">🇻🇳 Made in Vietnam</div>
+        <div class="sub">
+          Được thiết kế và phát triển bởi người Việt Nam<br>
+          với ❤️ dành cho cộng đồng người dùng Việt
+        </div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px dashed rgba(239,68,68,.25);font-size:.75rem;color:var(--muted)">
+          © 2026 LinkGO ${VERSION} — Bản quyền thuộc về tác giả người Việt Nam.
+        </div>
+      </div>
+    </div>
+    <div class="card" style="text-align:center">
+      <button class="btn btn-primary" onclick="go('main')">🏠 ${t('main')}</button>
+    </div>
+    ${renderFooter()}
+  `;
+}
+
+/* ============================================================
+   ============ QR MODAL ===================================
+   ============================================================ */
+function showQRModal(text, label) {
+  const overlay = el('div', 'qr-overlay');
+  const modal = el('div', '');
+  modal.style.cssText = 'background:linear-gradient(180deg,#0d1a33,#0a1428);'
+    + 'border:1px solid var(--border-2);border-radius:20px;padding:24px;'
+    + 'max-width:400px;width:100%;text-align:center;'
+    + 'box-shadow:0 20px 60px rgba(0,0,0,.8);';
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(text)}&bgcolor=FFFFFF&color=050b1a&margin=8`;
+  modal.innerHTML = `
+    <div style="font-weight:700;font-size:1.15rem;margin-bottom:16px">📱 QR Code</div>
+    <div style="font-size:.8rem;color:var(--muted);margin-bottom:14px;word-break:break-all;max-height:80px;overflow-y:auto">${escapeHtml(label || text)}</div>
+    <img src="${qrUrl}" alt="QR" style="width:100%;max-width:300px;height:auto;border-radius:12px;border:4px solid #fff;background:#fff" crossorigin="anonymous"
+      onerror="this.style.display='none';document.getElementById('qrFallback').style.display='block'">
+    <div id="qrFallback" style="display:none;padding:16px;background:rgba(245,158,11,.1);border-radius:12px;color:#fbbf24;font-size:.85rem;line-height:1.6">
+      ⚠️ Không tải được QR. Bạn vẫn có thể copy link bên dưới.
+    </div>
+    <div style="display:flex;gap:10px;margin-top:18px">
+      <button class="btn btn-success" id="qrCopy" style="flex:1">📋 Copy link</button>
+      <button class="btn btn-outline" id="qrClose" style="flex:1">✕ Đóng</button>
+    </div>
+  `;
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  $('qrCopy').onclick = () => navigator.clipboard.writeText(text).then(() => toast('✅ Đã copy')).catch(() => toast('❌ Không copy được'));
+  $('qrClose').onclick = () => overlay.remove();
+  overlay.onclick = e => { if (e.target === overlay) overlay.remove(); };
+}
+
+/* ============================================================
+   ============ MUSIC + CONFETTI + FIREWORKS (v7.5 WOW) =====
+   ============================================================ */
+let musicCtx = null;
+let musicPlaying = false;
+let musicOsc = null;
+let musicGain = null;
+let musicInterval = null;
+
+// Simple Vietnamese-inspired pentatonic melody using Web Audio (no external files needed)
+const VN_NOTES = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33]; // C D E G A C D
+const VN_MELODY = [0,2,4,2,3,4,0,2,4,5,4,2,0,2,3,2,0]; // simple pattern
+
+function initMusic() {
+  if (musicCtx) return;
+  try {
+    musicCtx = new (window.AudioContext || window.webkitAudioContext)();
+  } catch (e) { console.warn('Audio not supported'); }
+}
+
+function playVnNote(freq, dur = 0.35, startTime) {
+  if (!musicCtx) return;
+  const osc = musicCtx.createOscillator();
+  const gain = musicCtx.createGain();
+  osc.type = 'triangle';
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(0.0001, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.12, startTime + 0.04);
+  gain.gain.exponentialRampToValueAtTime(0.0001, startTime + dur);
+  osc.connect(gain);
+  gain.connect(musicCtx.destination);
+  osc.start(startTime);
+  osc.stop(startTime + dur + 0.05);
+}
+
+function startMusicLoop() {
+  if (!musicCtx) initMusic();
+  if (!musicCtx || musicPlaying) return;
+  musicPlaying = true;
+  const btn = $('musicBtn');
+  if (btn) { btn.classList.add('playing'); btn.textContent = '🎶'; }
+  let idx = 0;
+  const playNext = () => {
+    if (!musicPlaying) return;
+    const now = musicCtx.currentTime;
+    const note = VN_NOTES[VN_MELODY[idx % VN_MELODY.length]];
+    playVnNote(note, 0.38, now);
+    idx++;
+    musicInterval = setTimeout(playNext, 420);
+  };
+  playNext();
+}
+
+function stopMusic() {
+  musicPlaying = false;
+  if (musicInterval) clearTimeout(musicInterval);
+  const btn = $('musicBtn');
+  if (btn) { btn.classList.remove('playing'); btn.textContent = '🎵'; }
+}
+
+function toggleMusic() {
+  if (musicPlaying) stopMusic();
+  else startMusicLoop();
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && musicPlaying) stopMusic();
+});
+
+function launchConfetti() {
+  const canvas = $('confettiCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const pieces = [];
+  const colors = ['#ef4444','#fbbf24','#22d3ee','#a78bfa','#10b981','#f472b6','#ffffff'];
+  for (let i = 0; i < 140; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * -canvas.height,
+      w: 6 + Math.random() * 8,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vy: 2 + Math.random() * 4,
+      vx: -2 + Math.random() * 4,
+      rot: Math.random() * 360,
+      vr: -6 + Math.random() * 12,
+    });
+  }
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    frame++;
+    if (frame < 180) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+function launchFireworks() {
+  const container = $('fireworks');
+  if (!container) return;
+  const colors = ['#ef4444','#fbbf24','#22d3ee','#a78bfa','#f472b6','#10b981'];
+  for (let burst = 0; burst < 5; burst++) {
+    setTimeout(() => {
+      const cx = 20 + Math.random() * 60;
+      const cy = 20 + Math.random() * 40;
+      for (let i = 0; i < 24; i++) {
+        const angle = (i / 24) * Math.PI * 2;
+        const dist = 40 + Math.random() * 80;
+        const p = document.createElement('div');
+        p.className = 'firework-particle';
+        p.style.left = cx + '%';
+        p.style.top = cy + '%';
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.setProperty('--x', Math.cos(angle) * dist + 'px');
+        p.style.setProperty('--y', Math.sin(angle) * dist + 'px');
+        p.style.boxShadow = `0 0 8px ${p.style.background}`;
+        container.appendChild(p);
+        setTimeout(() => p.remove(), 1300);
+      }
+    }, burst * 280);
+  }
+}
+
+/* ============================================================
+   ============ PARTICLES ==================================
+   ============================================================ */
+function initParticles() {
+  const wrap = $('particles');
+  if (!wrap) return;
+  const colors = ['#3b82f6', '#22d3ee', '#a78bfa', '#f472b6'];
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (8 + Math.random() * 12) + 's';
+    p.style.animationDelay = (-Math.random() * 15) + 's';
+    p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+    wrap.appendChild(p);
+  }
+}
+
+/* ============================================================
+   ============ INIT ========================================
+   ============================================================ */
+function init() {
+  currentLang = detectLang();
+  document.documentElement.lang = currentLang;
+  const flagEl = $('langFlag'); if (flagEl) flagEl.textContent = LANGS[currentLang].flag;
+  const codeEl = $('langCode'); if (codeEl) codeEl.textContent = LANGS[currentLang].code;
+
+  loadUser();
+  renderMenu();
+  initParticles();
+  updateTopBuo();
+
+  const shortData = getShortLinkData();
+  if (shortData && shortData.data) {
+    renderTasks(shortData);
+  } else if (shortData && shortData.profileUser) {
+    $('app').innerHTML = `
+      <div class="hero">
+        <div class="vn-badge"><span class="flag">🇻🇳</span> ${t('vn_badge')}</div>
+        <h1>${t('profile_title')}</h1>
+        <p>@${escapeHtml(shortData.profileUser)}</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <p style="color:var(--muted)">Link profile công khai</p>
+        <button class="btn btn-primary" style="margin-top:16px" onclick="go('main')">🏠 ${t('main')}</button>
+      </div>
+      ${renderFooter()}
+    `;
+  } else {
+    go('main');
+  }
+}
+window.addEventListener('hashchange', init);
+window.addEventListener('DOMContentLoaded', init);
+
+/* ============================================================
+   ============ EXPOSE GLOBALS ==============================
+   ============================================================ */
+window.go = go;
+window.toggleMenu = toggleMenu;
+window.toggleLang = toggleLang;
+window.setLang = setLang;
+window.logout = logout;
+window.setAuthMode = setAuthMode;
+window.pickAvatar = pickAvatar;
+window.onAvatarPick = onAvatarPick;
+window.doRegister = doRegister;
+window.doLogin = doLogin;
+window.copyProfileLink = copyProfileLink;
+window.shareProfile = shareProfile;
+window.copyOneLink = copyOneLink;
+window.selectAllTasks = selectAllTasks;
+window.selectRandomTasks = selectRandomTasks;
+window.createLink = createLink;
+window.copyLink = copyLink;
+window.showQRLast = showQRLast;
+window.downloadTxt = downloadTxt;
+window.showQRModal = showQRModal;
+window.filterLinks = filterLinks;
+window.renderLinkList = renderLinkList;
+window.openShort = openShort;
+window.deleteLink = deleteLink;
+window.ProgressStore = ProgressStore;
+window.answerQuiz = answerQuiz;
+window.submitQuiz = submitQuiz;
+window.resetQuizBatch = resetQuizBatch;
+window.buyRank = buyRank;
+window.doRedeem = doRedeem;
+window.BuoStore = BuoStore;
+window.CodeStore = CodeStore;
+window.RankStore = RankStore;
+window.toggleMusic = toggleMusic;
+window.launchConfetti = launchConfetti;
+window.launchFireworks = launchFireworks;
+</script>
+</body>
+</html>
