@@ -1,0 +1,1113 @@
+# ============================================================
+# _config.yml — LinkGO v7.5
+# Event Vietnam WOW 🇻🇳 | Kỷ niệm 1 Năm
+# Giống 100% mã nguồn HTML
+# ============================================================
+
+# ============================================================
+# ============ HTML HEAD ====================================
+# ============================================================
+html:
+  lang: "vi"
+  charset: "UTF-8"
+  viewport: "width=device-width, initial-scale=1.0"
+  title: "LinkGO v7.5 — Event Vietnam WOW 🇻🇳 | Kỷ niệm 1 Năm"
+  csp: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://api.qrserver.com; media-src 'self' data: blob: https://cdn.pixabay.com https://*.pixabay.com; connect-src 'self' https://api.qrserver.com; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+  x_content_type_options: "nosniff"
+  referrer_policy: "no-referrer"
+  google_fonts_url: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
+
+# ============================================================
+# ============ CSS :root VARIABLES ==========================
+# ============================================================
+css_root:
+  bg: "#050b1a"
+  bg-2: "#0a1428"
+  card: "#0d1a33"
+  border: "#1a2f57"
+  border-2: "#234078"
+  primary: "#3b82f6"
+  primary-2: "#06b6d4"
+  accent: "#22d3ee"
+  accent-2: "#a78bfa"
+  accent-3: "#f472b6"
+  gold: "#fbbf24"
+  silver: "#cbd5e1"
+  bronze: "#cd7f32"
+  success: "#10b981"
+  danger: "#ef4444"
+  warn: "#f59e0b"
+  text: "#e2e8f0"
+  muted: "#7c93bb"
+  glass: "rgba(13,26,51,.6)"
+  radius: "20px"
+  radius-sm: "12px"
+  transition: ".28s cubic-bezier(.22,1,.36,1)"
+  shadow-lg: "0 20px 60px rgba(0,0,0,.4)"
+
+# ============================================================
+# ============ JAVASCRIPT CONSTANTS =========================
+# ============================================================
+constants:
+  VERSION: "v7.5"
+  EVENT_START: "2026-10-01T00:00:00"
+  EVENT_END: "2026-10-20T23:59:59"
+  ADMIN_CODE: "LINKGO-TESTCODE-VN"
+  LINKBUO_PER_CORRECT: 75
+  CODE_EXPIRY_MS: 1814400000       # 3 * 7 * 24 * 60 * 60 * 1000
+  SITE: "LinkGO-Vn"
+
+# ============================================================
+# ============ LOCALSTORAGE KEYS ============================
+# ============================================================
+localStorage_keys:
+  LS_USER: "linkgo_user_v7"
+  LS_LINKS: "linkgo_links_v7"
+  LS_PROGRESS: "linkgo_progress_v7"
+  LS_TAMPER: "linkgo_tamper_v7"
+  LS_LANG: "linkgo_lang_v7"
+  LS_BUO: "linkgo_buo_v7"
+  LS_CODES: "linkgo_codes_v7"
+  LS_REDEEMED: "linkgo_redeemed_v7"
+  LS_QUIZ_PROGRESS: "linkgo_quiz_v7"
+  LS_RANK: "linkgo_rank_v7"
+
+# ============================================================
+# ============ SECURITY =====================================
+# ============================================================
+SECURITY:
+  MAX_URL_LENGTH: 2048
+  MAX_NAME_LENGTH: 40
+  MAX_AVATAR_BYTES: 524288          # 512 * 1024
+  MAX_LINKS_PER_USER: 100
+  MIN_PASSWORD_LENGTH: 8
+  RATE_LIMIT_WINDOW: 60000
+  RATE_LIMIT_MAX: 10
+  ALLOWED_URL_SCHEMES: ["http:", "https:"]
+  ALLOWED_IMAGE_TYPES: ["image/jpeg", "image/png", "image/webp", "image/gif"]
+  TOKEN_LENGTH: 12
+  PBKDF2_ITERATIONS: 250000
+  NONCE_LENGTH: 16
+  MIN_TASK_DURATION_MS: 800
+  MIN_LINK_DURATION_MS: 3000
+  PROGRESS_TTL_MS: 3600000
+  TAMPER_LOCK_MS: 30000
+
+# ============================================================
+# ============ EVENTS =======================================
+# ============================================================
+EVENT_START: "2026-10-01T00:00:00"
+EVENT_END: "2026-10-20T23:59:59"
+ADMIN_CODE: "LINKGO-TESTCODE-VN"
+LINKBUO_PER_CORRECT: 75
+CODE_EXPIRY_MS: 1814400000
+VERSION: "v7.5"
+SITE: "LinkGO-Vn"
+
+# ============================================================
+# ============ TASK SHORTHAND ===============================
+# ============================================================
+TASK_SHORTHAND:
+  tap: "a"
+  seq: "b"
+  wait: "c"
+  phrase: "d"
+  hold: "e"
+  color: "f"
+  slider: "g"
+  checklist: "h"
+  emoji: "i"
+  drag: "j"
+  doubleTap: "k"
+  reverse: "l"
+  tap500: "m"
+  tap2000: "n"
+  tap50000: "o"
+  wait5: "p"
+  wait30: "q"
+  wait60: "r"
+  phraseLong: "s"
+  phraseCap: "t"
+  phraseLow: "u"
+  hold3: "v"
+  hold10: "w"
+  hold15: "x"
+  colorAdv: "y"
+  colorTarget: "z"
+  sliderTight: "A"
+  slider3: "B"
+  checklist10: "C"
+  checklist20: "D"
+  emoji50: "E"
+  emoji100: "F"
+  emojiFast: "G"
+  drag3: "I"
+  dragLong: "J"
+  doubleTap5: "K"
+  doubleTap50: "L"
+  tripleTap: "M"
+  reverse10: "N"
+  ascend: "O"
+  descend: "P"
+  evenOnly: "Q"
+  oddOnly: "R"
+  primeOnly: "S"
+  swipeUp: "T"
+  swipeDown: "U"
+  swipeLeft: "V"
+  swipeRight: "W"
+  shake: "X"
+  tilt: "Y"
+  keyboard: "Z"
+  keyboard2: "0"
+  keyboard3: "1"
+  mathAdd: "2"
+  mathSub: "3"
+  mathMul: "4"
+  mathDiv: "5"
+  memorySeq: "6"
+  memorySeq7: "7"
+  memoryColor: "8"
+  memoryEmoji: "9"
+  mirror: "!"
+  counting: "@"
+  typing100: "#"
+  typing200: "$"
+  wordCount: "%"
+  vowelCount: "^"
+  consonantCount: "&"
+  uppercaseCount: "*"
+  digitCount: "("
+  clickSeq: ")"
+  clickSeq7: "-"
+  doubleClick: "_"
+  hover: "="
+  scrollTop: "+"
+  scrollBottom: "["
+  fullscreen: "]"
+  rotate: "{"
+  vibrate: "}"
+  battery: ":"
+  time: ";"
+  date: "\""
+  random: "."
+  dice: ","
+  coin: "<"
+  captcha: ">"
+  captcha2: "?"
+  puzzle: "/"
+  rotateImg: "\\"
+  signDraw: "|"
+  agree: "~"
+  agree2: "`"
+
+# ============================================================
+# ============ URL PREFIXES =================================
+# ============================================================
+URL_PREFIXES:
+  - ["https://", "H"]
+  - ["http://", "h"]
+  - ["www.", "w"]
+
+# ============================================================
+# ============ LANGS ========================================
+# ============================================================
+LANGS:
+  vi:
+    flag: "🇻🇳"
+    name: "Tiếng Việt"
+    code: "VI"
+  en:
+    flag: "🇺🇸"
+    name: "English"
+    code: "EN"
+
+# ============================================================
+# ============ TRANSLATIONS =================================
+# ============================================================
+TRANSLATIONS:
+  vi:
+    main: "Trang chính"
+    profile: "Hồ sơ"
+    login: "Đăng nhập"
+    register: "Đăng ký"
+    logout: "Đăng xuất"
+    email: "Email"
+    password: "Mật khẩu"
+    name: "Tên hiển thị"
+    hero_title: "Rút gọn link bảo mật"
+    hero_sub: "Được tạo bởi người Việt Nam 🇻🇳"
+    target_url: "Link đích (URL gốc)"
+    link_name: "Tên link cuối"
+    choose_tasks: "Chọn nhiệm vụ"
+    select_all: "Chọn hết"
+    deselect_all: "Bỏ hết"
+    random: "Ngẫu nhiên"
+    create_link: "✨ Tạo link rút gọn"
+    link_created: "✅ Link đã tạo!"
+    copy_link: "📋 Sao chép link"
+    show_qr: "📱 Xem QR Code"
+    download_txt: "📄 Tải file .txt"
+    task_protection: "🔒 Bảo vệ bởi LinkGO"
+    complete_tasks: "Hoàn thành {n} nhiệm vụ để tiếp tục"
+    progress_saved: "Tiến trình đã lưu"
+    all_complete: "🎉 Hoàn thành!"
+    redirecting: "Đang chuyển hướng..."
+    profile_title: "Profile"
+    joined: "Tham gia"
+    links_created: "Link tạo"
+    total_clicks: "Lượt mở"
+    tasks_avail: "Nhiệm vụ"
+    share_profile: "Link chia sẻ Profile"
+    history: "📚 Lịch sử link"
+    sort_new: "Mới nhất"
+    sort_old: "Cũ nhất"
+    sort_clicks: "Nhiều click"
+    sort_name: "Tên A-Z"
+    filter_all: "Tất cả"
+    filter_today: "Hôm nay"
+    filter_week: "7 ngày"
+    filter_zero: "0 click"
+    no_links: "Chưa có link nào"
+    no_match: "Không tìm thấy link khớp"
+    welcome: "Chào mừng"
+    login_or_register: "Đăng nhập hoặc tạo tài khoản"
+    create_account: "✨ Tạo tài khoản"
+    update_title: "Cập nhật"
+    update_sub: "Nhật ký thay đổi"
+    about_title: "Về chúng tôi"
+    made_in_vn: "Được tạo bởi người Việt Nam"
+    copyright: "Bản quyền"
+    all_rights: "Mọi quyền được bảo lưu"
+    made_with: "Made with ❤️ in Vietnam"
+    search_placeholder: "🔍 Tìm theo URL, tên, token..."
+    logout_btn: "🚪 Đăng xuất"
+    copy_btn: "📋 Copy"
+    open_btn: "🔗 Mở"
+    delete_btn: "🗑️"
+    vn_badge: "Made in Vietnam 🇻🇳"
+    secure_v5: "🛡️ Anti-Bypass v7.5 • Event Vietnam WOW"
+  en:
+    main: "Home"
+    profile: "Profile"
+    login: "Login"
+    register: "Register"
+    logout: "Logout"
+    email: "Email"
+    password: "Password"
+    name: "Display name"
+    hero_title: "Secure link shortener"
+    hero_sub: "Made by Vietnamese developers 🇻🇳"
+    target_url: "Target URL"
+    link_name: "Link name"
+    choose_tasks: "Choose tasks"
+    select_all: "Select all"
+    deselect_all: "Deselect all"
+    random: "Random"
+    create_link: "✨ Create short link"
+    link_created: "✅ Link created!"
+    copy_link: "📋 Copy link"
+    show_qr: "📱 Show QR"
+    download_txt: "📄 Download .txt"
+    task_protection: "🔒 Protected by LinkGO"
+    complete_tasks: "Complete {n} tasks to continue"
+    progress_saved: "Progress saved"
+    all_complete: "🎉 Completed!"
+    redirecting: "Redirecting..."
+    profile_title: "Profile"
+    joined: "Joined"
+    links_created: "Links"
+    total_clicks: "Clicks"
+    tasks_avail: "Tasks"
+    share_profile: "Share profile"
+    history: "📚 Link history"
+    sort_new: "Newest"
+    sort_old: "Oldest"
+    sort_clicks: "Most clicks"
+    sort_name: "Name A-Z"
+    filter_all: "All"
+    filter_today: "Today"
+    filter_week: "7 days"
+    filter_zero: "0 click"
+    no_links: "No links yet"
+    no_match: "No matching links"
+    welcome: "Welcome"
+    login_or_register: "Login or create account"
+    create_account: "✨ Create account"
+    update_title: "Update"
+    update_sub: "Changelog"
+    about_title: "About us"
+    made_in_vn: "Made by Vietnamese"
+    copyright: "Copyright"
+    all_rights: "All rights reserved"
+    made_with: "Made with ❤️ in Vietnam"
+    search_placeholder: "🔍 Search by URL, name, token..."
+    logout_btn: "🚪 Logout"
+    copy_btn: "📋 Copy"
+    open_btn: "🔗 Open"
+    delete_btn: "🗑️"
+    vn_badge: "Made in Vietnam 🇻🇳"
+    secure_v5: "🛡️ Anti-Bypass v7.5 • Event Vietnam WOW"
+
+# ============================================================
+# ============ EVENT QUIZ QUESTIONS (150+) ==================
+# ============================================================
+EVENT_QUESTIONS:
+  # ===== LỊCH SỬ VIỆT NAM =====
+  - q: "Ngày giải phóng Miền Nam thống nhất đất nước là?"
+    opts: ["30/4/1975", "2/9/1945", "7/5/1954", "19/5/1890"]
+    ans: 0
+  - q: "Chiến thắng Điện Biên Phủ diễn ra vào năm nào?"
+    opts: ["1954", "1945", "1968", "1972"]
+    ans: 0
+  - q: "Bác Hồ đọc Tuyên ngôn Độc lập vào ngày nào?"
+    opts: ["2/9/1945", "30/4/1975", "19/5/1890", "3/2/1930"]
+    ans: 0
+  - q: "Đảng Cộng sản Việt Nam thành lập ngày nào?"
+    opts: ["3/2/1930", "2/9/1945", "19/5/1890", "30/4/1975"]
+    ans: 0
+  - q: "Ai là người thành lập Đảng Cộng sản Việt Nam?"
+    opts: ["Hồ Chí Minh", "Võ Nguyên Giáp", "Phạm Văn Đồng", "Trường Chinh"]
+    ans: 0
+  - q: "Chiến dịch Hồ Chí Minh kết thúc ngày nào?"
+    opts: ["30/4/1975", "1/5/1975", "29/4/1975", "2/5/1975"]
+    ans: 0
+  - q: "Việt Nam gia nhập ASEAN vào năm nào?"
+    opts: ["1995", "1990", "2000", "1985"]
+    ans: 0
+  - q: "Việt Nam gia nhập WTO năm nào?"
+    opts: ["2007", "2000", "2010", "1995"]
+    ans: 0
+  - q: "Thủ đô của Việt Nam là?"
+    opts: ["Hà Nội", "TP.HCM", "Đà Nẵng", "Huế"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu tỉnh thành?"
+    opts: ["63", "64", "62", "65"]
+    ans: 0
+  - q: "Đỉnh núi cao nhất Việt Nam là?"
+    opts: ["Phan Xi Păng", "Ngọc Linh", "Bà Đen", "Tam Đảo"]
+    ans: 0
+  - q: "Phan Xi Păng cao bao nhiêu mét?"
+    opts: ["3143m", "3000m", "3200m", "2800m"]
+    ans: 0
+  - q: "Sông dài nhất Việt Nam là?"
+    opts: ["Sông Đồng Nai", "Sông Hồng", "Sông Mekong", "Sông Mã"]
+    ans: 0
+  - q: "Vịnh Hạ Long thuộc tỉnh nào?"
+    opts: ["Quảng Ninh", "Hải Phòng", "Thanh Hóa", "Nghệ An"]
+    ans: 0
+  - q: "Vịnh Hạ Long được UNESCO công nhận năm nào?"
+    opts: ["1994", "2000", "1987", "2010"]
+    ans: 0
+  - q: "Cố đô của Việt Nam là?"
+    opts: ["Huế", "Hà Nội", "TP.HCM", "Nha Trang"]
+    ans: 0
+  - q: "Nhã nhạc cung đình Huế được UNESCO công nhận năm nào?"
+    opts: ["2003", "2005", "2000", "2008"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu di sản thế giới được UNESCO công nhận?"
+    opts: ["8", "7", "6", "9"]
+    ans: 0
+  - q: "Võ Nguyên Giáp sinh năm nào?"
+    opts: ["1911", "1910", "1912", "1913"]
+    ans: 0
+  - q: "Võ Nguyên Giáp mất năm nào?"
+    opts: ["2013", "2014", "2012", "2015"]
+    ans: 0
+  - q: "Hồ Chí Minh sinh năm nào?"
+    opts: ["1890", "1891", "1889", "1892"]
+    ans: 0
+  - q: "Hồ Chí Minh mất năm nào?"
+    opts: ["1969", "1970", "1968", "1971"]
+    ans: 0
+  - q: "Quê của Hồ Chí Minh ở đâu?"
+    opts: ["Nghệ An", "Hà Tĩnh", "Thanh Hóa", "Quảng Bình"]
+    ans: 0
+  - q: "Quê của Võ Nguyên Giáp ở đâu?"
+    opts: ["Quảng Bình", "Quảng Trị", "Nghệ An", "Hà Tĩnh"]
+    ans: 0
+  - q: "Trận 'Hà Nội - Điện Biên Phủ trên không' diễn ra năm nào?"
+    opts: ["1972", "1968", "1975", "1954"]
+    ans: 0
+  - q: "Hiệp định Paris được ký kết năm nào?"
+    opts: ["1973", "1972", "1975", "1968"]
+    ans: 0
+  - q: "Chiến dịch Mậu Thân diễn ra năm nào?"
+    opts: ["1968", "1972", "1975", "1960"]
+    ans: 0
+  - q: "Miền Nam hoàn toàn giải phóng vào ngày?"
+    opts: ["30/4/1975", "1/5/1975", "29/4/1975", "2/5/1975"]
+    ans: 0
+  - q: "Việt Nam thống nhất đất nước năm nào?"
+    opts: ["1976", "1975", "1977", "1978"]
+    ans: 0
+  - q: "Đổi mới đất nước bắt đầu năm nào?"
+    opts: ["1986", "1985", "1987", "1990"]
+    ans: 0
+  - q: "Việt Nam bình thường hóa quan hệ với Mỹ năm nào?"
+    opts: ["1995", "1990", "2000", "1985"]
+    ans: 0
+  - q: "Việt Nam trở thành thành viên Liên Hợp Quốc năm nào?"
+    opts: ["1977", "1975", "1980", "1985"]
+    ans: 0
+  - q: "Việt Nam đảm nhiệm Chủ tịch ASEAN năm nào?"
+    opts: ["2020", "2019", "2021", "2018"]
+    ans: 0
+  - q: "Việt Nam đăng cai SEA Games lần đầu năm nào?"
+    opts: ["2003", "2000", "2005", "2010"]
+    ans: 0
+  - q: "Việt Nam từng đăng cai APEC năm nào?"
+    opts: ["2017", "2015", "2019", "2010"]
+    ans: 0
+  - q: "Việt Nam từng đăng cai Hội nghị Thượng đỉnh Mỹ-Triều năm nào?"
+    opts: ["2019", "2018", "2020", "2017"]
+    ans: 0
+  - q: "Việt Nam đăng cai Hội nghị Thượng đỉnh Mỹ-Triều ở thành phố nào?"
+    opts: ["Hà Nội", "TP.HCM", "Đà Nẵng", "Hạ Long"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu dân tộc?"
+    opts: ["54", "53", "55", "56"]
+    ans: 0
+  - q: "Dân tộc chiếm đa số ở Việt Nam là?"
+    opts: ["Kinh", "Tày", "Thái", "Mường"]
+    ans: 0
+  - q: "Trang phục truyền thống của phụ nữ Việt Nam là?"
+    opts: ["Áo dài", "Áo tứ thân", "Áo bà ba", "Áo yếm"]
+    ans: 0
+  - q: "Món ăn nổi tiếng nhất của Việt Nam là?"
+    opts: ["Phở", "Bún chả", "Bánh mì", "Cơm tấm"]
+    ans: 0
+  - q: "Phở có nguồn gốc từ vùng nào?"
+    opts: ["Nam Định", "Hà Nội", "Huế", "TP.HCM"]
+    ans: 0
+  - q: "Bánh mì Việt Nam nổi tiếng thế giới với tên gì?"
+    opts: ["Banh Mi", "Vietnamese Bread", "Saigon Bread", "Baguette"]
+    ans: 0
+  - q: "Cà phê sữa đá là đặc sản của vùng nào?"
+    opts: ["TP.HCM", "Hà Nội", "Huế", "Đà Nẵng"]
+    ans: 0
+  - q: "Áo dài có nguồn gốc từ triều đại nào?"
+    opts: ["Nguyễn", "Lê", "Trần", "Lý"]
+    ans: 0
+  - q: "Nón lá Việt Nam làm từ lá gì?"
+    opts: ["Lá cọ", "Lá chuối", "Lá dừa", "Lá tre"]
+    ans: 0
+  - q: "Quốc hoa của Việt Nam là?"
+    opts: ["Hoa sen", "Hoa đào", "Hoa mai", "Hoa hồng"]
+    ans: 0
+  - q: "Quốc kỳ Việt Nam có nền màu gì?"
+    opts: ["Đỏ", "Vàng", "Xanh", "Trắng"]
+    ans: 0
+  - q: "Quốc kỳ Việt Nam có ngôi sao màu gì?"
+    opts: ["Vàng", "Đỏ", "Trắng", "Xanh"]
+    ans: 0
+  - q: "Quốc kỳ Việt Nam có bao nhiêu cánh sao?"
+    opts: ["5", "4", "6", "3"]
+    ans: 0
+  - q: "Quốc ca Việt Nam có tên là?"
+    opts: ["Tiến quân ca", "Đất nước", "Việt Nam quê hương tôi", "Quốc ca"]
+    ans: 0
+  - q: "Ai sáng tác Quốc ca Việt Nam?"
+    opts: ["Văn Cao", "Trịnh Công Sơn", "Phạm Tuyên", "Nguyễn Văn Tý"]
+    ans: 0
+  - q: "Văn Cao sinh năm nào?"
+    opts: ["1923", "1920", "1925", "1930"]
+    ans: 0
+  - q: "Văn Cao mất năm nào?"
+    opts: ["1995", "1996", "1994", "1997"]
+    ans: 0
+  - q: "Trịnh Công Sơn sinh năm nào?"
+    opts: ["1939", "1938", "1940", "1941"]
+    ans: 0
+  - q: "Trịnh Công Sơn mất năm nào?"
+    opts: ["2001", "2000", "2002", "2003"]
+    ans: 0
+  - q: "Trịnh Công Sơn quê ở đâu?"
+    opts: ["Huế", "Đà Nẵng", "Quảng Nam", "Quảng Bình"]
+    ans: 0
+  - q: "Trịnh Công Sơn được mệnh danh là?"
+    opts: ["Nhạc sĩ của tình yêu", "Ông hoàng nhạc pop", "Cha đẻ nhạc rock", "Thần đồng âm nhạc"]
+    ans: 0
+  - q: "Bài hát 'Biết ơn chị Võ Thị Sáu' do ai sáng tác?"
+    opts: ["Nguyễn Đức Toàn", "Trịnh Công Sơn", "Văn Cao", "Phạm Tuyên"]
+    ans: 0
+  - q: "Võ Thị Sáu bị xử bắn năm nào?"
+    opts: ["1952", "1950", "1954", "1948"]
+    ans: 0
+  - q: "Võ Thị Sáu quê ở đâu?"
+    opts: ["Bà Rịa - Vũng Tàu", "Long An", "Tiền Giang", "Bến Tre"]
+    ans: 0
+  - q: "Nguyễn Văn Trỗi bị xử bắn năm nào?"
+    opts: ["1964", "1963", "1965", "1962"]
+    ans: 0
+  - q: "Nguyễn Văn Trỗi quê ở đâu?"
+    opts: ["Quảng Nam", "Quảng Ngãi", "Đà Nẵng", "Huế"]
+    ans: 0
+  - q: "Nguyễn Văn Trỗi nổi tiếng với hành động gì?"
+    opts: ["Ám sát Bộ trưởng Quốc phòng Mỹ", "Đánh bom sứ quán", "Cướp máy bay", "Bắn tỉa"]
+    ans: 0
+  - q: "Anh hùng Phan Đình Giót hy sinh trong chiến dịch nào?"
+    opts: ["Điện Biên Phủ", "Biên giới", "Hồ Chí Minh", "Mậu Thân"]
+    ans: 0
+  - q: "Anh hùng Tô Vĩnh Diện hy sinh trong chiến dịch nào?"
+    opts: ["Điện Biên Phủ", "Biên giới", "Hồ Chí Minh", "Mậu Thân"]
+    ans: 0
+  - q: "Bế Văn Đàn hy sinh trong chiến dịch nào?"
+    opts: ["Điện Biên Phủ", "Biên giới", "Hồ Chí Minh", "Mậu Thân"]
+    ans: 0
+  - q: "Chiến thắng Bạch Đằng năm 938 do ai lãnh đạo?"
+    opts: ["Ngô Quyền", "Lê Lợi", "Trần Hưng Đạo", "Lý Thường Kiệt"]
+    ans: 0
+  - q: "Chiến thắng Bạch Đằng năm 1288 do ai lãnh đạo?"
+    opts: ["Trần Hưng Đạo", "Ngô Quyền", "Lê Lợi", "Lý Thường Kiệt"]
+    ans: 0
+  - q: "Trần Hưng Đạo tên thật là gì?"
+    opts: ["Trần Quốc Tuấn", "Trần Quốc Toản", "Trần Thái Tông", "Trần Nhân Tông"]
+    ans: 0
+  - q: "Lý Thường Kiệt nổi tiếng với bài thơ nào?"
+    opts: ["Nam quốc sơn hà", "Bình Ngô đại cáo", "Hịch tướng sĩ", "Truyện Kiều"]
+    ans: 0
+  - q: "Lê Lợi lãnh đạo khởi nghĩa nào?"
+    opts: ["Lam Sơn", "Tây Sơn", "Hai Bà Trưng", "Phùng Hưng"]
+    ans: 0
+  - q: "Nguyễn Huệ lãnh đạo chiến thắng nào?"
+    opts: ["Ngọc Hồi - Đống Đa", "Bạch Đằng", "Rạch Gầm", "Tốt Động"]
+    ans: 0
+  - q: "Nguyễn Huệ lên ngôi hoàng đế với niên hiệu gì?"
+    opts: ["Quang Trung", "Cảnh Thịnh", "Gia Long", "Tây Sơn"]
+    ans: 0
+  - q: "Hai Bà Trưng khởi nghĩa năm nào?"
+    opts: ["40", "43", "39", "41"]
+    ans: 0
+  - q: "Bà Triệu khởi nghĩa năm nào?"
+    opts: ["248", "246", "250", "244"]
+    ans: 0
+  - q: "Lý Bí khởi nghĩa năm nào?"
+    opts: ["542", "540", "544", "546"]
+    ans: 0
+  - q: "Lý Bí lập ra nhà nước nào?"
+    opts: ["Vạn Xuân", "Đại Việt", "Đại Cồ Việt", "Văn Lang"]
+    ans: 0
+  - q: "Đinh Bộ Lĩnh lập ra nhà nước nào?"
+    opts: ["Đại Cồ Việt", "Đại Việt", "Vạn Xuân", "Văn Lang"]
+    ans: 0
+  - q: "Lý Công Uẩn dời đô từ đâu về Thăng Long?"
+    opts: ["Hoa Lư", "Phú Xuân", "Thăng Long", "Đại La"]
+    ans: 0
+  - q: "Lý Công Uẩn dời đô năm nào?"
+    opts: ["1010", "1009", "1011", "1012"]
+    ans: 0
+  - q: "Thăng Long ngày nay là thành phố nào?"
+    opts: ["Hà Nội", "TP.HCM", "Huế", "Đà Nẵng"]
+    ans: 0
+  - q: "Nhà Trần có bao nhiêu lần kháng chiến chống Mông-Nguyên?"
+    opts: ["3", "2", "1", "4"]
+    ans: 0
+  - q: "Hịch tướng sĩ do ai viết?"
+    opts: ["Trần Quốc Tuấn", "Lý Thường Kiệt", "Nguyễn Trãi", "Trần Nhân Tông"]
+    ans: 0
+  - q: "Bình Ngô đại cáo do ai viết?"
+    opts: ["Nguyễn Trãi", "Lê Lợi", "Trần Hưng Đạo", "Nguyễn Huệ"]
+    ans: 0
+  - q: "Nguyễn Trãi bị xử án oan vào năm nào?"
+    opts: ["1442", "1440", "1444", "1446"]
+    ans: 0
+  - q: "Nguyễn Trãi được minh oan năm nào?"
+    opts: ["1464", "1460", "1470", "1465"]
+    ans: 0
+  - q: "Truyện Kiều do ai viết?"
+    opts: ["Nguyễn Du", "Nguyễn Trãi", "Hồ Xuân Hương", "Cao Bá Quát"]
+    ans: 0
+  - q: "Nguyễn Du sống ở thế kỷ nào?"
+    opts: ["18-19", "17-18", "19-20", "16-17"]
+    ans: 0
+  - q: "Truyện Kiều còn có tên gọi khác là?"
+    opts: ["Đoạn trường tân thanh", "Kim Vân Kiều", "Thúy Kiều", "Kiều truyện"]
+    ans: 0
+  - q: "Hồ Xuân Hương được mệnh danh là?"
+    opts: ["Bà chúa thơ Nôm", "Nữ sĩ thơ Nôm", "Thần thơ", "Thi tiên"]
+    ans: 0
+  - q: "Cao Bá Quát nổi tiếng với câu nói nào?"
+    opts: ["Nhất sinh đê thủ bái mai hoa", "Thi trung hữu họa", "Văn dĩ tải đạo", "Thơ ngôn chí"]
+    ans: 0
+  - q: "Văn Miếu Quốc Tử Giám được xây dựng năm nào?"
+    opts: ["1070", "1076", "1010", "1040"]
+    ans: 0
+  - q: "Văn Miếu Quốc Tử Giám thờ ai?"
+    opts: ["Khổng Tử", "Chu Công", "Mạnh Tử", "Lão Tử"]
+    ans: 0
+  - q: "Quốc Tử Giám được thành lập năm nào?"
+    opts: ["1076", "1070", "1010", "1040"]
+    ans: 0
+  - q: "Trường đại học đầu tiên của Việt Nam là?"
+    opts: ["Quốc Tử Giám", "Văn Miếu", "Đại học Đông Dương", "Đại học Hà Nội"]
+    ans: 0
+  - q: "Đại học Đông Dương thành lập năm nào?"
+    opts: ["1906", "1900", "1910", "1920"]
+    ans: 0
+  - q: "Đại học Quốc gia Hà Nội thành lập năm nào?"
+    opts: ["1993", "1990", "1995", "2000"]
+    ans: 0
+  - q: "Đại học Quốc gia TP.HCM thành lập năm nào?"
+    opts: ["1995", "1990", "2000", "1993"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu khu dự trữ sinh quyển thế giới?"
+    opts: ["11", "9", "10", "12"]
+    ans: 0
+  - q: "Vườn quốc gia đầu tiên của Việt Nam là?"
+    opts: ["Cúc Phương", "Ba Vì", "Tam Đảo", "Cát Tiên"]
+    ans: 0
+  - q: "Vườn quốc gia Cúc Phương thành lập năm nào?"
+    opts: ["1962", "1960", "1965", "1970"]
+    ans: 0
+  - q: "Hang Sơn Đoòng thuộc tỉnh nào?"
+    opts: ["Quảng Bình", "Quảng Trị", "Quảng Nam", "Hà Tĩnh"]
+    ans: 0
+  - q: "Hang Sơn Đoòng được phát hiện năm nào?"
+    opts: ["1990", "1991", "2009", "2010"]
+    ans: 0
+  - q: "Hang Sơn Đoòng là hang động lớn nhất thế giới ở đâu?"
+    opts: ["Việt Nam", "Trung Quốc", "Mỹ", "Mexico"]
+    ans: 0
+  - q: "Thác Bản Giốc thuộc tỉnh nào?"
+    opts: ["Cao Bằng", "Lạng Sơn", "Hà Giang", "Lào Cai"]
+    ans: 0
+  - q: "Sa Pa thuộc tỉnh nào?"
+    opts: ["Lào Cai", "Hà Giang", "Lai Châu", "Sơn La"]
+    ans: 0
+  - q: "Đà Lạt thuộc tỉnh nào?"
+    opts: ["Lâm Đồng", "Đắk Lắk", "Gia Lai", "Kon Tum"]
+    ans: 0
+  - q: "Nha Trang thuộc tỉnh nào?"
+    opts: ["Khánh Hòa", "Phú Yên", "Bình Định", "Ninh Thuận"]
+    ans: 0
+  - q: "Vũng Tàu thuộc tỉnh nào?"
+    opts: ["Bà Rịa - Vũng Tàu", "Bình Dương", "Đồng Nai", "Long An"]
+    ans: 0
+  - q: "Phú Quốc thuộc tỉnh nào?"
+    opts: ["Kiên Giang", "Cà Mau", "An Giang", "Bạc Liêu"]
+    ans: 0
+  - q: "Phú Quốc là đảo lớn thứ mấy Việt Nam?"
+    opts: ["1", "2", "3", "4"]
+    ans: 0
+  - q: "Côn Đảo thuộc tỉnh nào?"
+    opts: ["Bà Rịa - Vũng Tàu", "Cà Mau", "Kiên Giang", "Sóc Trăng"]
+    ans: 0
+  - q: "Mũi Cà Mau là điểm cực nào của Việt Nam?"
+    opts: ["Nam", "Bắc", "Đông", "Tây"]
+    ans: 0
+  - q: "Lũng Cú là điểm cực nào của Việt Nam?"
+    opts: ["Bắc", "Nam", "Đông", "Tây"]
+    ans: 0
+  - q: "Điện Biên Phủ thuộc tỉnh nào?"
+    opts: ["Điện Biên", "Lai Châu", "Sơn La", "Hòa Bình"]
+    ans: 0
+  - q: "Tây Bắc Bộ gồm bao nhiêu tỉnh?"
+    opts: ["6", "4", "5", "7"]
+    ans: 0
+  - q: "Đồng bằng sông Cửu Long có bao nhiêu tỉnh thành?"
+    opts: ["13", "12", "14", "15"]
+    ans: 0
+  - q: "Đồng bằng sông Hồng có bao nhiêu tỉnh thành?"
+    opts: ["11", "10", "12", "9"]
+    ans: 0
+  - q: "Tây Nguyên có bao nhiêu tỉnh?"
+    opts: ["5", "4", "6", "7"]
+    ans: 0
+  - q: "Tây Nguyên gồm những tỉnh nào?"
+    opts: ["Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông, Lâm Đồng", "Kon Tum, Gia Lai, Đắk Lắk, Đắk Nông", "Gia Lai, Đắk Lắk, Lâm Đồng", "Kon Tum, Đắk Lắk, Lâm Đồng"]
+    ans: 0
+  - q: "Cà phê Việt Nam nổi tiếng ở vùng nào?"
+    opts: ["Tây Nguyên", "Tây Bắc", "Đông Nam Bộ", "Đồng bằng sông Cửu Long"]
+    ans: 0
+  - q: "Việt Nam là nước xuất khẩu cà phê lớn thứ mấy thế giới?"
+    opts: ["2", "1", "3", "4"]
+    ans: 0
+  - q: "Việt Nam là nước xuất khẩu gạo lớn thứ mấy thế giới?"
+    opts: ["3", "1", "2", "4"]
+    ans: 0
+  - q: "Việt Nam là nước xuất khẩu hồ tiêu lớn thứ mấy thế giới?"
+    opts: ["1", "2", "3", "4"]
+    ans: 0
+  - q: "Việt Nam là nước xuất khẩu điều lớn thứ mấy thế giới?"
+    opts: ["1", "2", "3", "4"]
+    ans: 0
+  - q: "Việt Nam là nước sản xuất hạt tiêu lớn nhất thế giới ở tỉnh nào?"
+    opts: ["Bình Phước", "Đắk Lắk", "Gia Lai", "Đồng Nai"]
+    ans: 0
+  - q: "Cao su Việt Nam nổi tiếng ở vùng nào?"
+    opts: ["Đông Nam Bộ", "Tây Nguyên", "Tây Bắc", "Đồng bằng sông Cửu Long"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu sân bay quốc tế?"
+    opts: ["9", "8", "7", "10"]
+    ans: 0
+  - q: "Sân bay quốc tế lớn nhất Việt Nam là?"
+    opts: ["Tân Sơn Nhất", "Nội Bài", "Đà Nẵng", "Cam Ranh"]
+    ans: 0
+  - q: "Sân bay Nội Bài ở thành phố nào?"
+    opts: ["Hà Nội", "TP.HCM", "Đà Nẵng", "Hải Phòng"]
+    ans: 0
+  - q: "Sân bay Tân Sơn Nhất ở thành phố nào?"
+    opts: ["TP.HCM", "Hà Nội", "Đà Nẵng", "Cần Thơ"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu thành phố trực thuộc trung ương?"
+    opts: ["5", "4", "6", "3"]
+    ans: 0
+  - q: "Thành phố trực thuộc trung ương mới nhất của Việt Nam là?"
+    opts: ["Huế", "Đà Nẵng", "Cần Thơ", "Hải Phòng"]
+    ans: 0
+  - q: "TP.HCM còn có tên gọi cũ là?"
+    opts: ["Sài Gòn", "Gia Định", "Chợ Lớn", "Bến Nghé"]
+    ans: 0
+  - q: "TP.HCM được đặt tên theo ai?"
+    opts: ["Hồ Chí Minh", "Võ Nguyên Giáp", "Phạm Văn Đồng", "Trần Hưng Đạo"]
+    ans: 0
+  - q: "TP.HCM có bao nhiêu quận huyện?"
+    opts: ["22", "21", "23", "24"]
+    ans: 0
+  - q: "Hà Nội có bao nhiêu quận huyện?"
+    opts: ["30", "29", "31", "28"]
+    ans: 0
+  - q: "Hà Nội được UNESCO công nhận là thành phố vì hòa bình năm nào?"
+    opts: ["1999", "2000", "1998", "2001"]
+    ans: 0
+  - q: "Hoàng thành Thăng Long được UNESCO công nhận năm nào?"
+    opts: ["2010", "2008", "2012", "2015"]
+    ans: 0
+  - q: "Thánh địa Mỹ Sơn thuộc tỉnh nào?"
+    opts: ["Quảng Nam", "Quảng Ngãi", "Quảng Bình", "Quảng Trị"]
+    ans: 0
+  - q: "Thánh địa Mỹ Sơn được UNESCO công nhận năm nào?"
+    opts: ["1999", "2000", "1998", "2001"]
+    ans: 0
+  - q: "Phố cổ Hội An thuộc tỉnh nào?"
+    opts: ["Quảng Nam", "Quảng Ngãi", "Đà Nẵng", "Huế"]
+    ans: 0
+  - q: "Phố cổ Hội An được UNESCO công nhận năm nào?"
+    opts: ["1999", "2000", "1998", "2001"]
+    ans: 0
+  - q: "Cố đô Huế được UNESCO công nhận năm nào?"
+    opts: ["1993", "1994", "1992", "1995"]
+    ans: 0
+  - q: "Quần thể danh thắng Tràng An thuộc tỉnh nào?"
+    opts: ["Ninh Bình", "Thanh Hóa", "Nam Định", "Hà Nam"]
+    ans: 0
+  - q: "Tràng An được UNESCO công nhận năm nào?"
+    opts: ["2014", "2012", "2016", "2018"]
+    ans: 0
+  - q: "Cao nguyên đá Đồng Văn thuộc tỉnh nào?"
+    opts: ["Hà Giang", "Cao Bằng", "Lào Cai", "Yên Bái"]
+    ans: 0
+  - q: "Cao nguyên đá Đồng Văn được UNESCO công nhận năm nào?"
+    opts: ["2010", "2008", "2012", "2015"]
+    ans: 0
+  - q: "Đờn ca tài tử Nam Bộ được UNESCO công nhận năm nào?"
+    opts: ["2013", "2011", "2015", "2010"]
+    ans: 0
+  - q: "Dân ca ví giặm Nghệ Tĩnh được UNESCO công nhận năm nào?"
+    opts: ["2014", "2012", "2016", "2010"]
+    ans: 0
+  - q: "Hát xoan Phú Thọ được UNESCO công nhận năm nào?"
+    opts: ["2011", "2010", "2012", "2013"]
+    ans: 0
+  - q: "Ca trù được UNESCO công nhận năm nào?"
+    opts: ["2009", "2010", "2008", "2011"]
+    ans: 0
+  - q: "Quan họ Bắc Ninh được UNESCO công nhận năm nào?"
+    opts: ["2009", "2010", "2008", "2011"]
+    ans: 0
+  - q: "Nhã nhạc cung đình Huế được UNESCO công nhận năm nào?"
+    opts: ["2003", "2005", "2000", "2008"]
+    ans: 0
+  - q: "Không gian văn hóa cồng chiêng Tây Nguyên được UNESCO công nhận năm nào?"
+    opts: ["2005", "2003", "2008", "2010"]
+    ans: 0
+  - q: "Hội Gióng được UNESCO công nhận năm nào?"
+    opts: ["2010", "2008", "2012", "2015"]
+    ans: 0
+  - q: "Tín ngưỡng thờ Mẫu được UNESCO công nhận năm nào?"
+    opts: ["2016", "2014", "2018", "2012"]
+    ans: 0
+  - q: "Bài chòi Trung Bộ được UNESCO công nhận năm nào?"
+    opts: ["2017", "2015", "2019", "2013"]
+    ans: 0
+  - q: "Then Tày được UNESCO công nhận năm nào?"
+    opts: ["2019", "2017", "2021", "2015"]
+    ans: 0
+  - q: "Xòe Thái được UNESCO công nhận năm nào?"
+    opts: ["2021", "2019", "2023", "2017"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu di sản văn hóa phi vật thể đại diện nhân loại?"
+    opts: ["14", "12", "13", "15"]
+    ans: 0
+  - q: "Việt Nam có bao nhiêu di sản tư liệu thế giới?"
+    opts: ["9", "7", "8", "10"]
+    ans: 0
+
+# ============================================================
+# ============ CHANGELOG ====================================
+# ============================================================
+CHANGELOG:
+  - version: "7.5.0"
+    date: "2026-09-30"
+    latest: true
+    tags:
+      - { cls: "tag-new", label: "WOW" }
+      - { cls: "tag-vn", label: "KỶ NIỆM 1 NĂM" }
+      - { cls: "tag-new", label: "NHẠC" }
+    items:
+      - "🎊 PHIÊN BẢN KỶ NIỆM 1 NĂM LINKGO — Event Vietnam WOW Edition"
+      - "🎵 Thêm nhạc nền Việt Nam (nhạc dân tộc & truyền thống) — nút 🎵 góc phải"
+      - "✨ Animation siêu đẹp: confetti, pháo hoa, flag wave, score pop, gold pulse"
+      - "🇻🇳 Event-Vietnam được nâng cấp \"WOW\" — header mới, hiệu ứng vàng đỏ"
+      - "🪙 Tăng thưởng LinkBUO lên 75 mỗi lần đạt ≥80%"
+      - "🏆 Banner kỷ niệm 1 năm với hiệu ứng shine & pulse"
+      - "🎇 Pháo hoa + confetti tự động khi vượt Event"
+      - "📱 Nút nhạc thông minh: bật/tắt, tự pause khi tab ẩn"
+      - "🎨 CSS nâng cấp toàn diện cho cảm giác cao cấp"
+      - "💾 Giữ toàn bộ tính năng v7.3 + bảo mật Anti-Bypass"
+
+  - version: "7.3.0"
+    date: "2026-10-01"
+    tags:
+      - { cls: "tag-new", label: "EVENT" }
+      - { cls: "tag-vn", label: "VIỆT NAM" }
+    items:
+      - "🎉 Thêm mục EVENT — LinkGO Event-VietNam"
+      - "📝 150+ câu hỏi về Việt Nam (lịch sử, văn hóa, địa lý, con người)"
+      - "🪙 Nhận 50 LinkBUO mỗi lần trả lời đúng ≥80% (4/5 câu)"
+      - "🛍️ Thêm mục SHOP — đổi LinkBUO lấy rank VIP/VVIP/SSS-VIP"
+      - "🎫 Thêm mục REDEEM — nhập code nhận rank và danh hiệu"
+      - "♛ Vương miện đồng/bạc/vàng cuối tên"
+      - "🏷️ Danh hiệu: VietNam-Event, VietNam-Reward, Thanks-Vietnam"
+      - "⏰ Code hạn 3 tuần — hết hạn mất code nhưng giữ danh hiệu"
+      - "🔐 Code admin:............ (không hiện ngoài web)"
+      - "📊 Hiển thị số dư LinkBUO trên topbar"
+      - "🎯 Mỗi nhiệm vụ gồm 5 câu hỏi, tối đa 20 nhiệm vụ/lần"
+      - "💾 LinkBUO lưu vĩnh viễn trong profile"
+
+  - version: "6.1.0"
+    date: "2026-09-29"
+    tags:
+      - { cls: "tag-fix", label: "FIX" }
+      - { cls: "tag-new", label: "MỚI" }
+    items:
+      - "🐛 Fix lỗi hiển thị QR Code"
+      - "🖼️ Cho phép api.qrserver.com trong CSP"
+      - "📱 Trang lỗi link có nút về trang chính"
+      - "🔘 Nút to hơn 30% — dễ bấm trên mobile"
+
+  - version: "6.0.0"
+    date: "2026-09-29"
+    tags:
+      - { cls: "tag-new", label: "MỚI" }
+      - { cls: "tag-vn", label: "VIỆT NAM" }
+    items:
+      - "🌐 Đa ngôn ngữ: 14 quốc gia"
+      - "🇻🇳 Thêm mục Giới thiệu — Made in Vietnam"
+      - "📢 Thêm mục Cập nhật — Nhật ký thay đổi"
+      - "©️ Bổ sung bản quyền ở footer"
+
+  - version: "5.0.0"
+    date: "2026-09-28"
+    tags:
+      - { cls: "tag-sec", label: "BẢO MẬT" }
+    items:
+      - "🛡️ Anti-bypass: bắt buộc làm từng nhiệm vụ"
+      - "💾 Lưu tiến trình tự động"
+      - "⏱️ Kiểm tra thời gian thực hiện tối thiểu"
+      - "🔐 Nonce mỗi link — chống replay"
+
+  - version: "1.0.0"
+    date: "2026-09-24"
+    tags:
+      - { cls: "tag-vn", label: "RA MẮT" }
+    items:
+      - "🎉 Phiên bản đầu tiên"
+      - "🔗 Rút gọn link + 12 nhiệm vụ"
+      - "👤 Đăng ký / đăng nhập cục bộ"
+
+# ============================================================
+# ============ TASKS ========================================
+# ============================================================
+TASKS:
+  tap: { name: "Bấm màn hình 1.000 lần", icon: "👆" }
+  seq: { name: "Nhấn số đúng thứ tự", icon: "🔢" }
+  wait: { name: "Chờ 15 giây", icon: "⏳" }
+  phrase: { name: "Gõ chính xác cụm từ", icon: "⌨️" }
+  hold: { name: "Giữ nút 5 giây", icon: "⏱️" }
+  color: { name: "Chọn đúng ô màu", icon: "🎨" }
+  slider: { name: "Kéo thanh trượt chính xác", icon: "🎚️" }
+  checklist: { name: "Tick hết 5 mục", icon: "☑️" }
+  emoji: { name: "Bấm trúng 10 emoji", icon: "🎯" }
+  drag: { name: "Kéo nút sang phải hết", icon: "➡️" }
+  doubleTap: { name: "Double tap 5 lần", icon: "⚡" }
+  reverse: { name: "Nhấn số ngược lại", icon: "🔄" }
+  tap500: { name: "Bấm 500 lần", icon: "👆" }
+  tap2000: { name: "Bấm 2.000 lần", icon: "👆" }
+  tap50000: { name: "Bấm 50.000 lần", icon: "🔥" }
+  wait5: { name: "Chờ 5 giây", icon: "⏳" }
+  wait30: { name: "Chờ 30 giây", icon: "⏳" }
+  wait60: { name: "Chờ 60 giây", icon: "⌛" }
+  phraseLong: { name: "Gõ câu dài", icon: "⌨️" }
+  phraseCap: { name: "Gõ IN HOA", icon: "🔠" }
+  phraseLow: { name: "Gõ chữ thường", icon: "🔡" }
+  hold3: { name: "Giữ 3 giây", icon: "⏱️" }
+  hold10: { name: "Giữ 10 giây", icon: "⏱️" }
+  hold15: { name: "Giữ 15 giây", icon: "⏱️" }
+  colorAdv: { name: "Chọn màu HEX", icon: "🎨" }
+  colorTarget: { name: "Chọn 5 ô cùng màu", icon: "🎨" }
+  sliderTight: { name: "Trượt sai số ±1", icon: "🎚️" }
+  slider3: { name: "Trượt 3 lần", icon: "🎚️" }
+  checklist10: { name: "Tick 10 mục", icon: "☑️" }
+  checklist20: { name: "Tick 20 mục", icon: "☑️" }
+  emoji50: { name: "50 emoji", icon: "🎯" }
+  emoji100: { name: "100 emoji", icon: "🎯" }
+  emojiFast: { name: "20 emoji nhanh", icon: "⚡" }
+  drag3: { name: "Kéo 3 lần", icon: "➡️" }
+  dragLong: { name: "Kéo đường dài", icon: "➡️" }
+  doubleTap5: { name: "Double tap 5", icon: "⚡" }
+  doubleTap50: { name: "Double tap 50", icon: "⚡" }
+  tripleTap: { name: "Triple tap 10", icon: "⚡" }
+  reverse10: { name: "Số ngược 10", icon: "🔄" }
+  ascend: { name: "Tăng dần 1-9", icon: "⬆️" }
+  descend: { name: "Giảm dần 9-1", icon: "⬇️" }
+  evenOnly: { name: "Chỉ số chẵn", icon: "2️⃣" }
+  oddOnly: { name: "Chỉ số lẻ", icon: "1️⃣" }
+  primeOnly: { name: "Chỉ số nguyên tố", icon: "🔢" }
+  swipeUp: { name: "Vuốt lên 10", icon: "⬆️" }
+  swipeDown: { name: "Vuốt xuống 10", icon: "⬇️" }
+  swipeLeft: { name: "Vuốt trái 10", icon: "⬅️" }
+  swipeRight: { name: "Vuốt phải 10", icon: "➡️" }
+  shake: { name: "Lắc 10 lần", icon: "📳" }
+  tilt: { name: "Nghiêng 5 lần", icon: "📐" }
+  keyboard: { name: "Gõ A 20 lần", icon: "⌨️" }
+  keyboard2: { name: "Space 50 lần", icon: "⌨️" }
+  keyboard3: { name: "Enter 10 lần", icon: "⌨️" }
+  mathAdd: { name: "Cộng 5 phép", icon: "➕" }
+  mathSub: { name: "Trừ 5 phép", icon: "➖" }
+  mathMul: { name: "Nhân 5 phép", icon: "✖️" }
+  mathDiv: { name: "Chia 5 phép", icon: "➗" }
+  memorySeq: { name: "Nhớ 5 số", icon: "🧠" }
+  memorySeq7: { name: "Nhớ 7 số", icon: "🧠" }
+  memoryColor: { name: "Nhớ 4 màu", icon: "🎨" }
+  memoryEmoji: { name: "Nhớ 3 emoji", icon: "🎯" }
+  mirror: { name: "Gõ từ đối xứng", icon: "🪞" }
+  counting: { name: "Đếm 20 số", icon: "🔢" }
+  typing100: { name: "Gõ 100 ký tự", icon: "⌨️" }
+  typing200: { name: "Gõ 200 ký tự", icon: "⌨️" }
+  wordCount: { name: "Đếm từ", icon: "📝" }
+  vowelCount: { name: "Đếm nguyên âm", icon: "📝" }
+  consonantCount: { name: "Đếm phụ âm", icon: "📝" }
+  uppercaseCount: { name: "Đếm in hoa", icon: "📝" }
+  digitCount: { name: "Đếm chữ số", icon: "🔢" }
+  clickSeq: { name: "Chuỗi 5 vị trí", icon: "🎯" }
+  clickSeq7: { name: "Chuỗi 7 vị trí", icon: "🎯" }
+  doubleClick: { name: "Double click 15", icon: "🖱️" }
+  hover: { name: "Hover 10 ô", icon: "🖱️" }
+  scrollTop: { name: "Cuộn lên đầu", icon: "⬆️" }
+  scrollBottom: { name: "Cuộn xuống cuối", icon: "⬇️" }
+  fullscreen: { name: "Bật fullscreen", icon: "⛶" }
+  rotate: { name: "Xoay màn hình", icon: "🔄" }
+  vibrate: { name: "Rung 5 lần", icon: "📳" }
+  battery: { name: "Xem mức pin", icon: "🔋" }
+  time: { name: "Xem giờ", icon: "🕐" }
+  date: { name: "Xem ngày", icon: "📅" }
+  random: { name: "Random 30 lần", icon: "🎲" }
+  dice: { name: "Tung xúc xắc 10", icon: "🎲" }
+  coin: { name: "Tung đồng xu 10", icon: "🪙" }
+  captcha: { name: "Xác minh CAPTCHA", icon: "🔐" }
+  captcha2: { name: "CAPTCHA lần 2", icon: "🔐" }
+  puzzle: { name: "Xếp hình", icon: "🧩" }
+  rotateImg: { name: "Xoay ảnh", icon: "🖼️" }
+  signDraw: { name: "Vẽ chữ ký", icon: "✍️" }
+  agree: { name: "Đồng ý điều khoản", icon: "📜" }
+  agree2: { name: "Tick 3 cam kết", icon: "📋" }
+
+# ============================================================
+# ============ RANK STORE ===================================
+# ============================================================
+RANKS:
+  bronze:
+    name: "VIP"
+    icon: "🥉"
+    color: "#cd7f32"
+    cls: "bronze"
+  silver:
+    name: "VVIP"
+    icon: "🥈"
+    color: "#cbd5e1"
+    cls: "silver"
+  gold:
+    name: "SSS-VIP"
+    icon: "🥇"
+    color: "#fbbf24"
+    cls: "gold"
+
+RANK_TITLES:
+  bronze: ["VietNam-Event"]
+  silver: ["VietNam-Reward", "VietNam-Event"]
+  gold: ["Thanks-Vietnam", "VietNam-Reward", "VietNam-Event"]
+
+RANK_CROWNS:
+  bronze: "♛"
+  silver: "♛♛"
+  gold: "✦♛✦"
+
+# ============================================================
+# ============ CODE STORE POOLS =============================
+# ============================================================
+CODE_POOLS:
+  bronze: "LINKG0-VIP-"
+  silver: "LINKG0-VVIP-"
+  gold: "LINKG0-SSS-VIP"
+
+CODE_SUFFIXES:
+  bronze: "-C0DE"
+  silver: "-LGCODE"
+  gold: "-LINKGO-CODE"
+
+CODE_RANDOM_POOL: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+CODE_RANDOM_LENGTH: 35
+
+# ============================================================
+# ============ TOKEN CHARS ==================================
+# ============================================================
+TOKEN_CHARS: "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789"
+
+# ============================================================
+# ============ MUSIC (Vietnamese Web Audio Pentatonic) ======
+# ============================================================
+VN_NOTES: [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33]
+VN_MELODY: [0, 2, 4, 2, 3, 4, 0, 2, 4, 5, 4, 2, 0, 2, 3, 2, 0]
+
+# ============================================================
+# ============ BUILD ========================================
+# ============================================================
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      lang: "vi"
+
+include:
+  - "_pages"
+  - ".htaccess"
+
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules"
+  - "vendor"
+  - "README.md"
+  - "LICENSE"
+  - ".gitignore"
